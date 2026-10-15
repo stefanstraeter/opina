@@ -96,9 +96,12 @@ $card-border: $cream-300;
 $card-radius: 1.25rem;
 $card-radius-list: 1rem;
 $card-padding: 1.625rem;
-$card-padding-list: 1.25rem 1.375rem;
+$card-padding-list: 1.75rem 1.75rem;
 $card-hover-offset: -0.25rem;
-$card-shadow-hover: 0 14px 30px rgba(74, 40, 24, 0.12);
+$card-shadow-hover: 0 8px 18px rgba(74, 40, 24, 0.12);
+// Room that a scroll container has to leave so the hover shadow is not cut off
+$card-shadow-space-top: 1rem;
+$card-shadow-space-bottom: 1rem;
 
 // Old card names, now all pointing to the one card style (clean up later)
 $card-dark-bg: $card-bg;
