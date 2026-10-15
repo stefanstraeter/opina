@@ -8,8 +8,20 @@
     $gap: v.$spacing-xs
   );
   position: relative;
-  padding: v.$spacing-md;
-  transition: background-color 0.2s ease;
+  padding: v.$card-padding;
+  background-color: v.$card-bg;
+  border: 1px solid v.$card-border;
+  border-radius: v.$card-radius;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(v.$card-hover-offset);
+      box-shadow: v.$card-shadow-hover;
+    }
+  }
 
   &__link::after {
     content: "";
@@ -19,67 +31,52 @@
 
   &__category {
     font-family: v.$font-family-label;
-    font-size: v.$font-size-sm;
-    font-weight: v.$font-weight-medium;
+    font-size: v.$font-size-2xs;
+    font-weight: v.$font-weight-bold;
+    letter-spacing: v.$letter-spacing-eyebrow;
+    text-transform: uppercase;
+    color: v.$color-text-accent;
   }
 
   &__title {
-    font-family: v.$font-family-base;
-    font-weight: v.$font-weight-bold;
-    font-size: v.$font-size-lg;
+    font-family: v.$font-family-heading;
+    font-weight: v.$font-weight-semibold;
+    font-size: v.$font-size-card-title-mobile;
+    line-height: v.$line-height-heading;
+    color: v.$color-text-dark;
     @include m.line-clamp(2);
+
+    @media (min-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-card-title;
+    }
   }
 
   &__badge {
     align-self: flex-start;
     margin-top: auto;
-    padding: 0 v.$spacing-xs;
+    padding: v.$badge-padding;
     background-color: v.$badge-bg;
     color: v.$badge-text;
+    font-size: v.$font-size-xs;
     font-weight: v.$font-weight-semibold;
-    border-radius: v.$status-badge-asymmetric-radius;
-    font-size: v.$font-size-sm;
+    border-radius: v.$radius-pill;
     width: fit-content;
   }
 
   &--highlight {
-    background-color: v.$card-light-bg;
-    border-radius: v.$card-asymmetric-radius;
     min-height: 12rem;
-    padding: v.$spacing-xl v.$spacing-xl;
-
-    .survey-card__category,
-    .survey-card__title {
-      color: v.$color-text-dark;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        background-color: v.$card-light-hover;
-      }
-    }
   }
 
   &--list {
-    background-color: v.$card-dark-bg;
-    border-radius: v.$card-asymmetric-radius;
-
-    .survey-card__category {
-      color: v.$color-text-accent;
-    }
+    padding: v.$card-padding-list;
+    border-radius: v.$card-radius-list;
 
     .survey-card__title {
-      color: v.$purple-100;
+      font-size: v.$font-size-md;
     }
 
     .survey-card__badge {
       align-self: flex-end;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        background-color: v.$card-dark-hover;
-      }
     }
   }
 }
