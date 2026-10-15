@@ -2,18 +2,18 @@
 
 .badge {
   display: inline-block;
-  padding: v.$spacing-xxs v.$spacing-md;
-  border-radius: v.$btn-border-radius-sm;
-  font-size: v.$font-size-sm;
+  padding: v.$badge-padding;
+  border-radius: v.$radius-pill;
+  font-size: v.$font-size-xs;
   font-weight: v.$font-weight-semibold;
-  color: v.$purple-900;
-  border-radius: v.$status-badge-asymmetric-radius;
 
   &--published {
     background-color: v.$status-badge-published;
+    color: v.$status-badge-published-text;
   }
 
   &--draft {
     background-color: v.$status-badge-draft;
+    color: v.$status-badge-draft-text;
   }
 }
