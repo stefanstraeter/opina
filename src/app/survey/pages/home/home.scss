@@ -56,29 +56,6 @@
     @media (min-width: v.$breakpoint-lg) {
       justify-self: start;
     }
-
-    svg {
-      width: 1.2rem;
-      transition:
-        width 0.2s ease,
-        opacity 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      // Kein Hover-fähiges Gerät → Query wird ignoriert
-      svg {
-        width: 0;
-        opacity: 0;
-        overflow: hidden;
-      }
-
-      &:hover svg {
-        width: 1.2rem;
-        opacity: 1;
-        transform: translateX(4px);
-      }
-    }
   }
 
   &__illustration {
@@ -96,6 +73,7 @@
 
   &__description {
     grid-area: description;
+    font-weight: v.$font-weight-regular;
     color: v.$color-text-muted;
   }
 
