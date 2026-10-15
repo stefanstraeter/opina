@@ -1,10 +1,8 @@
 <header class="app-header" [class.is-dark]="!isLightMode()">
   <div class="header-container">
-    <a routerLink="/" class="logo" aria-label="navigate to home page">
-      <img
-        [src]="isLightMode() ? 'img/logo-dark.svg' : 'img/logo-orange.svg'"
-        alt="Poll App Logo"
-      />
+    <a routerLink="/" class="logo" aria-label="Opina, navigate to home page">
+      <img src="img/opina-logo.svg" alt="" class="logo__icon" />
+      <span class="logo__text">Opina</span>
     </a>
     @if (showCreateSurveyButton()) {
     <app-button

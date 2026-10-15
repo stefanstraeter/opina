@@ -12,9 +12,25 @@
     padding: v.$spacing-xl v.$spacing-md;
   }
 
-  .logo img {
+  .logo {
+    @include m.flex($align: center, $gap: v.$spacing-sm);
+    text-decoration: none;
+  }
+
+  .logo__icon {
     height: 2.5rem;
     width: auto;
+  }
+
+  .logo__text {
+    font-family: v.$font-family-heading;
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text-dark;
+  }
+
+  &.is-dark .logo__text {
+    color: v.$color-text-light;
   }
 
   .create-button {
