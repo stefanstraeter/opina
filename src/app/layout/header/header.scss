@@ -1,5 +1,5 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .app-header {
   width: 100%;
@@ -25,7 +25,7 @@
   .logo__text {
     font-family: v.$font-family-heading;
     font-size: v.$font-size-lg;
-    font-weight: v.$font-weight-semibold;
+    font-weight: v.$font-weight-bold;
     color: v.$color-text-dark;
   }
 
