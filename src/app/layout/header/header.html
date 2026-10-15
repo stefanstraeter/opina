@@ -1,0 +1,18 @@
+<header class="app-header" [class.is-dark]="isDarkMode()">
+  <div class="header-container">
+    <a routerLink="/" class="logo" aria-label="navigate to home page">
+      <img
+        [src]="isDarkMode() ? 'img/logo-orange.svg' : 'img/logo-dark.svg'"
+        alt="Poll App Logo"
+      />
+    </a>
+    @if (showCreateSurveyButton()) {
+    <app-button
+      class="create-button"
+      variant="primary"
+      routerLink="/create-survey"
+      >Create survey</app-button
+    >
+    }
+  </div>
+</header>

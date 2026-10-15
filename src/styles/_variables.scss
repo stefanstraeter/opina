@@ -1,0 +1,228 @@
+// ==========================================================================
+// PRIMITIVES
+// ==========================================================================
+
+// Neutral Scale
+
+$neutral-000: #ffffff;
+$neutral-200: #fefdff;
+$neutral-300: #ededed;
+$neutral-600: #bababa;
+
+// Transparent Scale
+$transparent: #fbf5fe49;
+
+// Orange Scale
+$orange-100: #fee9d4;
+$orange-300: #ffcfa1;
+$orange-500: #ffb770;
+
+// Purple Scale
+
+$purple-100: #fbf5fe;
+$purple-200: #f4e9fb;
+$purple-500: #4f4353;
+$purple-600: #423547;
+$purple-900: #35273a;
+
+// Brown Scale
+$brown-300: #a27367;
+$brown-600: #72524a;
+
+// Black Scale
+$black-000: #00000056;
+
+// ==========================================================================
+// TYPOGRAPHY
+// ==========================================================================
+
+$font-family-base: "Mulish", system-ui, sans-serif;
+$font-family-heading: "Nerko One", cursive, sans-serif;
+$font-family-label: "Nokora", sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.75rem;
+$font-size-2xl: 2.5rem;
+$font-size-3xl: 3.5rem;
+$font-size-4xl: 5rem;
+$font-size-5xl: 6.25rem;
+
+$font-size-hero-title: clamp(3.5rem, 5vw + 1rem, 5.5rem);
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 900;
+
+$color-text-dark: $purple-900;
+$color-text-light: $purple-100;
+$color-text-transparent: $transparent;
+$color-text-accent: $orange-500;
+$color-text-error: $orange-500;
+$color-heading: $orange-500;
+
+// ==========================================================================
+// BORDER RADIUS & SHAPES
+// ==========================================================================
+
+$radius-none: 0;
+$radius-xs: 4px;
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 32px;
+$radius-2xl: 48px;
+$radius-3xl: 64px;
+
+// Asymmetrical radius
+$card-asymmetric-radius: $radius-none $radius-3xl $radius-none $radius-none;
+$progress-bar-asymmetric-radius: $radius-none $radius-sm $radius-sm $radius-none;
+$input-asymmetric-radius: $radius-sm $radius-lg $radius-sm $radius-sm;
+$status-badge-asymmetric-radius: $radius-none $radius-md $radius-none
+  $radius-none;
+$status-overlay-asymmetric-radius: $radius-none $radius-xl $radius-none
+  $radius-none;
+
+// ==========================================================================
+// SPACING & LAYOUT
+// ==========================================================================
+
+$spacing-xxs: 0.1rem;
+$spacing-xs: 0.5rem;
+$spacing-sm: 0.75rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.6rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 4rem;
+$spacing-3xl: 6rem;
+$spacing-6xl: 12rem;
+
+$content-width: 90rem;
+
+// ==========================================================================
+// BUTTON DIMENSIONS & RADII
+// ==========================================================================
+
+$btn-padding-xxs: 0.2rem;
+$btn-padding-xs: 0.4rem;
+$btn-padding-sm: 0.6rem;
+$btn-padding-md: 0.8rem;
+$btn-padding-lg: 1.2rem;
+
+$btn-border-radius-xs: $radius-xs;
+$btn-border-radius-sm: $radius-sm;
+$btn-border-radius-md: $radius-md;
+$btn-border-radius-lg: $radius-lg;
+
+// ==========================================================================
+// STATE
+// ==========================================================================
+$opacity-disabled: 0.5;
+
+// ==========================================================================
+// BREAKPOINTS
+// ==========================================================================
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+
+// ==========================================================================
+// COMPONENT
+// ==========================================================================
+
+// Backgrounds
+$bg-dark: $purple-900;
+$bg-neutral: $neutral-000;
+$bg-overlay: $black-000;
+
+// Cards
+$card-dark-bg: $purple-600;
+$card-dark-hover: $purple-500;
+$card-light-bg: $purple-100;
+$card-light-hover: $purple-200;
+$card-medium-bg: $purple-200;
+
+// Primary Button
+$btn-primary-bg: $orange-300;
+$btn-primary-bg-hover: $orange-500;
+$btn-primary-text: $purple-900;
+
+// Secondary Button
+$btn-secondary-bg: $orange-100;
+$btn-secondary-bg-hover: $orange-300;
+$btn-secondary-text: $neutral-000;
+
+// Tertiary Button
+$btn-tertiary-bg: $purple-600;
+$btn-tertiary-bg-hover: $purple-500;
+$btn-tertiary-text: $neutral-000;
+
+// Filter Button
+$btn-filter-active-bg: $orange-500;
+$btn-filter-past-bg: $orange-100;
+$btn-filter-hover: $orange-300;
+$btn-filter-text: $purple-900;
+
+// Neutral Button
+$btn-neutral-bg: $brown-600;
+$btn-neutral-bg-hover: $brown-300;
+$btn-neutral-text: $neutral-000;
+
+// Dropdown Button
+$btn-dropdown-bg: $purple-600;
+$btn-dropdown-bg-hover: $purple-500;
+$btn-dropdown-text: $neutral-000;
+$btn-dropdown-text-accent: $orange-300;
+
+// Dropdown List
+$dropdown-list-bg: $neutral-000;
+
+// Toggle Icon (ToggleHeader-Chevron)
+$toggle-icon-hover: $orange-300;
+
+// Status Badge
+$status-badge-published: $orange-500;
+$status-badge-draft: $orange-300;
+$status-badge-hover: $orange-500;
+
+// Checkbox
+$checkbox-bg: transparent;
+$checkbox-border-light: $neutral-000;
+$checkbox-border-dark: $purple-900;
+$checkbox-bg-hover: $orange-100;
+$checkbox-bg-checked: $orange-500;
+
+// Input Fields
+$input-bg: $neutral-000;
+$input-bg-focus: $orange-100;
+$input-text: $purple-900;
+$input-label: $neutral-000;
+$input-placeholder: $purple-900;
+
+// Badges & Labels
+$badge-bg: $orange-300;
+$badge-bg-hover: $orange-500;
+$badge-text: $purple-900;
+
+// Scrollbars
+$scrollbar-thumb-orange: $orange-500;
+$scrollbar-thumb-neutral: $neutral-600;
+
+// Results & Progress Bars
+$progress-bar-track-bg: $neutral-300;
+$progress-bar-fill-bg: $orange-500;
+$progress-bar-label-width: 5ch;
+
+// Action Icon Buttons (Edit / Delete)
+$btn-action-bg: $purple-600;
+$btn-action-bg-hover: $orange-300;
+$btn-action-icon: $neutral-000;
+$btn-action-icon-hover: $purple-900;

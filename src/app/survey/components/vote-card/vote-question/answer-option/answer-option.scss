@@ -1,0 +1,21 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.answer-option {
+  @include m.flex($align: center, $gap: v.$spacing-xs);
+  color: v.$color-text-dark;
+  font-size: v.$font-size-sm;
+
+  &__letter {
+    margin-right: v.$spacing-xs;
+  }
+
+  &--locked {
+    opacity: v.$opacity-disabled;
+    cursor: default;
+  }
+}

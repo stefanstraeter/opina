@@ -1,0 +1,39 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.disclosure-button {
+  @include m.flex($align: center, $justify: space-between, $gap: v.$spacing-xs);
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  color: v.$btn-dropdown-text;
+  padding: 0;
+  font-size: v.$font-size-md;
+  font-weight: v.$font-weight-bold;
+
+  &--dark {
+    color: v.$color-text-dark;
+  }
+
+  &__chevron {
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+
+    &--open {
+      color: v.$toggle-icon-hover;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .disclosure-button__chevron {
+      color: v.$toggle-icon-hover;
+    }
+  }
+}

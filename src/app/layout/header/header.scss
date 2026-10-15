@@ -1,0 +1,27 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.app-header {
+  width: 100%;
+  background-color: var(--color-bg);
+
+  .header-container {
+    @include m.flex($align: center, $justify: space-between);
+    max-width: v.$content-width;
+    margin: 0 auto;
+    padding: v.$spacing-xl v.$spacing-md;
+  }
+
+  .logo img {
+    height: 2.5rem;
+    width: auto;
+  }
+
+  .create-button {
+    display: none;
+
+    @media (min-width: v.$breakpoint-lg) {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="create-answer">
+  <div class="create-answer__header">
+    <span class="create-answer__letter">{{ answerLetter() }}.</span>
+    <app-button variant="icon" class="delete-btn" (click)="remove.emit()">
+      <app-delete-icon />
+    </app-button>
+  </div>
+  <input
+    type="text"
+    class="input-field"
+    placeholder=""
+    [formControl]="answerControl()"
+  />
+  <span
+    class="create-answer__error"
+    [class.create-answer__error--visible]="answerControl().invalid && answerControl().touched"
+  >
+    Please enter an answer
+  </span>
+</div>

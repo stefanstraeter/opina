@@ -1,0 +1,63 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.survey-results {
+  @include m.flex($direction: column, $gap: v.$spacing-md);
+  border-radius: v.$card-asymmetric-radius;
+  padding: v.$spacing-lg v.$spacing-md;
+
+  &__toggle {
+    @media (min-width: v.$breakpoint-lg) {
+      display: none;
+    }
+  }
+
+  &__headline {
+    font-family: v.$font-family-heading;
+    color: v.$color-text-dark;
+    font-size: v.$font-size-xl;
+  }
+
+  &__live {
+    color: v.$color-text-accent;
+    text-transform: uppercase;
+  }
+
+  &__body {
+    @include m.flex($direction: column, $gap: v.$spacing-lg);
+
+    &--closed {
+      display: none;
+
+      @media (min-width: v.$breakpoint-lg) {
+        display: flex;
+      }
+    }
+  }
+
+  &__question {
+    @include m.flex($direction: column, $gap: v.$spacing-xs);
+  }
+
+  &__question-headline {
+    font-family: v.$font-family-base;
+    color: v.$color-text-dark;
+    font-size: v.$font-size-md;
+    font-weight: v.$font-weight-bold;
+  }
+
+  &__hint {
+    color: v.$color-text-dark;
+    font-size: v.$font-size-sm;
+  }
+
+  &__empty {
+    color: v.$color-text-dark;
+    font-size: v.$font-size-sm;
+    text-align: center;
+  }
+}

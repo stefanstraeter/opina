@@ -1,0 +1,32 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.create-survey {
+  background-color: v.$bg-dark;
+  border-radius: v.$card-asymmetric-radius;
+  padding: v.$spacing-xl v.$spacing-md;
+
+  @media (min-width: v.$breakpoint-lg) {
+    padding: v.$spacing-xl v.$spacing-2xl;
+    margin: 0 v.$spacing-md;
+  }
+
+  &__topbar {
+    @include m.flex($justify: space-between, $align: center);
+  }
+
+  &__title {
+    font-family: v.$font-family-heading;
+    color: v.$color-heading;
+    font-size: v.$font-size-3xl;
+    margin-bottom: v.$spacing-md;
+  }
+
+  &__cancel-label {
+    display: none;
+
+    @media (hover: hover) and (pointer: fine) {
+      display: inline;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.survey-card {
+  @include m.flex(
+    $direction: column,
+    $justify: space-between,
+    $gap: v.$spacing-xs
+  );
+  position: relative;
+  padding: v.$spacing-md;
+  transition: background-color 0.2s ease;
+
+  &__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  &__category {
+    font-family: v.$font-family-label;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-medium;
+  }
+
+  &__title {
+    font-family: v.$font-family-base;
+    font-weight: v.$font-weight-bold;
+    font-size: v.$font-size-lg;
+    @include m.line-clamp(2);
+  }
+
+  &__badge {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0 v.$spacing-xs;
+    background-color: v.$badge-bg;
+    color: v.$badge-text;
+    font-weight: v.$font-weight-semibold;
+    border-radius: v.$status-badge-asymmetric-radius;
+    font-size: v.$font-size-sm;
+    width: fit-content;
+  }
+
+  &--highlight {
+    background-color: v.$card-light-bg;
+    border-radius: v.$card-asymmetric-radius;
+    min-height: 12rem;
+    padding: v.$spacing-xl v.$spacing-xl;
+
+    .survey-card__category,
+    .survey-card__title {
+      color: v.$color-text-dark;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: v.$card-light-hover;
+      }
+    }
+  }
+
+  &--list {
+    background-color: v.$card-dark-bg;
+    border-radius: v.$card-asymmetric-radius;
+
+    .survey-card__category {
+      color: v.$color-text-accent;
+    }
+
+    .survey-card__title {
+      color: v.$purple-100;
+    }
+
+    .survey-card__badge {
+      align-self: flex-end;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: v.$card-dark-hover;
+      }
+    }
+  }
+}

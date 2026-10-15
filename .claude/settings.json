@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(ng:*)",
+      "Bash(python*:*)",
+      "Edit(./logs/debug.log)",
+      "Edit(./logs/**)",
+      "Edit(./docs/**)",
+      "Edit(./src/**)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd=$(cat | jq -r '.tool_input.command'); if echo \"$cmd\" | grep -qE 'npm (install|i|add)'; then echo 'Packages bitte selbst installieren' >&2; exit 2; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

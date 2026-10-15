@@ -1,0 +1,17 @@
+<button
+  type="button"
+  class="disclosure-button"
+  [class.disclosure-button--dark]="color() === 'dark'"
+  (click)="onToggle()"
+>
+  <ng-content />
+  <svg
+    class="disclosure-button__chevron"
+    [class.disclosure-button__chevron--open]="isOpen()"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path [attr.d]="isOpen() ? upPath : downPath" fill="currentColor" />
+  </svg>
+</button>

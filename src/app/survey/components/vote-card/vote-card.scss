@@ -1,0 +1,64 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.vote-card {
+  @include m.flex($direction: column, $gap: v.$spacing-md);
+  background-color: v.$card-medium-bg;
+  border-radius: v.$card-asymmetric-radius;
+  padding: v.$spacing-lg v.$spacing-md;
+
+  @media (min-width: v.$breakpoint-lg) {
+    padding: v.$spacing-xl v.$spacing-lg;
+  }
+
+  &__topbar {
+    @include m.flex($justify: space-between, $align: center);
+  }
+
+  &__close-label {
+    display: none;
+
+    @media (hover: hover) and (pointer: fine) {
+      display: inline;
+    }
+  }
+
+  &__meta {
+    @include m.flex($justify: space-between, $align: center);
+    font-size: v.$font-size-sm;
+    color: v.$color-text-dark;
+  }
+
+  &__title {
+    font-family: v.$font-family-heading;
+    color: v.$color-heading;
+    font-size: v.$font-size-2xl;
+  }
+
+  &__description {
+    font-family: v.$font-family-base;
+    color: v.$color-text-dark;
+    font-size: v.$font-size-md;
+  }
+
+  &__questions {
+    @include m.flex($direction: column, $gap: v.$spacing-lg);
+
+    @media (min-width: v.$breakpoint-lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__complete {
+    align-self: flex-end;
+
+    svg {
+      width: 1.2rem;
+    }
+  }
+}

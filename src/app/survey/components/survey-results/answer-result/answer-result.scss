@@ -1,0 +1,17 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.answer-result {
+  @include m.flex($align: center, $gap: v.$spacing-sm);
+  color: v.$color-text-dark;
+  font-size: v.$font-size-sm;
+  font-weight: v.$font-weight-bold;
+
+  &__letter {
+    width: 1rem;
+  }
+}

@@ -1,0 +1,24 @@
+<div class="vote-question">
+  <h3 class="vote-question__headline">
+    {{ questionIndex() + 1 }}. {{ question().text }}
+  </h3>
+
+  @if (question().multiple) {
+  <span class="vote-question__hint">More than one answers are possible.</span>
+  }
+
+  <ul class="vote-question__answers">
+    @for (answer of question().answers; track answer.id; let answerIndex =
+    $index) {
+    <li>
+      <app-answer-option
+        [answerIndex]="answerIndex"
+        [text]="answer.text"
+        [locked]="locked()"
+        [selected]="isSelected(answer.id)"
+        (toggled)="handleAnswerClick(answer.id)"
+      />
+    </li>
+    }
+  </ul>
+</div>

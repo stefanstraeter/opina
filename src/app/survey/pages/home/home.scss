@@ -1,0 +1,138 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.hero {
+  display: grid;
+  gap: v.$spacing-lg;
+  padding: v.$spacing-xl v.$spacing-md;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "illustration"
+    "description"
+    "cta";
+
+  @media (min-width: v.$breakpoint-lg) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: v.$spacing-2xl;
+    row-gap: v.$spacing-lg;
+    align-items: center;
+    grid-template-areas:
+      "title illustration"
+      "description illustration"
+      "cta illustration";
+  }
+
+  &__title {
+    grid-area: title;
+    font-size: v.$font-size-hero-title;
+    line-height: 1;
+
+    @media (min-width: v.$breakpoint-lg) {
+      justify-self: start;
+    }
+  }
+
+  &__cta {
+    grid-area: cta;
+    justify-self: center;
+
+    @media (min-width: v.$breakpoint-lg) {
+      justify-self: start;
+    }
+
+    svg {
+      width: 1.2rem;
+      transition:
+        width 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      // Kein Hover-fähiges Gerät → Query wird ignoriert
+      svg {
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      &:hover svg {
+        width: 1.2rem;
+        opacity: 1;
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &__illustration {
+    grid-area: illustration;
+    position: relative;
+    width: 100%;
+    max-width: 18rem;
+    justify-self: center;
+
+    @media (min-width: v.$breakpoint-lg) {
+      max-width: 24rem;
+      justify-self: center;
+    }
+  }
+
+  &__description {
+    grid-area: description;
+  }
+
+  &__phone {
+    width: 100%;
+    display: block;
+  }
+
+  @keyframes float-in-out {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(var(--float-x), var(--float-y));
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    animation: float-in-out 3s ease-in-out infinite;
+  }
+
+  &__icon--bubble {
+    top: 17%;
+    left: 12%;
+    width: 30%;
+    --float-x: 8px;
+    --float-y: 8px;
+  }
+
+  &__icon--question {
+    top: 5%;
+    right: 15%;
+    width: 15%;
+    --float-x: -8px;
+    --float-y: 8px;
+  }
+
+  &__icon--star {
+    bottom: 25%;
+    left: 8%;
+    width: 18%;
+    --float-x: 8px;
+    --float-y: -8px;
+    animation-delay: 0.5s;
+  }
+
+  &__icon--check {
+    bottom: 10%;
+    right: 0;
+    width: 22%;
+    --float-x: -8px;
+    --float-y: -8px;
+    animation-delay: 1s;
+  }
+}

@@ -1,0 +1,10 @@
+<button
+  [type]="type()"
+  class="btn"
+  [class]="'btn--' + variant()"
+  [class.btn--sm]="size() === 'sm'"
+  [class.is-active]="active()"
+  [disabled]="disabled()"
+>
+  <ng-content></ng-content>
+</button>

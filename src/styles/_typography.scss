@@ -1,0 +1,35 @@
+@use 'variables' as v;
+
+// ==========================================================================
+// TYPOGRAPHY
+// ==========================================================================
+
+body {
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+  color: v.$color-text-light;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: v.$font-family-heading;
+  font-weight: v.$font-weight-regular;
+  color: v.$color-heading;
+}
+
+h1 {
+  font-size: v.$font-size-5xl;
+}
+h2 {
+  font-size: v.$font-size-2xl;
+}
+h3 {
+  font-size: v.$font-size-xl;
+}
+
+.label-text {
+  font-family: v.$font-family-label;
+  font-size: v.$font-size-sm;
+}

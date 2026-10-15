@@ -1,0 +1,35 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+  flex: 1;
+}
+
+.progress-bar-wrapper {
+  @include m.flex($align: center, $gap: v.$spacing-sm);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 0.5rem;
+  background-color: v.$progress-bar-track-bg;
+  border-radius: v.$progress-bar-asymmetric-radius;
+  overflow: hidden;
+
+  &__fill {
+    height: 100%;
+    background-color: v.$progress-bar-fill-bg;
+    border-radius: v.$progress-bar-asymmetric-radius;
+    transition: width 0.3s ease;
+  }
+
+  &__label {
+    font-size: v.$font-size-sm;
+    color: v.$color-text-accent;
+    font-weight: v.$font-weight-bold;
+    min-width: v.$progress-bar-label-width;
+    text-align: right;
+    white-space: nowrap;
+  }
+}

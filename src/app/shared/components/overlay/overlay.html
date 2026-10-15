@@ -1,0 +1,13 @@
+@if (displayedMessage(); as text) {
+<div
+  class="overlay-backdrop"
+  [class.overlay-backdrop--leaving]="isLeaving()"
+></div>
+<div
+  class="overlay"
+  [class.overlay--leaving]="isLeaving()"
+  (animationend)="onLeaveAnimationEnd()"
+>
+  <p class="overlay__text">{{ text }}</p>
+</div>
+}

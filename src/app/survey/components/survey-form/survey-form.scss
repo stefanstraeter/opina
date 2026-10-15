@@ -1,0 +1,190 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.survey-form {
+  &__card {
+    display: grid;
+    gap: v.$spacing-sm;
+    padding: v.$spacing-lg v.$spacing-md;
+    background-color: v.$card-dark-bg;
+    border-radius: v.$card-asymmetric-radius;
+    color: v.$color-text-light;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "name"
+      "category"
+      "enddate"
+      "describing"
+      "questions";
+
+    @media (min-width: v.$breakpoint-lg) {
+      grid-template-columns: repeat(4, 1fr);
+      padding: v.$spacing-xl v.$spacing-xl;
+      column-gap: v.$spacing-md;
+      grid-template-areas:
+        "name name describing describing"
+        "enddate category describing describing"
+        "questions questions questions questions";
+    }
+  }
+
+  &__field {
+    @include m.flex($direction: column, $gap: v.$spacing-xs);
+
+    &--name {
+      grid-area: name;
+    }
+
+    &--category {
+      grid-area: category;
+
+      @media (min-width: v.$breakpoint-lg) {
+        align-items: flex-end;
+      }
+    }
+
+    &--enddate {
+      grid-area: enddate;
+    }
+
+    &--describing {
+      grid-area: describing;
+
+      @media (min-width: v.$breakpoint-lg) {
+        margin-left: v.$spacing-xl;
+      }
+    }
+  }
+
+  &__label {
+    font-weight: v.$font-weight-medium;
+  }
+
+  &__field-header {
+    @include m.flex($justify: space-between, $align: center);
+  }
+
+  &__questions {
+    grid-area: questions;
+    @include m.flex($direction: column, $gap: v.$spacing-2xl);
+
+    @media (min-width: v.$breakpoint-lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: calc(#{v.$spacing-md} + 2 * #{v.$spacing-xl});
+      row-gap: v.$spacing-xl;
+      align-items: start;
+    }
+  }
+
+  &__error {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-error;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
+  }
+
+  &__add-question {
+    align-self: start;
+    justify-self: start;
+  }
+
+  &__publish {
+    display: block;
+    width: fit-content;
+    margin: v.$spacing-lg auto 0;
+
+    @media (min-width: v.$breakpoint-lg) {
+      margin-inline: auto 0;
+    }
+
+    svg {
+      width: 1.2rem;
+      transition:
+        width 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      svg {
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      &:hover svg {
+        width: 1.2rem;
+        opacity: 1;
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+.input-field {
+  width: 100%;
+  padding: v.$spacing-xs v.$spacing-md;
+  border: none;
+  border-radius: v.$input-asymmetric-radius;
+  background-color: v.$input-bg;
+  color: v.$input-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: v.$input-bg-focus;
+  }
+}
+
+.textarea-field {
+  width: 100%;
+  height: 6rem;
+  resize: none;
+  overflow-y: auto;
+  padding: v.$spacing-sm v.$spacing-md;
+  border: none;
+  border-radius: v.$input-asymmetric-radius;
+  background-color: v.$input-bg;
+  color: v.$input-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+  scrollbar-color: v.$scrollbar-thumb-orange transparent;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: v.$scrollbar-thumb-orange;
+  }
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: v.$input-bg-focus;
+  }
+}
+
+.delete-btn {
+  color: v.$btn-action-icon;
+  transition: color 0.2s ease;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: v.$btn-action-icon-hover;
+    }
+  }
+}

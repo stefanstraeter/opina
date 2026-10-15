@@ -1,0 +1,62 @@
+<div class="create-question" [formGroup]="questionGroup()">
+  <div class="create-question__header">
+    <h3 class="create-question__headline">
+      {{ questionIndex() + 1 }}. Question
+    </h3>
+    <app-button variant="icon" class="delete-btn" (click)="remove.emit()">
+      <app-delete-icon />
+    </app-button>
+  </div>
+
+  <input
+    type="text"
+    class="input-field"
+    placeholder=""
+    formControlName="text"
+  />
+  <span
+    class="create-question__error"
+    [class.create-question__error--visible]="questionGroup().controls.text.invalid && questionGroup().controls.text.touched"
+  >
+    Please enter a question
+  </span>
+
+  <div class="create-question__answers-header">
+    <span>Answers</span>
+    <div class="create-question__multiple">
+      <app-checkbox
+        [checked]="questionGroup().controls.multiple.value"
+        (toggled)="questionGroup().controls.multiple.setValue($event)"
+      />
+      <span>Multiple answers</span>
+    </div>
+  </div>
+
+  <ul class="create-question__answers">
+    @for (answerControl of questionGroup().controls.answers.controls; track
+    answerControl; let answerIndex = $index) {
+    <li>
+      <app-create-answer
+        [answerControl]="answerControl"
+        [answerIndex]="answerIndex"
+        (remove)="removeAnswer(answerIndex)"
+      />
+    </li>
+    }
+  </ul>
+
+  @if (hasReachedAnswerLimit()) {
+  <span class="create-question__answer-limit"
+    >Maximum of 8 answers allowed</span
+  >
+  } @else {
+  <app-button
+    variant="tertiary"
+    class="create-question__add-answer"
+    (click)="addAnswer()"
+  >
+    Add answer
+    <app-plus-icon />
+  </app-button>
+  }
+</div>

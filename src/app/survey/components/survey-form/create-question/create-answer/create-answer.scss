@@ -1,0 +1,88 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.create-answer {
+  @include m.flex($direction: column, $gap: v.$spacing-xxs);
+
+  @media (min-width: v.$breakpoint-lg) {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: v.$spacing-xs;
+
+    input {
+      grid-area: 1 / 2;
+    }
+
+    app-button {
+      grid-area: 1 / 3;
+    }
+  }
+
+  &__header {
+    @include m.flex($justify: space-between, $align: center);
+
+    @media (min-width: v.$breakpoint-lg) {
+      display: contents;
+    }
+  }
+
+  &__letter {
+    font-weight: v.$font-weight-medium;
+
+    @media (min-width: v.$breakpoint-lg) {
+      grid-area: 1 / 1;
+      min-width: 1.2rem;
+    }
+  }
+
+  &__error {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-error;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
+
+    @media (min-width: v.$breakpoint-lg) {
+      grid-column: 2 / 3;
+    }
+  }
+}
+
+.input-field {
+  width: 100%;
+  padding: v.$spacing-xs v.$spacing-md;
+  border: none;
+  border-radius: v.$input-asymmetric-radius;
+  background-color: v.$input-bg;
+  color: v.$input-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: v.$input-bg-focus;
+  }
+}
+
+.delete-btn {
+  color: v.$btn-action-icon;
+  transition: color 0.2s ease;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: v.$btn-action-icon-hover;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: inline-block;
+}
+
+.btn {
+  @include m.flex($justify: space-between, $align: center, $gap: v.$spacing-xs);
+  border: none;
+  border-radius: v.$btn-border-radius-sm;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  &--primary {
+    background-color: v.$btn-primary-bg;
+    color: v.$btn-primary-text;
+    font-weight: v.$font-weight-extrabold;
+    padding: v.$btn-padding-sm v.$btn-padding-lg;
+
+    &:active:not(:disabled) {
+      background-color: v.$btn-primary-bg-hover;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-primary-bg-hover;
+      }
+    }
+  }
+
+  &--secondary {
+    background-color: v.$btn-secondary-bg;
+    color: v.$btn-secondary-text;
+    font-weight: v.$font-weight-extrabold;
+    padding: v.$btn-padding-xs v.$btn-padding-sm;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-secondary-bg-hover;
+      }
+    }
+  }
+
+  &--tertiary {
+    background-color: v.$btn-tertiary-bg;
+    color: v.$btn-tertiary-text;
+    font-weight: v.$font-weight-medium;
+    padding: v.$btn-padding-xs v.$btn-padding-xs 0 v.$btn-padding-xs;
+    border-radius: 0;
+    position: relative;
+    border-inline: v.$btn-padding-xxs solid transparent;
+    background-clip: padding-box;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background-color: currentColor;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-tertiary-bg-hover;
+      }
+    }
+  }
+
+  &--neutral {
+    background-color: v.$btn-neutral-bg;
+    color: v.$btn-neutral-text;
+    font-weight: v.$font-weight-extrabold;
+    padding: v.$btn-padding-xs;
+
+    @media (hover: hover) and (pointer: fine) {
+      padding: v.$btn-padding-xs v.$btn-padding-md;
+
+      &:hover:not(:disabled) {
+        background-color: v.$btn-neutral-bg-hover;
+      }
+    }
+  }
+
+  &--filter {
+    background-color: v.$btn-filter-past-bg;
+    color: v.$btn-filter-text;
+    font-weight: v.$font-weight-semibold;
+    padding: v.$btn-padding-xxs v.$btn-padding-md;
+    border-radius: v.$btn-border-radius-lg;
+
+    &.is-active {
+      background-color: v.$btn-filter-active-bg;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-filter-hover;
+      }
+    }
+  }
+
+  &--icon {
+    padding: v.$btn-padding-xxs;
+    background-color: v.$btn-action-bg;
+    border-radius: v.$btn-border-radius-xs;
+
+    &:active:not(:disabled) {
+      background-color: v.$btn-action-bg-hover;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-action-bg-hover;
+      }
+    }
+  }
+
+  // Muss nach den Varianten stehen: gleiche Spezifität (eine Klasse),
+  // die später stehende Regel gewinnt und überschreibt das Varianten-Padding.
+  &--sm {
+    padding: v.$btn-padding-xs v.$btn-padding-sm;
+  }
+}

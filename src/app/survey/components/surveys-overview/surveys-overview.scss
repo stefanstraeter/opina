@@ -1,0 +1,74 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.surveys-overview {
+  @include m.flex($direction: column, $gap: v.$spacing-lg);
+  padding: v.$spacing-xl v.$spacing-md;
+
+  &__title {
+    font-size: v.$font-size-3xl;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-family: v.$font-family-base;
+    font-weight: v.$font-weight-semibold;
+    font-size: v.$font-size-lg;
+    color: v.$color-text-light;
+  }
+
+  &__highlight-row {
+    display: flex;
+    gap: v.$spacing-md;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: v.$scrollbar-thumb-orange transparent; // Firefox
+
+    &::-webkit-scrollbar-thumb {
+      background-color: v.$scrollbar-thumb-orange; // Chrome/Safari
+    }
+
+    app-survey-card {
+      flex: 0 0 90%;
+      scroll-snap-align: start;
+    }
+
+    @media (min-width: v.$breakpoint-lg) {
+      app-survey-card {
+        flex: 1;
+      }
+    }
+  }
+
+  &__controls {
+    @include m.flex($direction: column, $gap: v.$spacing-md);
+    margin-top: v.$spacing-lg;
+
+    @media (min-width: v.$breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    gap: v.$spacing-sm;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-md;
+
+    @media (min-width: v.$breakpoint-lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__empty {
+    color: v.$color-text-transparent;
+    text-align: left;
+    padding: v.$spacing-lg 0;
+  }
+}

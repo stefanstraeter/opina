@@ -1,0 +1,27 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.vote-question {
+  @include m.flex($direction: column, $gap: v.$spacing-xs);
+
+  &__headline {
+    font-family: v.$font-family-base;
+    color: v.$color-text-dark;
+    font-size: v.$font-size-md;
+    font-weight: v.$font-weight-bold;
+  }
+
+  &__hint {
+    font-size: v.$font-size-xs;
+    color: v.$color-text-dark;
+  }
+
+  &__answers {
+    list-style: none;
+    @include m.flex($direction: column, $gap: v.$spacing-xxs);
+  }
+}

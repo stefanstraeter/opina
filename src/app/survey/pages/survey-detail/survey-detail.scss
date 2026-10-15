@@ -1,0 +1,24 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.survey-detail {
+  @include m.flex($direction: column, $gap: v.$spacing-xl);
+  padding: v.$spacing-md;
+
+  @media (min-width: v.$breakpoint-lg) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  &__loading {
+    padding: v.$spacing-xl v.$spacing-md;
+    color: v.$color-text-dark;
+    font-size: v.$font-size-md;
+    text-align: center;
+  }
+}

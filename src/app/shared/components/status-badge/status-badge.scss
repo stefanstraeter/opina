@@ -1,0 +1,19 @@
+@use "variables" as v;
+
+.badge {
+  display: inline-block;
+  padding: v.$spacing-xxs v.$spacing-md;
+  border-radius: v.$btn-border-radius-sm;
+  font-size: v.$font-size-sm;
+  font-weight: v.$font-weight-semibold;
+  color: v.$purple-900;
+  border-radius: v.$status-badge-asymmetric-radius;
+
+  &--published {
+    background-color: v.$status-badge-published;
+  }
+
+  &--draft {
+    background-color: v.$status-badge-draft;
+  }
+}

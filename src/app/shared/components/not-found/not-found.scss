@@ -1,0 +1,18 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.not-found {
+  @include m.flex($direction: column, $align: center, $gap: v.$spacing-md);
+  padding: v.$spacing-xl v.$spacing-md;
+
+  &__message {
+    color: v.$color-text-dark;
+    font-size: v.$font-size-md;
+    margin-bottom: v.$spacing-lg;
+    text-align: center;
+  }
+}

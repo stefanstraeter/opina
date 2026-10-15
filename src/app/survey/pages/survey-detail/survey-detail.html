@@ -1,0 +1,16 @@
+@if (isLoading()) {
+<p class="survey-detail__loading">Loading…</p>
+} @else if (survey(); as loadedSurvey) {
+<section class="survey-detail">
+  <app-vote-card
+    [survey]="loadedSurvey"
+    (previewChange)="updatePreview($event)"
+  />
+  <app-survey-results
+    [survey]="loadedSurvey"
+    [previewAnswerIds]="previewAnswerIds()"
+  />
+</section>
+} @else {
+<app-not-found message="Survey not found." />
+}

@@ -1,0 +1,85 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.create-question {
+  @include m.flex($direction: column, $gap: v.$spacing-xs);
+
+  &__header {
+    @include m.flex($justify: space-between, $align: center);
+  }
+
+  &__headline {
+    font-family: v.$font-family-base;
+    color: v.$color-text-light;
+    font-size: v.$font-size-md;
+    font-weight: v.$font-weight-bold;
+  }
+
+  &__answers-header {
+    @include m.flex($justify: space-between, $align: center);
+  }
+
+  &__multiple {
+    @include m.flex($align: center, $gap: v.$spacing-xs);
+    font-size: v.$font-size-xs;
+  }
+
+  &__answer-limit {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-accent;
+    text-align: end;
+  }
+
+  &__error {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-error;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
+  }
+
+  &__answers {
+    list-style: none;
+    @include m.flex($direction: column, $gap: v.$spacing-xxs);
+  }
+
+}
+
+.input-field {
+  width: 100%;
+  padding: v.$spacing-xs v.$spacing-md;
+  border: none;
+  border-radius: v.$input-asymmetric-radius;
+  background-color: v.$input-bg;
+  color: v.$input-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: v.$input-bg-focus;
+  }
+}
+
+.delete-btn {
+  color: v.$btn-action-icon;
+  transition: color 0.2s ease;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: v.$btn-action-icon-hover;
+    }
+  }
+}

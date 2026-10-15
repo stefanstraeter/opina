@@ -1,0 +1,56 @@
+<section class="surveys-overview">
+  <h2 class="surveys-overview__title">Your surveys</h2>
+
+  <h3 class="surveys-overview__subtitle">Ending soon surveys</h3>
+  <div class="surveys-overview__highlight-row">
+    @for (survey of endingSoonSurveys(); track survey.id) {
+    <app-survey-card
+      [id]="survey.id"
+      variant="highlight"
+      [category]="survey.category"
+      [title]="survey.title"
+      [deadline]="survey.deadline"
+    />
+    }
+  </div>
+
+  <div class="surveys-overview__controls">
+    <div class="surveys-overview__filters">
+      <app-button
+        variant="filter"
+        [active]="activeFilter() === 'active'"
+        (click)="setFilter('active')"
+      >
+        Active survey
+      </app-button>
+      <app-button
+        variant="filter"
+        [active]="activeFilter() === 'ended'"
+        (click)="setFilter('ended')"
+      >
+        Past survey
+      </app-button>
+    </div>
+
+    <app-dropdown
+      label="Sort by categories"
+      [options]="categoryOptions"
+      [selected]="selectedCategory()"
+      (selectedChange)="selectedCategory.set($event)"
+    />
+  </div>
+
+  <div class="surveys-overview__list">
+    @for (survey of filteredSurveys(); track survey.id) {
+    <app-survey-card
+      [id]="survey.id"
+      variant="list"
+      [category]="survey.category"
+      [title]="survey.title"
+      [deadline]="survey.deadline"
+    />
+    } @empty {
+    <p class="surveys-overview__empty">No surveys found for this category.</p>
+    }
+  </div>
+</section>
