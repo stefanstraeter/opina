@@ -1,10 +1,15 @@
-// ==========================================================================
-// PRIMITIVES
-// ==========================================================================
+// ##########################################################################
+// ##########################################################################
+//
+//   OPINA REDESIGN: NEW TOKENS
+//   Everything in this part already belongs to the new design.
+//
+// ##########################################################################
+// ##########################################################################
 
-// --------------------------------------------------------------------------
-// Opina palette (redesign)
-// --------------------------------------------------------------------------
+// ==========================================================================
+// PRIMITIVES (NEW)
+// ==========================================================================
 
 // Cream Scale (backgrounds, surfaces, borders)
 $cream-50: #fffdf9;
@@ -35,9 +40,73 @@ $red-700: #8e2620;
 $green-100: #e3eddf;
 $green-700: #2f5a2a;
 
-// --------------------------------------------------------------------------
-// Previous palette (will be removed after the redesign)
-// --------------------------------------------------------------------------
+// ==========================================================================
+// TYPOGRAPHY (NEW)
+// ==========================================================================
+
+// Font families
+$font-family-base: "Satoshi", system-ui, sans-serif;
+$font-family-heading: "Clash Display", system-ui, sans-serif;
+$font-family-label: "Satoshi", system-ui, sans-serif;
+
+// Smallest font size (eyebrow, LIVE badge)
+$font-size-2xs: 0.6875rem;
+
+// Headline sizes
+$font-size-hero-title: clamp(2.75rem, 6vw, 4.75rem);
+$font-size-section-title: 2.75rem;
+$font-size-section-title-mobile: 2rem;
+$font-size-survey-title: clamp(2.125rem, 4vw, 3rem);
+$font-size-survey-title-mobile: 2rem;
+$font-size-card-title: 1.625rem;
+$font-size-card-title-mobile: 1.375rem;
+
+// Letter spacing
+$letter-spacing-tight: -0.02em;
+$letter-spacing-wide: 0.1em;
+$letter-spacing-eyebrow: 0.16em;
+
+// Line height
+$line-height-tight: 1.02;
+$line-height-heading: 1.15;
+$line-height-base: 1.5;
+
+// ==========================================================================
+// COMPONENT (NEW)
+// ==========================================================================
+
+// Backgrounds
+$bg-dark: $espresso-900;
+$bg-neutral: $cream-100;
+
+// Primary Button
+$btn-primary-bg: $terracotta-500;
+$btn-primary-bg-hover: $terracotta-700;
+$btn-primary-text: $cream-50;
+
+// Secondary Button (outline)
+$btn-secondary-bg: $cream-50;
+$btn-secondary-bg-hover: $cream-200;
+$btn-secondary-text: $espresso-900;
+
+// Tertiary Button (dark)
+$btn-tertiary-bg: $espresso-900;
+$btn-tertiary-bg-hover: $espresso-600;
+$btn-tertiary-text: $cream-50;
+
+// ##########################################################################
+// ##########################################################################
+//
+//   STILL OLD: TOKENS THAT HAVE TO BE MIGRATED
+//   Everything below is unchanged from the Poll App and needs a decision
+//   or a new value.
+//
+// ##########################################################################
+// ##########################################################################
+
+// ==========================================================================
+// PRIMITIVES (OLD)
+// ==========================================================================
 
 // Neutral Scale
 
@@ -70,12 +139,8 @@ $brown-600: #72524a;
 $black-000: #00000056;
 
 // ==========================================================================
-// TYPOGRAPHY
+// TYPOGRAPHY (OLD)
 // ==========================================================================
-
-$font-family-base: "Mulish", system-ui, sans-serif;
-$font-family-heading: "Nerko One", cursive, sans-serif;
-$font-family-label: "Nokora", sans-serif;
 
 $font-size-xs: 0.75rem;
 $font-size-sm: 0.875rem;
@@ -86,8 +151,6 @@ $font-size-2xl: 2.5rem;
 $font-size-3xl: 3.5rem;
 $font-size-4xl: 5rem;
 $font-size-5xl: 6.25rem;
-
-$font-size-hero-title: clamp(3.5rem, 5vw + 1rem, 5.5rem);
 
 $font-weight-light: 300;
 $font-weight-regular: 400;
@@ -104,7 +167,7 @@ $color-text-error: $orange-500;
 $color-heading: $orange-500;
 
 // ==========================================================================
-// BORDER RADIUS & SHAPES
+// BORDER RADIUS & SHAPES (OLD)
 // ==========================================================================
 
 $radius-none: 0;
@@ -126,7 +189,7 @@ $status-overlay-asymmetric-radius: $radius-none $radius-xl $radius-none
   $radius-none;
 
 // ==========================================================================
-// SPACING & LAYOUT
+// SPACING & LAYOUT (OLD)
 // ==========================================================================
 
 $spacing-xxs: 0.1rem;
@@ -142,7 +205,7 @@ $spacing-6xl: 12rem;
 $content-width: 90rem;
 
 // ==========================================================================
-// BUTTON DIMENSIONS & RADII
+// BUTTON DIMENSIONS & RADII (OLD)
 // ==========================================================================
 
 $btn-padding-xxs: 0.2rem;
@@ -157,12 +220,12 @@ $btn-border-radius-md: $radius-md;
 $btn-border-radius-lg: $radius-lg;
 
 // ==========================================================================
-// STATE
+// STATE (OLD)
 // ==========================================================================
 $opacity-disabled: 0.5;
 
 // ==========================================================================
-// BREAKPOINTS
+// BREAKPOINTS (OLD)
 // ==========================================================================
 
 $breakpoint-sm: 576px;
@@ -172,12 +235,10 @@ $breakpoint-xl: 1280px;
 $breakpoint-xxl: 1440px;
 
 // ==========================================================================
-// COMPONENT
+// COMPONENT (OLD)
 // ==========================================================================
 
 // Backgrounds
-$bg-dark: $espresso-900;
-$bg-neutral: $cream-100;
 $bg-overlay: $black-000;
 
 // Cards
@@ -186,21 +247,6 @@ $card-dark-hover: $purple-500;
 $card-light-bg: $purple-100;
 $card-light-hover: $purple-200;
 $card-medium-bg: $purple-200;
-
-// Primary Button
-$btn-primary-bg: $terracotta-500;
-$btn-primary-bg-hover: $terracotta-700;
-$btn-primary-text: $cream-50;
-
-// Secondary Button (outline)
-$btn-secondary-bg: $cream-50;
-$btn-secondary-bg-hover: $cream-200;
-$btn-secondary-text: $espresso-900;
-
-// Tertiary Button (dark)
-$btn-tertiary-bg: $espresso-900;
-$btn-tertiary-bg-hover: $espresso-600;
-$btn-tertiary-text: $cream-50;
 
 // Filter Button
 $btn-filter-active-bg: $orange-500;
