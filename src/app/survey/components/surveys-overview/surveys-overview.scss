@@ -19,7 +19,6 @@
   &__highlight-row {
     display: flex;
     gap: v.$spacing-md;
-    // Room for the hover shadow, taken back by the negative margin
     padding-block: v.$card-shadow-space-top v.$card-shadow-space-bottom;
     margin-block: (-1 * v.$card-shadow-space-top)
       (-1 * v.$card-shadow-space-bottom);
@@ -61,7 +60,6 @@
 
   &__list {
     display: grid;
-    // min(100%, ...) keeps a column from being wider than the container
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, #{v.$survey-list-column-min-width}), 1fr)
