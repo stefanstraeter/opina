@@ -20,6 +20,7 @@
     color: v.$btn-primary-text;
     font-weight: v.$font-weight-extrabold;
     padding: v.$btn-padding-sm v.$btn-padding-lg;
+    border-radius: v.$radius-pill;
 
     &:active:not(:disabled) {
       background-color: v.$btn-primary-bg-hover;
