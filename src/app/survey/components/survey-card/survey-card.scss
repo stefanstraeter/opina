@@ -2,11 +2,7 @@
 @use "mixins" as m;
 
 .survey-card {
-  @include m.flex(
-    $direction: column,
-    $justify: space-between,
-    $gap: v.$spacing-xs
-  );
+  display: grid;
   position: relative;
   padding: v.$card-padding;
   background-color: v.$card-bg;
@@ -30,15 +26,20 @@
   }
 
   &__category {
+    grid-area: category;
+    min-width: 0;
     font-family: v.$font-family-label;
     font-size: v.$font-size-2xs;
     font-weight: v.$font-weight-bold;
     letter-spacing: v.$letter-spacing-eyebrow;
     text-transform: uppercase;
     color: v.$color-text-accent;
+    @include m.line-clamp(1);
   }
 
   &__title {
+    grid-area: title;
+    min-width: 0;
     font-family: v.$font-family-heading;
     font-weight: v.$font-weight-semibold;
     font-size: v.$font-size-card-title-mobile;
@@ -52,8 +53,7 @@
   }
 
   &__badge {
-    align-self: flex-start;
-    margin-top: auto;
+    grid-area: badge;
     padding: v.$badge-padding;
     background-color: v.$badge-bg;
     color: v.$badge-text;
@@ -64,19 +64,33 @@
   }
 
   &--highlight {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "category number"
+      "title title"
+      "badge arrow";
+    gap: v.$spacing-md;
     min-height: 12rem;
+
+    .survey-card__title {
+      align-self: start;
+    }
   }
 
   &--list {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "category badge"
+      "title badge";
+    column-gap: v.$spacing-lg;
+    row-gap: v.$spacing-xs;
+    align-items: center;
     padding: v.$card-padding-list;
     border-radius: v.$card-radius-list;
 
     .survey-card__title {
       font-size: v.$font-size-md;
-    }
-
-    .survey-card__badge {
-      align-self: flex-end;
     }
   }
 }
