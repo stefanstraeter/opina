@@ -2,6 +2,43 @@
 // PRIMITIVES
 // ==========================================================================
 
+// --------------------------------------------------------------------------
+// Opina palette (redesign)
+// --------------------------------------------------------------------------
+
+// Cream Scale (backgrounds, surfaces, borders)
+$cream-50: #fffdf9;
+$cream-100: #f6f1ea;
+$cream-200: #efe6dc;
+$cream-300: #e6dcd2;
+$cream-400: #d9cbbe;
+$cream-500: #f3ddd0;
+
+// Terracotta Scale (accent)
+$terracotta-100: #fbede5;
+$terracotta-300: #d9a68c;
+$terracotta-500: #b4532a;
+$terracotta-700: #8a3c1c;
+
+// Espresso Scale (text)
+$espresso-200: #c9a898;
+$espresso-600: #6e5d55;
+$espresso-700: #5b4a42;
+$espresso-900: #2a1d18;
+
+// Red Scale (urgent, live)
+$red-100: #f6d9d3;
+$red-500: #c2412f;
+$red-700: #8e2620;
+
+// Green Scale (success)
+$green-100: #e3eddf;
+$green-700: #2f5a2a;
+
+// --------------------------------------------------------------------------
+// Previous palette (will be removed after the redesign)
+// --------------------------------------------------------------------------
+
 // Neutral Scale
 
 $neutral-000: #ffffff;
