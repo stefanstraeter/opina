@@ -1,4 +1,4 @@
-@use 'variables' as v;
+@use "variables" as v;
 
 // ==========================================================================
 // TYPOGRAPHY
@@ -16,7 +16,7 @@ h2,
 h3,
 .font-heading {
   font-family: v.$font-family-heading;
-  font-weight: v.$font-weight-semibold;
+  font-weight: v.$font-weight-bold;
   color: v.$color-heading;
 }
 
