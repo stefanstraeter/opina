@@ -7,7 +7,8 @@
 body {
   font-family: v.$font-family-base;
   font-size: v.$font-size-md;
-  color: v.$color-text-light;
+  line-height: v.$line-height-base;
+  color: v.$color-text-dark;
 }
 
 h1,
@@ -15,7 +16,7 @@ h2,
 h3,
 .font-heading {
   font-family: v.$font-family-heading;
-  font-weight: v.$font-weight-regular;
+  font-weight: v.$font-weight-semibold;
   color: v.$color-heading;
 }
 
