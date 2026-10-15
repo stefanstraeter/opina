@@ -49,8 +49,12 @@ $font-family-base: "Satoshi", system-ui, sans-serif;
 $font-family-heading: "Clash Display", system-ui, sans-serif;
 $font-family-label: "Satoshi", system-ui, sans-serif;
 
-// Smallest font size (eyebrow, LIVE badge)
-$font-size-2xs: 0.6875rem;
+// Font size scale (general purpose, 1rem = 16px)
+$font-size-2xs: 0.6875rem; // 11px: eyebrow, LIVE badge
+$font-size-xs: 0.75rem; // 12px: badges, meta, helper text
+$font-size-sm: 0.875rem; // 14px: labels, buttons, inputs
+$font-size-md: 1rem; // 16px: body text
+$font-size-lg: 1.25rem; // 20px: logo, emphasis
 
 // Headline sizes
 $font-size-hero-title: clamp(2.75rem, 6vw, 4.75rem);
@@ -85,6 +89,39 @@ $line-height-base: 1.5;
 // Backgrounds
 $bg-dark: $espresso-900;
 $bg-neutral: $cream-100;
+
+// Cards (one style everywhere, hover = lift + shadow, no color change)
+$card-bg: $cream-50;
+$card-border: $cream-300;
+$card-radius: 1.25rem;
+$card-radius-list: 1rem;
+$card-padding: 1.625rem;
+$card-padding-list: 1.25rem 1.375rem;
+$card-hover-offset: -0.25rem;
+$card-shadow-hover: 0 14px 30px rgba(74, 40, 24, 0.12);
+
+// Old card names, now all pointing to the one card style (clean up later)
+$card-dark-bg: $card-bg;
+$card-dark-hover: $card-bg;
+$card-light-bg: $card-bg;
+$card-light-hover: $card-bg;
+$card-medium-bg: $card-bg;
+
+// Badges (pill shape)
+$radius-pill: 999px;
+$badge-padding: 0.3125rem 0.75rem;
+$badge-bg: $cream-200;
+$badge-bg-hover: $cream-200;
+$badge-text: $espresso-700;
+$badge-urgent-bg: $red-100;
+$badge-urgent-text: $red-700;
+$badge-live-dot: $red-500;
+
+// Status Badge
+$status-badge-published: $green-100;
+$status-badge-published-text: $green-700;
+$status-badge-draft: $cream-200;
+$status-badge-draft-text: $espresso-700;
 
 // Primary Button
 $btn-primary-bg: $terracotta-500;
@@ -148,16 +185,6 @@ $black-000: #00000056;
 // ==========================================================================
 // TYPOGRAPHY (OLD)
 // ==========================================================================
-
-$font-size-xs: 0.75rem;
-$font-size-sm: 0.875rem;
-$font-size-md: 1rem;
-$font-size-lg: 1.25rem;
-$font-size-xl: 1.75rem;
-$font-size-2xl: 2.5rem;
-$font-size-3xl: 3.5rem;
-$font-size-4xl: 5rem;
-$font-size-5xl: 6.25rem;
 
 $font-weight-light: 300;
 $font-weight-regular: 400;
@@ -243,13 +270,6 @@ $breakpoint-xxl: 1440px;
 // Backgrounds
 $bg-overlay: $black-000;
 
-// Cards
-$card-dark-bg: $purple-600;
-$card-dark-hover: $purple-500;
-$card-light-bg: $purple-100;
-$card-light-hover: $purple-200;
-$card-medium-bg: $purple-200;
-
 // Filter Button
 $btn-filter-active-bg: $orange-500;
 $btn-filter-past-bg: $orange-100;
@@ -274,8 +294,6 @@ $dropdown-list-bg: $neutral-000;
 $toggle-icon-hover: $orange-300;
 
 // Status Badge
-$status-badge-published: $orange-500;
-$status-badge-draft: $orange-300;
 $status-badge-hover: $orange-500;
 
 // Checkbox
@@ -291,11 +309,6 @@ $input-bg-focus: $orange-100;
 $input-text: $purple-900;
 $input-label: $neutral-000;
 $input-placeholder: $purple-900;
-
-// Badges & Labels
-$badge-bg: $orange-300;
-$badge-bg-hover: $orange-500;
-$badge-text: $purple-900;
 
 // Scrollbars
 $scrollbar-thumb-orange: $orange-500;
