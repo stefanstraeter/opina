@@ -176,8 +176,8 @@ $breakpoint-xxl: 1440px;
 // ==========================================================================
 
 // Backgrounds
-$bg-dark: $purple-900;
-$bg-neutral: $neutral-000;
+$bg-dark: $espresso-900;
+$bg-neutral: $cream-100;
 $bg-overlay: $black-000;
 
 // Cards
@@ -188,19 +188,19 @@ $card-light-hover: $purple-200;
 $card-medium-bg: $purple-200;
 
 // Primary Button
-$btn-primary-bg: $orange-300;
-$btn-primary-bg-hover: $orange-500;
-$btn-primary-text: $purple-900;
+$btn-primary-bg: $terracotta-500;
+$btn-primary-bg-hover: $terracotta-700;
+$btn-primary-text: $cream-50;
 
-// Secondary Button
-$btn-secondary-bg: $orange-100;
-$btn-secondary-bg-hover: $orange-300;
-$btn-secondary-text: $neutral-000;
+// Secondary Button (outline)
+$btn-secondary-bg: $cream-50;
+$btn-secondary-bg-hover: $cream-200;
+$btn-secondary-text: $espresso-900;
 
-// Tertiary Button
-$btn-tertiary-bg: $purple-600;
-$btn-tertiary-bg-hover: $purple-500;
-$btn-tertiary-text: $neutral-000;
+// Tertiary Button (dark)
+$btn-tertiary-bg: $espresso-900;
+$btn-tertiary-bg-hover: $espresso-600;
+$btn-tertiary-text: $cream-50;
 
 // Filter Button
 $btn-filter-active-bg: $orange-500;
