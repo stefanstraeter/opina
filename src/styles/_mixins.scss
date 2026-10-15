@@ -1,3 +1,5 @@
+@use "variables" as v;
+
 @mixin flex($direction: row, $align: stretch, $justify: flex-start, $gap: 0) {
   display: flex;
   flex-direction: $direction;
@@ -11,4 +13,14 @@
   -webkit-line-clamp: $lines;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+// Small uppercase label above a headline (category, "Surveys · made simple")
+@mixin eyebrow($font-size: v.$font-size-xs) {
+  font-family: v.$font-family-label;
+  font-size: $font-size;
+  font-weight: v.$font-weight-bold;
+  letter-spacing: v.$letter-spacing-eyebrow;
+  text-transform: uppercase;
+  color: v.$color-text-accent;
 }
