@@ -7,6 +7,7 @@
   padding: v.$spacing-xl v.$spacing-md;
   grid-template-columns: 1fr;
   grid-template-areas:
+    "eyebrow"
     "title"
     "illustration"
     "description"
@@ -18,9 +19,19 @@
     row-gap: v.$spacing-lg;
     align-items: center;
     grid-template-areas:
+      "eyebrow illustration"
       "title illustration"
       "description illustration"
       "cta illustration";
+  }
+
+  &__eyebrow {
+    grid-area: eyebrow;
+    @include m.eyebrow;
+
+    @media (min-width: v.$breakpoint-lg) {
+      justify-self: start;
+    }
   }
 
   &__title {
