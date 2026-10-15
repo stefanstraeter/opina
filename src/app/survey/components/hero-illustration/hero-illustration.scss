@@ -5,6 +5,8 @@
 // mockup), so the illustration scales with its container.
 $design-size: 440;
 $card-fan-transition: 0.35s ease;
+// A CSS shadow instead of an SVG filter: the filter left a hard-edged band
+$card-shadow: drop-shadow(0 0.75rem 0.75rem rgba(74, 40, 24, 0.18));
 
 :host {
   display: block;
@@ -18,6 +20,9 @@ $card-fan-transition: 0.35s ease;
   &__card {
     position: absolute;
     height: auto;
+    // Inline SVGs clip at their edge by default, which would cut off the shadow
+    overflow: visible;
+    filter: $card-shadow;
     font-family: v.$font-family-base;
     transition: transform $card-fan-transition;
   }
