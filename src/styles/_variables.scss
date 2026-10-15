@@ -107,6 +107,9 @@ $card-light-bg: $card-bg;
 $card-light-hover: $card-bg;
 $card-medium-bg: $card-bg;
 
+// Survey list (columns fill the width, each at least this wide)
+$survey-list-column-min-width: 21.25rem;
+
 // Badges (pill shape)
 $radius-pill: 999px;
 $badge-padding: 0.3125rem 0.75rem;
