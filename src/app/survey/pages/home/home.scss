@@ -26,11 +26,16 @@
   &__title {
     grid-area: title;
     font-size: v.$font-size-hero-title;
-    line-height: 1;
+    line-height: v.$line-height-tight;
+    letter-spacing: v.$letter-spacing-tight;
 
     @media (min-width: v.$breakpoint-lg) {
       justify-self: start;
     }
+  }
+
+  &__title-accent {
+    color: v.$color-text-highlight;
   }
 
   &__cta {
@@ -80,6 +85,7 @@
 
   &__description {
     grid-area: description;
+    color: v.$color-text-muted;
   }
 
   &__phone {
