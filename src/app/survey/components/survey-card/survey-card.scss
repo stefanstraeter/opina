@@ -79,18 +79,34 @@
   }
 
   &--list {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "category badge"
-      "title badge";
-    column-gap: v.$spacing-lg;
+      "category"
+      "title"
+      "badge";
     row-gap: v.$spacing-xs;
-    align-items: center;
     padding: v.$card-padding-list;
     border-radius: v.$card-radius-list;
 
     .survey-card__title {
       font-size: v.$font-size-md;
+    }
+
+    .survey-card__badge {
+      margin-top: v.$spacing-xs;
+    }
+
+    @media (min-width: v.$breakpoint-sm) {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "category category"
+        "title badge";
+      column-gap: v.$spacing-md;
+      align-items: center;
+
+      .survey-card__badge {
+        margin-top: 0;
+      }
     }
   }
 }
