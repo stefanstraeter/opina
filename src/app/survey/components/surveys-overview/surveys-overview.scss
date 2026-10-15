@@ -58,12 +58,11 @@
 
   &__list {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(v.$survey-list-column-min-width, 1fr)
+    );
     gap: v.$spacing-md;
-
-    @media (min-width: v.$breakpoint-lg) {
-      grid-template-columns: 1fr 1fr;
-    }
   }
 
   &__empty {
