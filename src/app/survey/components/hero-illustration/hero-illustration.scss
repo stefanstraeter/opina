@@ -1,0 +1,54 @@
+@use "sass:math";
+@use "variables" as v;
+
+// The cards are positioned in percent of a 440 x 440 design box (as in the
+// mockup), so the illustration scales with its container.
+$design-size: 440;
+$card-fan-transition: 0.35s ease;
+
+:host {
+  display: block;
+}
+
+.hero-illustration {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+
+  &__card {
+    position: absolute;
+    height: auto;
+    font-family: v.$font-family-base;
+    transition: transform $card-fan-transition;
+  }
+
+  &__heading {
+    font-family: v.$font-family-heading;
+  }
+
+  // Survey card: 380 px wide including the room for its shadow
+  &__card--survey {
+    width: math.percentage(math.div(380, $design-size));
+    left: math.percentage(math.div(-14, $design-size));
+    top: math.percentage(math.div(10, $design-size));
+    transform: rotate(-7deg);
+  }
+
+  // Results card: 400 px wide including the room for its shadow
+  &__card--results {
+    width: math.percentage(math.div(400, $design-size));
+    right: math.percentage(math.div(-22, $design-size));
+    top: math.percentage(math.div(40, $design-size));
+    transform: rotate(4deg);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .hero-illustration__card--survey {
+      transform: rotate(-11deg) translate(-36px, -6px);
+    }
+
+    &:hover .hero-illustration__card--results {
+      transform: rotate(7deg) translate(30px, 6px);
+    }
+  }
+}
