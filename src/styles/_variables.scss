@@ -61,6 +61,13 @@ $font-size-survey-title-mobile: 2rem;
 $font-size-card-title: 1.625rem;
 $font-size-card-title-mobile: 1.375rem;
 
+// Text colors
+$color-text-dark: $espresso-900;
+$color-text-light: $cream-50;
+$color-text-accent: $terracotta-700;
+$color-text-error: $red-700;
+$color-heading: $espresso-900;
+
 // Letter spacing
 $letter-spacing-tight: -0.02em;
 $letter-spacing-wide: 0.1em;
@@ -159,12 +166,7 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-extrabold: 900;
 
-$color-text-dark: $purple-900;
-$color-text-light: $purple-100;
 $color-text-transparent: $transparent;
-$color-text-accent: $orange-500;
-$color-text-error: $orange-500;
-$color-heading: $orange-500;
 
 // ==========================================================================
 // BORDER RADIUS & SHAPES (OLD)
