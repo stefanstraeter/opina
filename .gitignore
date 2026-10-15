@@ -51,3 +51,6 @@ docs/
 # Secrets (generated from .env)
 .env
 src/environments/environment.ts
+
+# Design-Reference
+/opina-design/
