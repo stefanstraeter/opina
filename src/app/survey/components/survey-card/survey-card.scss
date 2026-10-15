@@ -28,12 +28,7 @@
   &__category {
     grid-area: category;
     min-width: 0;
-    font-family: v.$font-family-label;
-    font-size: v.$font-size-2xs;
-    font-weight: v.$font-weight-bold;
-    letter-spacing: v.$letter-spacing-eyebrow;
-    text-transform: uppercase;
-    color: v.$color-text-accent;
+    @include m.eyebrow;
     @include m.line-clamp(1);
   }
 
