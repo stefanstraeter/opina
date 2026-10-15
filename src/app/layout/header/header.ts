@@ -14,6 +14,6 @@ export class Header {
   private theme = inject(Theme);
   private headerActions = inject(HeaderActions);
 
-  isDarkMode = this.theme.isDarkMode;
+  isLightMode = this.theme.isLightMode;
   showCreateSurveyButton = this.headerActions.showCreateSurveyButton;
 }

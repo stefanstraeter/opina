@@ -26,21 +26,21 @@ export class CreateSurvey implements OnInit, OnDestroy {
   private router = inject(Router);
 
   /**
-   * @description Sets the dark mode to false when the component is initialized.
+   * @description Switches to dark mode when the component is initialized.
    * @return {void}
    * @memberof CreateSurvey
    */
   ngOnInit(): void {
-    this.theme.setDarkMode(false);
+    this.theme.setLightMode(false);
   }
 
   /**
-   * @description Resets the dark mode to true when the component is destroyed.
+   * @description Resets to light mode when the component is destroyed.
    * @return {void}
    * @memberof CreateSurvey
    */
   ngOnDestroy(): void {
-    this.theme.setDarkMode(true);
+    this.theme.setLightMode(true);
   }
 
   /**

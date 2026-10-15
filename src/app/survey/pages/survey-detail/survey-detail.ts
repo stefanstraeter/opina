@@ -7,7 +7,6 @@ import {
   signal,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Theme } from '@core/services/theme';
 import { HeaderActions } from '@core/services/header-actions';
 import { NotFound } from '@shared/components/not-found/not-found';
 import { Survey } from '@survey/model/interfaces/survey';
@@ -24,7 +23,6 @@ import { hasVotedForSurvey } from '@survey/services/vote-storage';
   templateUrl: './survey-detail.html',
 })
 export class SurveyDetail implements OnInit, OnDestroy {
-  private theme = inject(Theme);
   private route = inject(ActivatedRoute);
   private surveys = inject(Surveys);
   private headerActions = inject(HeaderActions);
@@ -35,14 +33,13 @@ export class SurveyDetail implements OnInit, OnDestroy {
   previewAnswerIds = signal<number[]>([]);
 
   /**
-   * @description Sets the dark mode to false, shows the "Create survey" button
-   * in the header, loads the survey by id and starts listening to vote changes
-   * when the component is initialized.
+   * @description Shows the "Create survey" button in the header, loads the
+   * survey by id and starts listening to vote changes when the component is
+   * initialized.
    * @return {void}
    * @memberof SurveyDetail
    */
   ngOnInit(): void {
-    this.theme.setDarkMode(false);
     this.headerActions.setCreateSurveyButtonVisible(true);
     const id = this.getSurveyId();
     this.loadSurvey(id);
@@ -50,13 +47,12 @@ export class SurveyDetail implements OnInit, OnDestroy {
   }
 
   /**
-   * @description Resets the dark mode to true and hides the "Create survey"
-   * button in the header when the component is destroyed.
+   * @description Hides the "Create survey" button in the header when the
+   * component is destroyed.
    * @return {void}
    * @memberof SurveyDetail
    */
   ngOnDestroy(): void {
-    this.theme.setDarkMode(true);
     this.headerActions.setCreateSurveyButtonVisible(false);
   }
 
