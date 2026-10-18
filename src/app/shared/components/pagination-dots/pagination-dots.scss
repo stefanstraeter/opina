@@ -1,0 +1,19 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.pagination-dots {
+  @include m.flex($justify: center, $gap: v.$carousel-dot-gap);
+
+  &__dot {
+    width: v.$carousel-dot-size;
+    height: v.$carousel-dot-size;
+    border-radius: v.$radius-pill;
+    background-color: v.$carousel-dot-color;
+    transition: width 0.2s ease;
+
+    &.is-active {
+      width: v.$carousel-dot-active-width;
+      background-color: v.$carousel-dot-active-color;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+<div class="pagination-dots" aria-hidden="true">
+  @for (dot of dots(); track dot) {
+  <span class="pagination-dots__dot" [class.is-active]="dot === activeIndex()"></span>
+  }
+</div>
