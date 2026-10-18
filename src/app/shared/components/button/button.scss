@@ -7,6 +7,7 @@
 
 .btn {
   @include m.flex($justify: center, $align: center, $gap: v.$btn-gap);
+  width: 100%;
   min-height: v.$btn-min-height;
   padding: 0 v.$btn-padding-x;
   border: none;
