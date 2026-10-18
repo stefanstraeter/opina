@@ -34,11 +34,11 @@
     margin-block: (-1 * v.$card-shadow-space-top)
       (-1 * v.$card-shadow-space-bottom);
     overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: v.$scrollbar-thumb-orange transparent; // Firefox
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 
-    &::-webkit-scrollbar-thumb {
-      background-color: v.$scrollbar-thumb-orange; // Chrome/Safari
+    &::-webkit-scrollbar {
+      display: none;
     }
 
     app-survey-card {
@@ -50,6 +50,14 @@
       app-survey-card {
         flex: 1;
       }
+    }
+  }
+
+  &__dots {
+    margin-top: calc(-1 * v.$spacing-md);
+
+    @media (min-width: v.$breakpoint-lg) {
+      display: none;
     }
   }
 

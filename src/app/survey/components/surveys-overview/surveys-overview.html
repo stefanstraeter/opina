@@ -4,8 +4,12 @@
     <h3 class="surveys-overview__subtitle">Ending soon</h3>
   </header>
 
-  <div class="surveys-overview__highlight-row">
-    @for (survey of endingSoonSurveys(); track survey.id; let position = $index) {
+  <div
+    class="surveys-overview__highlight-row"
+    (scroll)="updateActiveCard($event)"
+  >
+    @for (survey of endingSoonSurveys(); track survey.id; let position = $index)
+    {
     <app-survey-card
       [id]="survey.id"
       variant="highlight"
@@ -16,6 +20,12 @@
     />
     }
   </div>
+
+  <app-pagination-dots
+    class="surveys-overview__dots"
+    [count]="endingSoonSurveys().length"
+    [activeIndex]="activeCardIndex()"
+  />
 
   <div class="surveys-overview__controls">
     <div class="surveys-overview__filters">
