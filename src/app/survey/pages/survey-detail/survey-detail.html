@@ -2,6 +2,10 @@
 <p class="survey-detail__loading">Loading…</p>
 } @else if (survey(); as loadedSurvey) {
 <section class="survey-detail">
+  <a class="survey-detail__back" routerLink="/">
+    <app-chevron-left-icon />
+    All surveys
+  </a>
   <app-vote-card
     [survey]="loadedSurvey"
     (previewChange)="updatePreview($event)"

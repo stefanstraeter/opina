@@ -6,13 +6,33 @@
 }
 
 .survey-detail {
-  @include m.flex($direction: column, $gap: v.$spacing-xl);
+  @include m.flex($direction: column, $gap: v.$spacing-lg);
   padding: v.$spacing-md;
 
   @media (min-width: v.$breakpoint-lg) {
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: start;
+  }
+
+  &__back {
+    @include m.flex($align: center, $gap: v.$btn-gap);
+    min-height: v.$btn-round-size;
+    width: fit-content;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text-muted;
+    text-decoration: none;
+
+    @media (min-width: v.$breakpoint-lg) {
+      grid-column: 1 / -1;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: v.$color-text-dark;
+      }
+    }
   }
 
   &__loading {

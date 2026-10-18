@@ -6,8 +6,9 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HeaderActions } from '@core/services/header-actions';
+import { ChevronLeftIcon } from '@shared/components/chevron-left-icon/chevron-left-icon';
 import { NotFound } from '@shared/components/not-found/not-found';
 import { Survey } from '@survey/model/interfaces/survey';
 import { VoteCard } from '@survey/components/vote-card/vote-card';
@@ -17,7 +18,7 @@ import { applyVoteChange } from '@survey/rules/apply-vote-change';
 import { hasVotedForSurvey } from '@survey/services/vote-storage';
 
 @Component({
-  imports: [VoteCard, SurveyResults, NotFound],
+  imports: [VoteCard, SurveyResults, NotFound, RouterLink, ChevronLeftIcon],
   selector: 'app-survey-detail',
   styleUrl: './survey-detail.scss',
   templateUrl: './survey-detail.html',
