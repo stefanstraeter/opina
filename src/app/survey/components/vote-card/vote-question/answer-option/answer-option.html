@@ -1,12 +1,15 @@
-<div class="answer-option">
+<label
+  class="answer-option"
+  [class.answer-option--selected]="selected()"
+  [class.answer-option--locked]="locked()"
+>
   <app-checkbox
-    borderColor="dark"
     [checked]="selected()"
     [disabled]="locked()"
     (toggled)="toggled.emit()"
   />
-  <div [class.answer-option--locked]="locked()">
-    <span class="answer-option__letter">{{ answerLetter() }}.</span>
-    <span class="answer-option__text">{{ text() }}</span>
-  </div>
-</div>
+  <span>
+    <strong class="answer-option__letter">{{ answerLetter() }}.</strong>
+    {{ text() }}
+  </span>
+</label>

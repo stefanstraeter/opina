@@ -5,13 +5,25 @@
   display: block;
 }
 
+// The whole row is a label, so a click anywhere on it toggles the checkbox
 .answer-option {
-  @include m.flex($align: center, $gap: v.$spacing-xs);
+  @include m.flex($align: center, $gap: v.$spacing-sm);
+  min-height: v.$answer-option-min-height;
+  padding: v.$answer-option-padding;
+  border: 1px solid v.$card-border;
+  border-radius: v.$field-radius;
+  background-color: v.$card-bg;
+  font-size: v.$font-size-md;
   color: v.$color-text-dark;
-  font-size: v.$font-size-sm;
+  cursor: pointer;
 
   &__letter {
-    margin-right: v.$spacing-xs;
+    color: v.$color-text-accent;
+  }
+
+  &--selected {
+    border-color: v.$answer-option-border-selected;
+    background-color: v.$answer-option-bg-selected;
   }
 
   &--locked {
