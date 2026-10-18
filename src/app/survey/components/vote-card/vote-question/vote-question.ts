@@ -1,4 +1,5 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
+import { formatPositionNumber } from '@shared/utils/position-number';
 import { Question } from '@survey/model/interfaces/question';
 import { AnswerOption } from './answer-option/answer-option';
 
@@ -19,6 +20,7 @@ import { AnswerOption } from './answer-option/answer-option';
 export class VoteQuestion {
   question = input.required<Question>();
   questionIndex = input.required<number>();
+  numberText = computed(() => formatPositionNumber(this.questionIndex() + 1));
   locked = input<boolean>(false);
   selectionChange = output<number[]>();
 

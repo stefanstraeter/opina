@@ -1,10 +1,11 @@
 <div class="vote-question">
   <h3 class="vote-question__headline">
-    {{ questionIndex() + 1 }}. {{ question().text }}
+    <span class="vote-question__number">{{ numberText() }}</span>
+    {{ question().text }}
   </h3>
 
   @if (question().multiple) {
-  <span class="vote-question__hint">More than one answers are possible.</span>
+  <span class="vote-question__hint">More than one answer possible</span>
   }
 
   <ul class="vote-question__answers">

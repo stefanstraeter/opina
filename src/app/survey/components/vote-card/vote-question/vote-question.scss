@@ -5,23 +5,38 @@
   display: block;
 }
 
+$headline-gap: v.$spacing-sm;
+
 .vote-question {
   @include m.flex($direction: column, $gap: v.$spacing-xs);
 
   &__headline {
+    @include m.flex($align: baseline, $gap: $headline-gap);
     font-family: v.$font-family-base;
-    color: v.$color-text-dark;
     font-size: v.$font-size-md;
     font-weight: v.$font-weight-bold;
+    line-height: v.$line-height-heading;
+    color: v.$color-text-dark;
+  }
+
+  &__number {
+    flex-shrink: 0;
+    width: v.$question-number-width;
+    font-family: v.$font-family-heading;
+    font-size: v.$font-size-question-number;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-text-number;
   }
 
   &__hint {
+    margin-left: calc(#{v.$question-number-width} + #{$headline-gap});
     font-size: v.$font-size-xs;
-    color: v.$color-text-dark;
+    color: v.$color-text-muted;
   }
 
   &__answers {
     list-style: none;
-    @include m.flex($direction: column, $gap: v.$spacing-xxs);
+    margin-top: v.$spacing-xs;
+    @include m.flex($direction: column, $gap: v.$spacing-xs);
   }
 }
