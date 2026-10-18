@@ -1,14 +1,13 @@
 import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArrowIcon } from '@shared/components/arrow-icon/arrow-icon';
+import { formatPositionNumber } from '@shared/utils/position-number';
 import { ClockIcon } from '@shared/components/clock-icon/clock-icon';
 import {
   BadgeInfo,
   getBadgeInfo,
   isUrgentBadge,
 } from '@survey/rules/deadline-badge';
-
-const NUMBER_DIGITS = 2;
 
 @Component({
   imports: [RouterLink, ArrowIcon, ClockIcon],
@@ -38,7 +37,7 @@ export class SurveyCard {
    */
   private buildNumberText(position: number | null): string {
     if (position === null) return '';
-    return String(position).padStart(NUMBER_DIGITS, '0');
+    return formatPositionNumber(position);
   }
 
   /**
