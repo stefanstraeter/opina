@@ -22,8 +22,9 @@
     </div>
 
     <div class="survey-form__field survey-form__field--category">
+      <span class="survey-form__label">Category</span>
       <app-dropdown
-        label="Choose category"
+        placeholder="Choose category"
         [options]="categoryOptions"
         [selected]="surveyForm.controls.category.value"
         (selectedChange)="surveyForm.controls.category.setValue($event)"

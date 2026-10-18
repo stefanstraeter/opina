@@ -35,12 +35,15 @@
       </app-button>
     </div>
 
-    <app-dropdown
-      label="Sort by categories"
-      [options]="categoryOptions"
-      [selected]="selectedCategory()"
-      (selectedChange)="selectedCategory.set($event)"
-    />
+    <div class="surveys-overview__sort">
+      <span class="surveys-overview__sort-label">Sort by</span>
+      <app-dropdown
+        placeholder="Choose category"
+        [options]="categoryOptions"
+        [selected]="selectedCategory()"
+        (selectedChange)="selectedCategory.set($event)"
+      />
+    </div>
   </div>
   <div class="surveys-overview__list-area">
     <div class="surveys-overview__list">

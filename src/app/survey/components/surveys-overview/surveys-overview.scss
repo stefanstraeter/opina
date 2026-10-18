@@ -73,6 +73,16 @@
     background-color: v.$filter-track-bg;
   }
 
+  &__sort {
+    @include m.flex($align: center, $gap: v.$spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  &__sort-label {
+    font-size: v.$font-size-sm;
+    color: v.$color-text-muted;
+  }
+
   &__list-area {
     min-height: v.$survey-list-min-height-mobile;
 
