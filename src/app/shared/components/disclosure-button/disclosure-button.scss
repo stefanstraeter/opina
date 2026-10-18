@@ -20,6 +20,25 @@
     color: v.$color-text-dark;
   }
 
+  // Looks like a form field: box with border, used by the Dropdown
+  &--field {
+    min-height: v.$field-min-height;
+    padding: 0 v.$field-padding-x;
+    background-color: v.$field-bg;
+    border: 1px solid v.$field-border;
+    border-radius: v.$field-radius;
+    color: v.$field-text;
+    font-family: v.$font-family-base;
+    font-weight: v.$font-weight-medium;
+    text-align: left;
+
+    &:focus-visible {
+      outline: none;
+      border-color: v.$field-focus-border;
+      box-shadow: 0 0 0 4px v.$field-focus-ring;
+    }
+  }
+
   &__chevron {
     width: 1.4rem;
     height: 1.4rem;
@@ -34,6 +53,22 @@
   @media (hover: hover) and (pointer: fine) {
     &:hover .disclosure-button__chevron {
       color: v.$toggle-icon-hover;
+    }
+  }
+
+  // Field: chevron is grey, terracotta on hover and while open.
+  // Must come after the rules above (same specificity, the later one wins).
+  &--field &__chevron {
+    color: v.$field-chevron;
+
+    &--open {
+      color: v.$field-chevron-active;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &--field:hover &__chevron {
+      color: v.$field-chevron-active;
     }
   }
 }

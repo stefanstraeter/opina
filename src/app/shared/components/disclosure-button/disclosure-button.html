@@ -2,6 +2,7 @@
   type="button"
   class="disclosure-button"
   [class.disclosure-button--dark]="color() === 'dark'"
+  [class.disclosure-button--field]="appearance() === 'field'"
   (click)="onToggle()"
 >
   <ng-content />

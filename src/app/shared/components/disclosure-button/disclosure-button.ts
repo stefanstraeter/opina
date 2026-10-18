@@ -17,6 +17,7 @@ import { Component, input, output } from '@angular/core';
 export class DisclosureButton {
   isOpen = input.required<boolean>();
   color = input<'light' | 'dark'>('light');
+  appearance = input<'plain' | 'field'>('plain');
   toggled = output<void>();
 
   protected readonly downPath =
