@@ -6,9 +6,15 @@
 }
 
 .btn {
-  @include m.flex($justify: space-between, $align: center, $gap: v.$spacing-xs);
+  @include m.flex($justify: center, $align: center, $gap: v.$btn-gap);
+  min-height: v.$btn-min-height;
+  padding: 0 v.$btn-padding-x;
   border: none;
-  border-radius: v.$btn-border-radius-sm;
+  border-radius: v.$radius-pill;
+  font-family: v.$font-family-base;
+  font-size: v.$btn-font-size;
+  font-weight: v.$font-weight-semibold;
+  cursor: pointer;
 
   &:disabled {
     opacity: 0.5;
@@ -18,9 +24,6 @@
   &--primary {
     background-color: v.$btn-primary-bg;
     color: v.$btn-primary-text;
-    font-weight: v.$font-weight-extrabold;
-    padding: v.$btn-padding-sm v.$btn-padding-lg;
-    border-radius: v.$radius-pill;
 
     &:active:not(:disabled) {
       background-color: v.$btn-primary-bg-hover;
@@ -36,8 +39,6 @@
   &--secondary {
     background-color: v.$btn-secondary-bg;
     color: v.$btn-secondary-text;
-    font-weight: v.$font-weight-extrabold;
-    padding: v.$btn-padding-xs v.$btn-padding-sm;
 
     @media (hover: hover) and (pointer: fine) {
       &:hover:not(:disabled) {
@@ -126,5 +127,12 @@
   // die später stehende Regel gewinnt und überschreibt das Varianten-Padding.
   &--sm {
     padding: v.$btn-padding-xs v.$btn-padding-sm;
+  }
+
+  // Round, only an icon inside (width = height + pill radius = circle)
+  &--round {
+    width: v.$btn-round-size;
+    min-height: v.$btn-round-size;
+    padding: 0;
   }
 }
