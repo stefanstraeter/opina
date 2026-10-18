@@ -115,6 +115,9 @@ $card-medium-bg: $card-bg;
 
 // Survey list (columns fill the width, each at least this wide)
 $survey-list-column-min-width: 21.25rem;
+// Space kept free below the filters so the page does not jump (estimated)
+$survey-list-min-height-mobile: 41rem; // about 4 cards in one column
+$survey-list-min-height: 16rem; // about 2 rows of cards
 
 // Hero illustration (drop-shadow, not box-shadow: it follows the rounded SVG)
 $hero-illustration-shadow: drop-shadow(

@@ -39,17 +39,19 @@
       (selectedChange)="selectedCategory.set($event)"
     />
   </div>
-  <div class="surveys-overview__list">
-    @for (survey of filteredSurveys(); track survey.id) {
-    <app-survey-card
-      [id]="survey.id"
-      variant="list"
-      [category]="survey.category"
-      [title]="survey.title"
-      [deadline]="survey.deadline"
-    />
-    } @empty {
-    <p class="surveys-overview__empty">No surveys found for this category.</p>
-    }
+  <div class="surveys-overview__list-area">
+    <div class="surveys-overview__list">
+      @for (survey of filteredSurveys(); track survey.id) {
+      <app-survey-card
+        [id]="survey.id"
+        variant="list"
+        [category]="survey.category"
+        [title]="survey.title"
+        [deadline]="survey.deadline"
+      />
+      } @empty {
+      <p class="surveys-overview__empty">No surveys found for this category.</p>
+      }
+    </div>
   </div>
 </section>

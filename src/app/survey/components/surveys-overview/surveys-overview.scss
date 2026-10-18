@@ -61,6 +61,14 @@
     background-color: v.$filter-track-bg;
   }
 
+  &__list-area {
+    min-height: v.$survey-list-min-height-mobile;
+
+    @media (min-width: v.$breakpoint-md) {
+      min-height: v.$survey-list-min-height;
+    }
+  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(
