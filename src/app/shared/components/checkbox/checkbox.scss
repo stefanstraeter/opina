@@ -1,29 +1,33 @@
 @use "variables" as v;
 
 .checkbox {
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid v.$checkbox-border-light;
-  border-radius: v.$radius-xs;
-  background-color: v.$checkbox-bg;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  width: v.$checkbox-size;
+  height: v.$checkbox-size;
+  padding: 0;
+  border: 1.5px solid v.$checkbox-border;
+  border-radius: v.$checkbox-radius;
+  background-color: v.$checkbox-bg;
+  color: v.$checkbox-check;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: v.$btn-focus-ring-width solid v.$btn-focus-ring-color;
+    outline-offset: v.$btn-focus-ring-offset;
+  }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover:not(.checkbox--checked):not(:disabled) {
-      background-color: v.$orange-300;
+      border-color: v.$checkbox-border-hover;
     }
   }
 
   &--checked {
+    border-color: v.$checkbox-bg-checked;
     background-color: v.$checkbox-bg-checked;
-  }
-
-  &--dark {
-    border-color: v.$checkbox-border-dark;
   }
 
   &:disabled {

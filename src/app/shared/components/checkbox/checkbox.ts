@@ -9,7 +9,6 @@ import { Component, input, output } from '@angular/core';
 export class Checkbox {
   checked = input<boolean>(false);
   disabled = input<boolean>(false);
-  borderColor = input<'light' | 'dark'>('light');
   toggled = output<boolean>();
 
   /**
