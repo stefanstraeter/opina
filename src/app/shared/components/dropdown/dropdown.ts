@@ -13,7 +13,7 @@ export interface DropdownOption {
   styleUrl: './dropdown.scss',
 })
 export class Dropdown {
-  label = input.required<string>();
+  placeholder = input.required<string>();
   options = input.required<DropdownOption[]>();
   selected = input<string>('');
   selectedChange = output<string>();

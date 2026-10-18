@@ -1,11 +1,15 @@
 <div class="dropdown">
   <div class="dropdown__control">
     <app-disclosure-button
-      class="dropdown__header"
+      appearance="field"
       [isOpen]="isOpen()"
       (toggled)="toggleOpen()"
     >
-      {{ label() }}
+      @if (selectedLabel()) {
+      {{ selectedLabel() }}
+      } @else {
+      <span class="dropdown__placeholder">{{ placeholder() }}</span>
+      }
     </app-disclosure-button>
 
     @if (isOpen()) {
@@ -31,6 +35,4 @@
     </ul>
     }
   </div>
-
-  <span class="dropdown__selected">{{ selectedLabel() }}</span>
 </div>

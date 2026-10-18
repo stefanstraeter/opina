@@ -1,56 +1,18 @@
 @use "variables" as v;
-@use "mixins" as m;
+
+:host {
+  display: block;
+}
 
 .dropdown {
-  width: fit-content;
+  min-width: v.$dropdown-min-width;
 
   &__control {
     position: relative;
   }
 
-  &__selected {
-    display: flex;
-    justify-content: flex-start;
-
-    width: 0;
-    min-width: 100%;
-    white-space: nowrap;
-    min-height: 1.5em;
-    font-size: v.$font-size-md;
-    color: v.$color-text-accent;
-
-    @media (min-width: v.$breakpoint-lg) {
-      justify-content: flex-end;
-      padding: 0 v.$btn-padding-md;
-      margin-top: v.$spacing-xs;
-    }
-  }
-
-  &__header {
-    @include m.flex(
-      $align: center,
-      $justify: space-between,
-      $gap: v.$spacing-xs
-    );
-
-    background-color: transparent;
-    padding: v.$btn-padding-xxs 0;
-    border: none;
-    border-radius: v.$btn-border-radius-sm;
-    font-size: v.$font-size-md;
-    font-weight: v.$font-weight-bold;
-    width: 100%;
-    transition: background-color 0.2s ease;
-
-    @media (min-width: v.$breakpoint-lg) {
-      padding: v.$btn-padding-xxs v.$btn-padding-md;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        background-color: v.$btn-dropdown-bg-hover;
-      }
-    }
+  &__placeholder {
+    color: v.$field-placeholder;
   }
 
   &__backdrop {
@@ -66,32 +28,38 @@
   &__list {
     position: absolute;
     top: 100%;
-    margin-top: v.$spacing-xxs;
     left: 0;
     right: 0;
-    background-color: v.$dropdown-list-bg;
-    border-radius: v.$btn-border-radius-sm;
+    margin-top: v.$spacing-xxs;
+    padding: v.$spacing-xs;
     list-style: none;
-    padding: v.$spacing-sm 0;
+    background-color: v.$field-bg;
+    border: 1px solid v.$field-border;
+    border-radius: v.$field-radius;
+    box-shadow: v.$card-shadow-hover;
     z-index: 10;
   }
 
   &__option {
     width: 100%;
-    font-size: v.$font-size-sm;
-    padding: v.$spacing-xxs v.$spacing-sm;
+    padding: v.$spacing-xs v.$spacing-sm;
     background: none;
     border: none;
+    border-radius: v.$spacing-xs;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-sm;
     text-align: left;
-    color: v.$input-text;
+    color: v.$field-text;
     cursor: pointer;
 
     &:hover {
-      background-color: v.$purple-200;
+      background-color: v.$dropdown-option-hover-bg;
     }
 
-    &--selected {
-      background-color: v.$purple-200;
+    &--selected,
+    &--selected:hover {
+      background-color: v.$dropdown-option-selected-bg;
+      font-weight: v.$font-weight-semibold;
     }
   }
 }
