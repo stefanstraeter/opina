@@ -1,21 +1,22 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Survey } from '@survey/model/interfaces/survey';
 import { Question, Answer } from '@survey/model/interfaces/question';
-import { DisclosureButton } from '@shared/components/disclosure-button/disclosure-button';
+import { formatPositionNumber } from '@shared/utils/position-number';
+import { isHighestValue } from '@survey/rules/highest-value';
 import { AnswerResult } from './answer-result/answer-result';
 
 const PREVIEW_VOTE_COUNT = 1;
 
 /**
  * @description Shows the live results of a survey: per question, one bar per
- * answer with its percentage. Shows a placeholder instead, as long as no
- * answer has any votes yet. The open/closed toggle only matters on mobile,
- * on desktop the results stay visible regardless (handled later via CSS).
+ * answer with its percentage. The bar of the answer with the most votes is
+ * highlighted. Shows a placeholder instead, as long as no answer has any
+ * votes yet. The results are always visible.
  * @export
  * @class SurveyResults
  */
 @Component({
-  imports: [DisclosureButton, AnswerResult],
+  imports: [AnswerResult],
   selector: 'app-survey-results',
   styleUrl: './survey-results.scss',
   templateUrl: './survey-results.html',
@@ -23,18 +24,6 @@ const PREVIEW_VOTE_COUNT = 1;
 export class SurveyResults {
   survey = input.required<Survey>();
   previewAnswerIds = input<number[]>([]);
-
-  private isOpenSignal = signal(true);
-  isOpen = this.isOpenSignal.asReadonly();
-
-  /**
-   * @description Flips the open/closed state of the mobile results panel.
-   * @return {void}
-   * @memberof SurveyResults
-   */
-  toggleOpen(): void {
-    this.isOpenSignal.update((isOpen) => !isOpen);
-  }
 
   /**
    * @description Checks whether any answer in the whole survey has at least one vote.
@@ -45,6 +34,30 @@ export class SurveyResults {
     return this.survey().questions.some((question) =>
       question.answers.some((answer) => this.votesWithPreview(answer) > 0),
     );
+  }
+
+  /**
+   * @description Turns the position of a question into the text in front of it
+   * ("01", "02", ...).
+   * @param {number} questionIndex - The position of the question, starting at 0.
+   * @return {string}
+   * @memberof SurveyResults
+   */
+  questionNumber(questionIndex: number): string {
+    return formatPositionNumber(questionIndex + 1);
+  }
+
+  /**
+   * @description Checks if this answer has the most votes of its question, so
+   * its bar is shown in the strong color.
+   * @param {Question} question
+   * @param {Answer} answer
+   * @return {boolean}
+   * @memberof SurveyResults
+   */
+  isHighest(question: Question, answer: Answer): boolean {
+    const allVotes = question.answers.map((item) => this.votesWithPreview(item));
+    return isHighestValue(this.votesWithPreview(answer), allVotes);
   }
 
   /**

@@ -7,56 +7,69 @@
 
 .survey-results {
   @include m.flex($direction: column, $gap: v.$spacing-md);
-  border-radius: v.$card-asymmetric-radius;
+  background-color: v.$card-bg;
+  border: 1px solid v.$card-border;
+  border-radius: v.$card-radius-large;
   padding: v.$spacing-lg v.$spacing-md;
 
-  &__toggle {
-    @media (min-width: v.$breakpoint-lg) {
-      display: none;
-    }
+  @media (min-width: v.$breakpoint-lg) {
+    padding: v.$results-card-padding;
+  }
+
+  &__header {
+    @include m.flex(
+      $justify: space-between,
+      $align: center,
+      $gap: v.$spacing-sm
+    );
   }
 
   &__headline {
-    font-family: v.$font-family-heading;
-    color: v.$color-text-dark;
     font-size: v.$font-size-card-title;
   }
 
   &__live {
-    color: v.$color-text-accent;
-    text-transform: uppercase;
+    @include m.flex($align: center, $gap: v.$badge-gap);
+    padding: v.$spacing-xxs v.$spacing-sm;
+    background-color: v.$badge-urgent-bg;
+    color: v.$badge-urgent-text;
+    font-size: v.$font-size-2xs;
+    font-weight: v.$font-weight-bold;
+    letter-spacing: v.$letter-spacing-wide;
+    border-radius: v.$radius-pill;
+
+    &::before {
+      content: "";
+      width: v.$live-dot-size;
+      height: v.$live-dot-size;
+      border-radius: 50%;
+      background-color: v.$badge-live-dot;
+    }
   }
 
   &__body {
     @include m.flex($direction: column, $gap: v.$spacing-lg);
-
-    &--closed {
-      display: none;
-
-      @media (min-width: v.$breakpoint-lg) {
-        display: flex;
-      }
-    }
   }
 
   &__question {
-    @include m.flex($direction: column, $gap: v.$spacing-xs);
+    @include m.flex($direction: column, $gap: v.$spacing-sm);
   }
 
   &__question-headline {
     font-family: v.$font-family-base;
-    color: v.$color-text-dark;
     font-size: v.$font-size-md;
     font-weight: v.$font-weight-bold;
+    line-height: v.$line-height-heading;
+    color: v.$color-text-dark;
   }
 
   &__hint {
-    color: v.$color-text-dark;
+    color: v.$color-text-muted;
     font-size: v.$font-size-sm;
   }
 
   &__empty {
-    color: v.$color-text-dark;
+    color: v.$color-text-muted;
     font-size: v.$font-size-sm;
     text-align: center;
   }
