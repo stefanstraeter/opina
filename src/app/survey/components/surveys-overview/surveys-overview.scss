@@ -9,7 +9,6 @@
     font-size: v.$font-size-section-title;
   }
 
-  // Mobile: label below the title. Desktop: label right, on the baseline row.
   &__header {
     @include m.flex($direction: column, $gap: v.$spacing-sm);
 
@@ -71,6 +70,7 @@
     padding: v.$filter-track-padding;
     border-radius: v.$radius-pill;
     background-color: v.$filter-track-bg;
+    gap: 0.4rem;
   }
 
   &__sort {
