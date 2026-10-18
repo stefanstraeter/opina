@@ -5,10 +5,11 @@
   </header>
 
   <div class="surveys-overview__highlight-row">
-    @for (survey of endingSoonSurveys(); track survey.id) {
+    @for (survey of endingSoonSurveys(); track survey.id; let position = $index) {
     <app-survey-card
       [id]="survey.id"
       variant="highlight"
+      [number]="position + 1"
       [category]="survey.category"
       [title]="survey.title"
       [deadline]="survey.deadline"
