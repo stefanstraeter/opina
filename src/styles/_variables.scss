@@ -170,6 +170,17 @@ $btn-tertiary-text: $espresso-900;
 $btn-tertiary-border: $cream-400;
 $btn-tertiary-border-hover: $espresso-900;
 
+// Filter Button (segment control: the track holds the buttons)
+$filter-track-bg: $cream-200;
+$filter-track-padding: 0.25rem; // 4px
+$btn-filter-height: 2.5rem; // 40px
+$btn-filter-padding-x: 1.25rem; // 20px
+$btn-filter-text: $espresso-600;
+$btn-filter-hover-bg: $cream-300;
+$btn-filter-active-bg: $cream-50;
+$btn-filter-active-text: $espresso-900;
+$btn-filter-active-shadow: 0 1px 3px rgba(74, 40, 24, 0.12);
+
 // ##########################################################################
 // ##########################################################################
 //
@@ -301,12 +312,6 @@ $breakpoint-xxl: 1440px;
 
 // Backgrounds
 $bg-overlay: $black-000;
-
-// Filter Button
-$btn-filter-active-bg: $orange-500;
-$btn-filter-past-bg: $orange-100;
-$btn-filter-hover: $orange-300;
-$btn-filter-text: $purple-900;
 
 // Neutral Button
 $btn-neutral-bg: $brown-600;
