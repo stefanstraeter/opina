@@ -8,4 +8,5 @@ import { Component, input } from '@angular/core';
 })
 export class ProgressBar {
   percentage = input.required<number>();
+  highlighted = input<boolean>(false);
 }

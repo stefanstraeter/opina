@@ -12,23 +12,27 @@
 
 .progress-bar {
   flex: 1;
-  height: 0.5rem;
+  height: v.$progress-bar-height;
   background-color: v.$progress-bar-track-bg;
-  border-radius: v.$progress-bar-asymmetric-radius;
+  border-radius: v.$radius-pill;
   overflow: hidden;
 
   &__fill {
     height: 100%;
     background-color: v.$progress-bar-fill-bg;
-    border-radius: v.$progress-bar-asymmetric-radius;
+    border-radius: v.$radius-pill;
     transition: width 0.3s ease;
+
+    &--highest {
+      background-color: v.$progress-bar-fill-highest-bg;
+    }
   }
 
   &__label {
-    font-size: v.$font-size-sm;
-    color: v.$color-text-accent;
-    font-weight: v.$font-weight-bold;
     min-width: v.$progress-bar-label-width;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text-dark;
     text-align: right;
     white-space: nowrap;
   }
