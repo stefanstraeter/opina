@@ -78,6 +78,12 @@
     font-weight: v.$font-weight-semibold;
     border-radius: v.$radius-pill;
     width: fit-content;
+    @include m.flex($align: center, $gap: v.$badge-gap);
+
+    &--urgent {
+      background-color: v.$badge-urgent-bg;
+      color: v.$badge-urgent-text;
+    }
   }
 
   &--highlight {

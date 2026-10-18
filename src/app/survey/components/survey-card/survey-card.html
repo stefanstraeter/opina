@@ -6,7 +6,12 @@
   <h3 class="survey-card__title">
     <a class="survey-card__link" [routerLink]="['/survey', id()]">{{ title() }}</a>
   </h3>
-  <span class="survey-card__badge">{{ badgeText() }}</span>
+  <span class="survey-card__badge" [class.survey-card__badge--urgent]="isUrgent()">
+    @if (variant() === 'highlight') {
+    <app-clock-icon />
+    }
+    {{ badgeText() }}
+  </span>
   @if (variant() === 'highlight') {
   <span class="survey-card__arrow" aria-hidden="true"><app-arrow-icon /></span>
   }

@@ -1,12 +1,17 @@
 import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArrowIcon } from '@shared/components/arrow-icon/arrow-icon';
-import { BadgeInfo, getBadgeInfo } from '@survey/rules/deadline-badge';
+import { ClockIcon } from '@shared/components/clock-icon/clock-icon';
+import {
+  BadgeInfo,
+  getBadgeInfo,
+  isUrgentBadge,
+} from '@survey/rules/deadline-badge';
 
 const NUMBER_DIGITS = 2;
 
 @Component({
-  imports: [RouterLink, ArrowIcon],
+  imports: [RouterLink, ArrowIcon, ClockIcon],
   selector: 'app-survey-card',
   styleUrl: './survey-card.scss',
   templateUrl: './survey-card.html',
@@ -19,9 +24,9 @@ export class SurveyCard {
   variant = input<'highlight' | 'list'>('list');
   number = input<number | null>(null);
   formattedNumber = computed(() => this.buildNumberText(this.number()));
-  badgeText = computed(() =>
-    this.buildBadgeText(getBadgeInfo(this.deadline())),
-  );
+  badgeInfo = computed(() => getBadgeInfo(this.deadline()));
+  badgeText = computed(() => this.buildBadgeText(this.badgeInfo()));
+  isUrgent = computed(() => isUrgentBadge(this.badgeInfo()));
 
   /**
    * @description Turns the position of the card into a two-digit text, so 1
