@@ -1,14 +1,13 @@
 <article class="vote-card">
-  <div class="vote-card__topbar">
+  <div class="vote-card__badges">
     <app-status-badge />
-  </div>
-
-  <div class="vote-card__meta">
     <span class="vote-card__deadline">
+      <app-clock-icon />
       Ends on {{ survey().deadline | date: 'dd.MM.yyyy' }}
     </span>
-    <span class="vote-card__category">Category: {{ survey().category }}</span>
   </div>
+
+  <p class="vote-card__category">{{ survey().category }}</p>
 
   <h1 class="vote-card__title">{{ survey().title }}</h1>
   <p class="vote-card__description">{{ survey().description }}</p>

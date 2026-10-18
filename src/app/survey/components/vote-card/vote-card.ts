@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { Button } from '@shared/components/button/button';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
+import { ClockIcon } from '@shared/components/clock-icon/clock-icon';
 import { Survey } from '@survey/model/interfaces/survey';
 import { VoteQuestion } from './vote-question/vote-question';
 import { Surveys } from '@survey/services/surveys';
@@ -34,7 +35,7 @@ import {
  * @class VoteCard
  */
 @Component({
-  imports: [DatePipe, Button, StatusBadge, VoteQuestion],
+  imports: [DatePipe, Button, StatusBadge, ClockIcon, VoteQuestion],
   selector: 'app-vote-card',
   styleUrl: './vote-card.scss',
   templateUrl: './vote-card.html',

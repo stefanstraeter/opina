@@ -6,48 +6,69 @@
 }
 
 .vote-card {
-  @include m.flex($direction: column, $gap: v.$spacing-md);
-  background-color: v.$card-medium-bg;
-  border-radius: v.$card-asymmetric-radius;
+  @include m.flex($direction: column);
+  background-color: v.$card-bg;
+  border: 1px solid v.$card-border;
+  border-radius: v.$card-radius-large;
   padding: v.$spacing-lg v.$spacing-md;
 
   @media (min-width: v.$breakpoint-lg) {
-    padding: v.$spacing-xl v.$spacing-lg;
+    padding: v.$card-padding-large;
   }
 
-  &__topbar {
-    @include m.flex($justify: space-between, $align: center);
+  &__badges {
+    @include m.flex($align: center, $gap: v.$spacing-sm);
+    flex-wrap: wrap;
   }
 
-  &__meta {
-    @include m.flex($justify: space-between, $align: center);
-    font-size: v.$font-size-sm;
-    color: v.$color-text-dark;
+  &__deadline {
+    @include m.flex($align: center, $gap: v.$badge-gap);
+    padding: v.$badge-padding;
+    background-color: v.$badge-bg;
+    color: v.$badge-text;
+    font-size: v.$font-size-xs;
+    font-weight: v.$font-weight-semibold;
+    border-radius: v.$radius-pill;
+  }
+
+  &__category {
+    margin-top: v.$spacing-lg;
+    @include m.eyebrow;
   }
 
   &__title {
+    margin-top: v.$spacing-xs;
     font-family: v.$font-family-heading;
-    color: v.$color-heading;
     font-size: v.$font-size-survey-title;
+    line-height: v.$line-height-heading;
+    letter-spacing: v.$letter-spacing-tight;
+    color: v.$color-heading;
   }
 
   &__description {
+    max-width: v.$detail-description-max-width;
+    margin-top: v.$spacing-md;
     font-family: v.$font-family-base;
-    color: v.$color-text-dark;
     font-size: v.$font-size-md;
+    color: v.$color-text-muted;
   }
 
+  // The top border is the divider between the head and the questions
   &__questions {
-    @include m.flex($direction: column, $gap: v.$spacing-lg);
-
-    @media (min-width: v.$breakpoint-lg) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, #{v.$detail-question-min-width}), 1fr)
+    );
+    gap: v.$spacing-xl;
+    margin-top: v.$spacing-xl;
+    padding-top: v.$spacing-xl;
+    border-top: 1px solid v.$card-border;
   }
 
   &__complete {
     align-self: flex-end;
+    margin-top: v.$spacing-xl;
 
     svg {
       width: 1.2rem;
