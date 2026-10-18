@@ -3,7 +3,8 @@
     <app-status-badge />
     <span class="vote-card__deadline">
       <app-clock-icon />
-      Ends on {{ survey().deadline | date: 'dd.MM.yyyy' }}
+      @if (isEnded()) { Survey expired } @else if (survey().deadline) { Ends on
+      {{ survey().deadline | date: 'dd.MM.yyyy' }} } @else { No end date }
     </span>
   </div>
 
