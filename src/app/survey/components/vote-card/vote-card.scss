@@ -53,7 +53,6 @@
     color: v.$color-text-muted;
   }
 
-  // The top border is the divider between the head and the questions
   &__questions {
     display: grid;
     grid-template-columns: repeat(
@@ -67,11 +66,10 @@
   }
 
   &__complete {
-    align-self: flex-end;
     margin-top: v.$spacing-xl;
 
-    svg {
-      width: 1.2rem;
+    @media (min-width: v.$breakpoint-sm) {
+      align-self: flex-end;
     }
   }
 }
