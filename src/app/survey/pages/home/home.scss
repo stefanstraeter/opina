@@ -16,13 +16,16 @@
   @media (min-width: v.$breakpoint-lg) {
     grid-template-columns: 1fr 1fr;
     column-gap: v.$spacing-2xl;
-    row-gap: v.$spacing-lg;
+    row-gap: 0;
     align-items: center;
+    grid-template-rows: 1fr repeat(4, auto) 1fr;
     grid-template-areas:
+      ". illustration"
       "eyebrow illustration"
       "title illustration"
       "description illustration"
-      "cta illustration";
+      "cta illustration"
+      ". illustration";
   }
 
   &__eyebrow {
@@ -42,6 +45,7 @@
 
     @media (min-width: v.$breakpoint-lg) {
       justify-self: start;
+      margin-top: v.$hero-title-gap;
     }
   }
 
@@ -55,6 +59,7 @@
 
     @media (min-width: v.$breakpoint-lg) {
       justify-self: start;
+      margin-top: v.$hero-cta-gap;
     }
   }
 
@@ -73,5 +78,9 @@
     grid-area: description;
     font-weight: v.$font-weight-regular;
     color: v.$color-text-muted;
+
+    @media (min-width: v.$breakpoint-lg) {
+      margin-top: v.$hero-description-gap;
+    }
   }
 }

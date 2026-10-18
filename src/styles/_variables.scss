@@ -122,6 +122,11 @@ $hero-illustration-shadow: drop-shadow(
 );
 $hero-illustration-fan-transition: 0.35s ease;
 
+// Hero text block on desktop (space above eyebrow-title, title-text, text-buttons)
+$hero-title-gap: 1.25rem;
+$hero-description-gap: 1.5rem;
+$hero-cta-gap: 2.25rem;
+
 // Badges (pill shape)
 $radius-pill: 999px;
 $badge-padding: 0.3125rem 0.75rem;
