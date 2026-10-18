@@ -46,7 +46,7 @@ $green-700: #2f5a2a;
 
 // Font families
 $font-family-base: "Satoshi", system-ui, sans-serif;
-$font-family-heading: "Clash Display", system-ui, sans-serif;
+$font-family-heading: "Zodiak", system-ui, serif;
 $font-family-label: "Satoshi", system-ui, sans-serif;
 
 // Font size scale (general purpose, 1rem = 16px)
@@ -64,6 +64,10 @@ $font-size-survey-title: clamp(2.125rem, 4vw, 3rem);
 $font-size-survey-title-mobile: 2rem;
 $font-size-card-title: 1.625rem;
 $font-size-card-title-mobile: 1.375rem;
+$font-size-card-number: 1.5rem;
+$font-size-card-number-mobile: 1.25rem;
+$font-size-question-number: 1.25rem; // 20px, "01" in front of a question
+$question-number-width: 1.75rem; // fixed width of "01", the hint is indented by this + the gap
 
 // Text colors
 $color-text-dark: $espresso-900;
@@ -101,6 +105,12 @@ $card-radius-list: 1rem;
 $card-padding: 1.625rem;
 $card-padding-list: 1.75rem 1.75rem;
 $card-hover-offset: -0.25rem;
+$card-arrow-size: 2.25rem; // 36px, round arrow on the highlight card
+// Big cards on the detail page
+$card-radius-large: 1.5rem; // 24px
+$card-padding-large: 2.5rem; // 40px
+$detail-description-max-width: 38.75rem; // 620px
+$detail-question-min-width: 17.5rem; // 280px
 $card-shadow-hover: 0 8px 18px rgba(74, 40, 24, 0.12);
 // Room that a scroll container has to leave so the hover shadow is not cut off
 $card-shadow-space-top: 1rem;
@@ -125,6 +135,12 @@ $hero-illustration-shadow: drop-shadow(
 );
 $hero-illustration-fan-transition: 0.35s ease;
 
+// Sticky header
+$z-index-header: 20;
+// Header height (mobile 4.75rem, from $breakpoint-sm 6.5rem) plus a little air
+$header-scroll-offset-mobile: 5rem;
+$header-scroll-offset: 7rem;
+
 // Hero text block on desktop (space above eyebrow-title, title-text, text-buttons)
 $hero-title-gap: 1.25rem;
 $hero-description-gap: 1.5rem;
@@ -133,6 +149,7 @@ $hero-cta-gap: 2.25rem;
 // Badges (pill shape)
 $radius-pill: 999px;
 $badge-padding: 0.3125rem 0.75rem;
+$badge-gap: 0.375rem; // between clock icon and text
 $badge-bg: $cream-200;
 $badge-bg-hover: $cream-200;
 $badge-text: $espresso-700;
@@ -183,6 +200,58 @@ $btn-filter-hover-bg: $cream-300;
 $btn-filter-active-bg: $cream-50;
 $btn-filter-active-text: $espresso-900;
 $btn-filter-active-shadow: 0 1px 3px rgba(74, 40, 24, 0.12);
+
+// Form fields (dropdown now, inputs later)
+$field-min-height: 2.5rem; // 40px
+$field-padding-x: 0.875rem; // 14px
+$field-radius: 0.75rem; // 12px
+$field-bg: $cream-50;
+$field-border: $cream-400;
+$field-text: $espresso-900;
+$field-placeholder: $espresso-600;
+$field-chevron: $espresso-600;
+$field-chevron-active: $terracotta-500;
+$field-focus-border: $terracotta-500;
+$field-focus-ring: $cream-500;
+
+// Checkbox
+$checkbox-size: 1.125rem; // 18px
+$checkbox-radius: 0.25rem; // 4px
+$checkbox-bg: $cream-50;
+$checkbox-border: $espresso-600;
+$checkbox-border-hover: $terracotta-500;
+$checkbox-bg-checked: $terracotta-500;
+$checkbox-check: $cream-50;
+
+// Answer option (a row on the vote card)
+$answer-option-min-height: 2.875rem; // 46px
+$answer-option-padding: 0.5rem 0.875rem;
+$answer-option-bg-selected: $terracotta-100;
+$answer-option-border-selected: $terracotta-500;
+
+// Progress bar (result bars)
+$progress-bar-height: 0.5rem; // 8px
+$progress-bar-track-bg: $cream-200;
+$progress-bar-fill-bg: $terracotta-300;
+$progress-bar-fill-highest-bg: $terracotta-500;
+$progress-bar-label-width: 2.5rem; // 40px, room for "100%"
+
+// Results card
+$results-card-padding: 2rem; // 32px
+$live-dot-size: 0.375rem; // 6px, dot in the LIVE badge
+$results-button-padding-x: 0.875rem; // 14px, "Results" button in the header
+
+// Carousel dots (mobile "Ending soon" row)
+$carousel-dot-size: 0.375rem; // 6px
+$carousel-dot-active-width: 1.125rem; // 18px
+$carousel-dot-gap: 0.375rem;
+$carousel-dot-color: $cream-400;
+$carousel-dot-active-color: $terracotta-500;
+
+// Dropdown
+$dropdown-min-width: 14rem;
+$dropdown-option-hover-bg: $cream-200;
+$dropdown-option-selected-bg: $terracotta-100;
 
 // ##########################################################################
 // ##########################################################################
@@ -256,7 +325,6 @@ $radius-3xl: 64px;
 
 // Asymmetrical radius
 $card-asymmetric-radius: $radius-none $radius-3xl $radius-none $radius-none;
-$progress-bar-asymmetric-radius: $radius-none $radius-sm $radius-sm $radius-none;
 $input-asymmetric-radius: $radius-sm $radius-lg $radius-sm $radius-sm;
 $status-badge-asymmetric-radius: $radius-none $radius-md $radius-none
   $radius-none;
@@ -321,27 +389,14 @@ $btn-neutral-bg: $brown-600;
 $btn-neutral-bg-hover: $brown-300;
 $btn-neutral-text: $neutral-000;
 
-// Dropdown Button
-$btn-dropdown-bg: $purple-600;
-$btn-dropdown-bg-hover: $purple-500;
+// Dropdown Button (the text color is still used by the DisclosureButton)
 $btn-dropdown-text: $neutral-000;
-$btn-dropdown-text-accent: $orange-300;
-
-// Dropdown List
-$dropdown-list-bg: $neutral-000;
 
 // Toggle Icon (ToggleHeader-Chevron)
 $toggle-icon-hover: $orange-300;
 
 // Status Badge
 $status-badge-hover: $orange-500;
-
-// Checkbox
-$checkbox-bg: transparent;
-$checkbox-border-light: $neutral-000;
-$checkbox-border-dark: $purple-900;
-$checkbox-bg-hover: $orange-100;
-$checkbox-bg-checked: $orange-500;
 
 // Input Fields
 $input-bg: $neutral-000;
@@ -353,11 +408,6 @@ $input-placeholder: $purple-900;
 // Scrollbars
 $scrollbar-thumb-orange: $orange-500;
 $scrollbar-thumb-neutral: $neutral-600;
-
-// Results & Progress Bars
-$progress-bar-track-bg: $neutral-300;
-$progress-bar-fill-bg: $orange-500;
-$progress-bar-label-width: 5ch;
 
 // Action Icon Buttons (Edit / Delete)
 $btn-action-bg: $purple-600;
