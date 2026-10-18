@@ -42,6 +42,7 @@ export class SurveyDetail implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     this.headerActions.setCreateSurveyButtonVisible(true);
+    this.headerActions.setDetailControlsVisible(true);
     const id = this.getSurveyId();
     this.loadSurvey(id);
     this.listenToVoteChanges();
@@ -55,6 +56,7 @@ export class SurveyDetail implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.headerActions.setCreateSurveyButtonVisible(false);
+    this.headerActions.setDetailControlsVisible(false);
   }
 
   /**

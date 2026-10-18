@@ -16,13 +16,17 @@
   }
 
   &__back {
-    @include m.flex($align: center, $gap: v.$btn-gap);
+    display: none;
     min-height: v.$btn-round-size;
     width: fit-content;
     font-size: v.$font-size-sm;
     font-weight: v.$font-weight-semibold;
     color: v.$color-text-muted;
     text-decoration: none;
+
+    @media (min-width: v.$breakpoint-sm) {
+      @include m.flex($align: center, $gap: v.$btn-gap);
+    }
 
     @media (min-width: v.$breakpoint-lg) {
       grid-column: 1 / -1;
