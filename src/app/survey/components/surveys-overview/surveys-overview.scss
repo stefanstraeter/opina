@@ -54,8 +54,11 @@
   }
 
   &__filters {
-    display: flex;
-    gap: v.$spacing-sm;
+    display: inline-flex;
+    align-self: flex-start;
+    padding: v.$filter-track-padding;
+    border-radius: v.$radius-pill;
+    background-color: v.$filter-track-bg;
   }
 
   &__list {

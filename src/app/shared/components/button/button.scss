@@ -88,19 +88,20 @@
   }
 
   &--filter {
-    background-color: v.$btn-filter-past-bg;
+    min-height: v.$btn-filter-height;
+    padding: 0 v.$btn-filter-padding-x;
+    background-color: transparent;
     color: v.$btn-filter-text;
-    font-weight: v.$font-weight-semibold;
-    padding: v.$btn-padding-xxs v.$btn-padding-md;
-    border-radius: v.$btn-border-radius-lg;
 
     &.is-active {
       background-color: v.$btn-filter-active-bg;
+      color: v.$btn-filter-active-text;
+      box-shadow: v.$btn-filter-active-shadow;
     }
 
     @media (hover: hover) and (pointer: fine) {
-      &:hover:not(:disabled) {
-        background-color: v.$btn-filter-hover;
+      &:hover:not(:disabled):not(.is-active) {
+        background-color: v.$btn-filter-hover-bg;
       }
     }
   }
