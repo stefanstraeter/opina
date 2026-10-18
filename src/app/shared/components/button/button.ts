@@ -11,7 +11,7 @@ export class Button {
   variant = input<
     'primary' | 'secondary' | 'tertiary' | 'filter' | 'neutral' | 'icon'
   >('primary');
-  size = input<'sm' | 'md' | 'round'>('md');
+  size = input<'md' | 'round'>('md');
   active = input<boolean>(false);
   disabled = input<boolean>(false);
 }
