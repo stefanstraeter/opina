@@ -1,6 +1,10 @@
 // app.scss
 @use "variables" as v;
 
+:host {
+  display: block;
+}
+
 .app-content {
   max-width: v.$content-width;
   margin: 0 auto;
