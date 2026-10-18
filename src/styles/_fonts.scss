@@ -1,26 +1,12 @@
 @use "variables" as v;
 
 // ==========================================================================
-// CLASH DISPLAY FONT FACE
-// ==========================================================================
-
-@font-face {
-  font-family: "Clash Display";
-  src: url("../../public/fonts/clash-display/ClashDisplay-Variable.woff2")
-    format("woff2");
-  font-weight: 200 700;
-  font-display: swap;
-  font-style: normal;
-}
-
-// ==========================================================================
 // SATOSHI FONT FACE
 // ==========================================================================
 
 @font-face {
   font-family: "Satoshi";
-  src: url("../../public/fonts/satoshi/Satoshi-Variable.woff2")
-    format("woff2");
+  src: url("../../public/fonts/satoshi/Satoshi-Variable.woff2") format("woff2");
   font-weight: 300 900;
   font-display: swap;
   font-style: normal;
@@ -31,6 +17,27 @@
   src: url("../../public/fonts/satoshi/Satoshi-VariableItalic.woff2")
     format("woff2");
   font-weight: 300 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+// ==========================================================================
+// ZODIAK FONT FACE
+// ==========================================================================
+
+@font-face {
+  font-family: "Zodiak";
+  src: url("../../public/fonts/zodiak/Zodiak-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Zodiak";
+  src: url("../../public/fonts/zodiak/Zodiak-VariableItalic.ttf")
+    format("truetype");
+  font-weight: 100 900;
   font-display: swap;
   font-style: italic;
 }
