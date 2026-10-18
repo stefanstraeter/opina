@@ -13,9 +13,14 @@
     Collect opinions, engage your audience, and turn feedback into action.
   </p>
 
-  <app-button routerLink="/create-survey" variant="primary" class="hero__cta">
-    New Survey
-  </app-button>
+  <div class="hero__actions">
+    <app-button routerLink="/create-survey" variant="primary">
+      New Survey
+    </app-button>
+    <app-button variant="tertiary" (click)="scrollToSurveys()">
+      Browse surveys
+    </app-button>
+  </div>
 </section>
 
 <app-surveys-overview> </app-surveys-overview>

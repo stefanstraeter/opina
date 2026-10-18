@@ -32,4 +32,13 @@ export class Home implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.headerActions.setCreateSurveyButtonVisible(false);
   }
+
+  /**
+   * @description Scrolls smoothly down to the surveys section below the hero.
+   * @return {void}
+   * @memberof Home
+   */
+  scrollToSurveys(): void {
+    document.getElementById('surveys')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

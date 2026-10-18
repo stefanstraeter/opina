@@ -53,8 +53,10 @@
     color: v.$color-text-highlight;
   }
 
-  &__cta {
+  &__actions {
     grid-area: cta;
+    @include m.flex($gap: v.$spacing-sm);
+    flex-wrap: wrap;
     justify-self: center;
 
     @media (min-width: v.$breakpoint-lg) {

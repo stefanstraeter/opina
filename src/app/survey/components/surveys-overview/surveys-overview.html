@@ -1,4 +1,4 @@
-<section class="surveys-overview">
+<section id="surveys" class="surveys-overview">
   <h2 class="surveys-overview__title">Your surveys</h2>
 
   <h3 class="surveys-overview__subtitle">Ending soon surveys</h3>
@@ -39,7 +39,6 @@
       (selectedChange)="selectedCategory.set($event)"
     />
   </div>
-
   <div class="surveys-overview__list">
     @for (survey of filteredSurveys(); track survey.id) {
     <app-survey-card
