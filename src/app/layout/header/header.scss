@@ -33,10 +33,20 @@
     color: v.$color-text-light;
   }
 
-  .create-button {
+  .create-button--pill {
     display: none;
+  }
 
-    @media (min-width: v.$breakpoint-lg) {
+  .create-button__label {
+    @include m.visually-hidden;
+  }
+
+  @media (min-width: v.$breakpoint-sm) {
+    .create-button--round {
+      display: none;
+    }
+
+    .create-button--pill {
       display: inline-block;
     }
   }

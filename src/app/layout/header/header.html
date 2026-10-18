@@ -6,11 +6,22 @@
     </a>
     @if (showCreateSurveyButton()) {
     <app-button
-      class="create-button"
-      variant="primary"
+      class="create-button create-button--round"
+      variant="secondary"
+      size="round"
       routerLink="/create-survey"
-      >Create survey</app-button
     >
+      <app-plus-icon />
+      <span class="create-button__label">Create survey</span>
+    </app-button>
+    <app-button
+      class="create-button create-button--pill"
+      variant="secondary"
+      routerLink="/create-survey"
+    >
+      <app-plus-icon />
+      Create survey
+    </app-button>
     }
   </div>
 </header>
