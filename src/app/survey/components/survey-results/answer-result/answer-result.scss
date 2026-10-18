@@ -7,11 +7,11 @@
 
 .answer-result {
   @include m.flex($align: center, $gap: v.$spacing-sm);
-  color: v.$color-text-dark;
   font-size: v.$font-size-sm;
-  font-weight: v.$font-weight-bold;
 
   &__letter {
     width: 1rem;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-text-muted;
   }
 }

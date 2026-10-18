@@ -10,6 +10,7 @@ import { ProgressBar } from '@shared/components/progress-bar/progress-bar';
 export class AnswerResult {
   answerIndex = input.required<number>();
   percentage = input.required<number>();
+  highlighted = input<boolean>(false);
 
   /**
    * @description Turns the position into a letter (0 -> A, 1 -> B, ...), same trick as CreateAnswer/AnswerOption.
