@@ -65,16 +65,31 @@
   }
 
   &__filters {
-    display: inline-flex;
-    align-self: flex-start;
+    display: flex;
     padding: v.$filter-track-padding;
     border-radius: v.$radius-pill;
     background-color: v.$filter-track-bg;
     gap: 0.4rem;
+
+    app-button {
+      flex: 1;
+    }
+
+    @media (min-width: v.$breakpoint-md) {
+      display: inline-flex;
+
+      app-button {
+        flex: none;
+      }
+    }
   }
 
   &__sort {
-    @include m.flex($align: center, $gap: v.$spacing-sm);
+    @include m.flex(
+      $align: center,
+      $justify: space-between,
+      $gap: v.$spacing-sm
+    );
     flex-wrap: wrap;
   }
 
