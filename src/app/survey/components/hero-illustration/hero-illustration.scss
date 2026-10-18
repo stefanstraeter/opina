@@ -1,12 +1,7 @@
 @use "sass:math";
 @use "variables" as v;
 
-// The cards are positioned in percent of a 440 x 440 design box (as in the
-// mockup), so the illustration scales with its container.
 $design-size: 440;
-$card-fan-transition: 0.35s ease;
-// A CSS shadow instead of an SVG filter: the filter left a hard-edged band
-$card-shadow: drop-shadow(0 0.75rem 0.75rem rgba(74, 40, 24, 0.18));
 
 :host {
   display: block;
@@ -19,19 +14,21 @@ $card-shadow: drop-shadow(0 0.75rem 0.75rem rgba(74, 40, 24, 0.18));
 
   &__card {
     position: absolute;
-    height: auto;
-    // Inline SVGs clip at their edge by default, which would cut off the shadow
-    overflow: visible;
-    filter: $card-shadow;
+    filter: v.$hero-illustration-shadow;
     font-family: v.$font-family-base;
-    transition: transform $card-fan-transition;
+    transition: transform v.$hero-illustration-fan-transition;
+  }
+
+  &__svg {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   &__heading {
     font-family: v.$font-family-heading;
   }
 
-  // Survey card: 380 px wide including the room for its shadow
   &__card--survey {
     width: math.percentage(math.div(380, $design-size));
     left: math.percentage(math.div(-14, $design-size));
@@ -39,7 +36,6 @@ $card-shadow: drop-shadow(0 0.75rem 0.75rem rgba(74, 40, 24, 0.18));
     transform: rotate(-7deg);
   }
 
-  // Results card: 400 px wide including the room for its shadow
   &__card--results {
     width: math.percentage(math.div(400, $design-size));
     right: math.percentage(math.div(-22, $design-size));
