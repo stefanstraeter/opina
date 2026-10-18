@@ -1,3 +1,6 @@
+/** Up to this many days left the badge counts as urgent (shown in red). */
+const URGENT_MAX_DAYS = 5;
+
 export type BadgeStage = 'none' | 'expired' | 'today' | 'days' | 'months';
 
 export interface BadgeInfo {
@@ -30,6 +33,19 @@ export function getBadgeInfo(deadline: string | null): BadgeInfo {
   }
 
   return { stage: 'months', amount: Math.floor(days / 30) };
+}
+
+/**
+ * @description Tells if the end date is so close that the badge should be red:
+ * today, or at most URGENT_MAX_DAYS days left.
+ * @export
+ * @param {BadgeInfo} badgeInfo - The stage and amount of the badge.
+ * @return {boolean} - true if the survey ends very soon.
+ */
+export function isUrgentBadge({ stage, amount }: BadgeInfo): boolean {
+  const endsToday = stage === 'today';
+  const endsTomorrow = stage === 'days' && amount <= URGENT_MAX_DAYS;
+  return endsToday || endsTomorrow;
 }
 
 /**
