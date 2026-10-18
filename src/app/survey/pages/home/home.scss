@@ -9,9 +9,9 @@
   grid-template-areas:
     "eyebrow"
     "title"
-    "illustration"
     "description"
-    "cta";
+    "cta"
+    "illustration";
 
   @media (min-width: v.$breakpoint-lg) {
     grid-template-columns: 1fr 1fr;
@@ -53,13 +53,14 @@
     color: v.$color-text-highlight;
   }
 
+  // Mobile: buttons stacked, full width. Desktop: side by side.
   &__actions {
     grid-area: cta;
-    @include m.flex($gap: v.$spacing-sm);
-    flex-wrap: wrap;
-    justify-self: center;
+    @include m.flex($direction: column, $gap: v.$spacing-sm);
 
     @media (min-width: v.$breakpoint-lg) {
+      flex-direction: row;
+      flex-wrap: wrap;
       justify-self: start;
       margin-top: v.$hero-cta-gap;
     }
