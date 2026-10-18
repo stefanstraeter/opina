@@ -16,6 +16,11 @@
   font-weight: v.$font-weight-semibold;
   cursor: pointer;
 
+  &:focus-visible {
+    outline: v.$btn-focus-ring-width solid v.$btn-focus-ring-color;
+    outline-offset: v.$btn-focus-ring-offset;
+  }
+
   &:disabled {
     opacity: 0.5;
     cursor: default;
@@ -40,6 +45,10 @@
     background-color: v.$btn-secondary-bg;
     color: v.$btn-secondary-text;
 
+    &:active:not(:disabled) {
+      background-color: v.$btn-secondary-bg-hover;
+    }
+
     @media (hover: hover) and (pointer: fine) {
       &:hover:not(:disabled) {
         background-color: v.$btn-secondary-bg-hover;
@@ -51,6 +60,10 @@
     background-color: v.$btn-tertiary-bg;
     color: v.$btn-tertiary-text;
     border: 1px solid v.$btn-tertiary-border;
+
+    &:active:not(:disabled) {
+      border-color: v.$btn-tertiary-border-hover;
+    }
 
     @media (hover: hover) and (pointer: fine) {
       &:hover:not(:disabled) {
