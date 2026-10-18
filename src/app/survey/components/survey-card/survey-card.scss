@@ -32,6 +32,28 @@
     @include m.line-clamp(1);
   }
 
+  &__number {
+    grid-area: number;
+    font-family: v.$font-family-heading;
+    font-weight: v.$font-weight-medium;
+    font-size: v.$font-size-card-number-mobile;
+    color: v.$color-text-number;
+
+    @media (min-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-card-number;
+    }
+  }
+
+  &__arrow {
+    grid-area: arrow;
+    @include m.flex($justify: center, $align: center);
+    justify-self: end;
+    width: v.$card-arrow-size;
+    height: v.$card-arrow-size;
+    border: 1px solid v.$card-border;
+    border-radius: 50%;
+  }
+
   &__title {
     grid-area: title;
     min-width: 0;

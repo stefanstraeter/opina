@@ -1,7 +1,13 @@
 <article class="survey-card" [class]="'survey-card--' + variant()">
   <span class="survey-card__category">{{ category() }}</span>
+  @if (number() !== null) {
+  <span class="survey-card__number" aria-hidden="true">{{ formattedNumber() }}</span>
+  }
   <h3 class="survey-card__title">
     <a class="survey-card__link" [routerLink]="['/survey', id()]">{{ title() }}</a>
   </h3>
   <span class="survey-card__badge">{{ badgeText() }}</span>
+  @if (variant() === 'highlight') {
+  <span class="survey-card__arrow" aria-hidden="true"><app-arrow-icon /></span>
+  }
 </article>
