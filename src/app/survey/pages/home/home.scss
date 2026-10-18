@@ -40,6 +40,7 @@
   &__title {
     grid-area: title;
     font-size: v.$font-size-hero-title;
+    font-weight: v.$font-weight-bold;
     line-height: v.$line-height-tight;
     letter-spacing: v.$letter-spacing-tight;
 
@@ -50,6 +51,7 @@
   }
 
   &__title-accent {
+    font-style: italic;
     color: v.$color-text-highlight;
   }
 
