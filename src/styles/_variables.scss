@@ -117,7 +117,9 @@ $card-medium-bg: $card-bg;
 $survey-list-column-min-width: 21.25rem;
 
 // Hero illustration (drop-shadow, not box-shadow: it follows the rounded SVG)
-$hero-illustration-shadow: drop-shadow(0 0.75rem 0.75rem rgba(74, 40, 24, 0.18));
+$hero-illustration-shadow: drop-shadow(
+  0 0.75rem 0.75rem rgba(74, 40, 24, 0.18)
+);
 $hero-illustration-fan-transition: 0.35s ease;
 
 // Badges (pill shape)
@@ -136,15 +138,22 @@ $status-badge-published-text: $green-700;
 $status-badge-draft: $cream-200;
 $status-badge-draft-text: $espresso-700;
 
+// Buttons (shared base, all pill buttons)
+$btn-min-height: 2.4rem;
+$btn-padding-x: 1.5rem;
+$btn-gap: 0.375rem;
+$btn-font-size: $font-size-sm;
+$btn-round-size: 2.75rem;
+
 // Primary Button
 $btn-primary-bg: $terracotta-500;
 $btn-primary-bg-hover: $terracotta-700;
 $btn-primary-text: $cream-50;
 
-// Secondary Button (outline)
-$btn-secondary-bg: $cream-50;
-$btn-secondary-bg-hover: $cream-200;
-$btn-secondary-text: $espresso-900;
+// Secondary Button (dark, filled)
+$btn-secondary-bg: $espresso-900;
+$btn-secondary-bg-hover: $espresso-700;
+$btn-secondary-text: $cream-50;
 
 // Tertiary Button (dark)
 $btn-tertiary-bg: $espresso-900;
