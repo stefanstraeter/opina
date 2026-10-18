@@ -1,7 +1,9 @@
 <section id="surveys" class="surveys-overview">
-  <h2 class="surveys-overview__title">Your surveys</h2>
+  <header class="surveys-overview__header">
+    <h2 class="surveys-overview__title">Your surveys</h2>
+    <h3 class="surveys-overview__subtitle">Ending soon</h3>
+  </header>
 
-  <h3 class="surveys-overview__subtitle">Ending soon surveys</h3>
   <div class="surveys-overview__highlight-row">
     @for (survey of endingSoonSurveys(); track survey.id) {
     <app-survey-card

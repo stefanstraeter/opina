@@ -9,11 +9,23 @@
     font-size: v.$font-size-section-title;
   }
 
+  // Mobile: label below the title. Desktop: label right, on the baseline row.
+  &__header {
+    @include m.flex($direction: column, $gap: v.$spacing-sm);
+
+    @media (min-width: v.$breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
   &__subtitle {
-    font-family: v.$font-family-base;
-    font-weight: v.$font-weight-semibold;
-    font-size: v.$font-size-lg;
-    color: v.$color-text-light;
+    @include m.eyebrow(v.$font-size-2xs);
+
+    @media (min-width: v.$breakpoint-md) {
+      font-size: v.$font-size-xs;
+    }
   }
 
   &__highlight-row {
