@@ -116,6 +116,10 @@ $card-medium-bg: $card-bg;
 // Survey list (columns fill the width, each at least this wide)
 $survey-list-column-min-width: 21.25rem;
 
+// Hero illustration (drop-shadow, not box-shadow: it follows the rounded SVG)
+$hero-illustration-shadow: drop-shadow(0 0.75rem 0.75rem rgba(74, 40, 24, 0.18));
+$hero-illustration-fan-transition: 0.35s ease;
+
 // Badges (pill shape)
 $radius-pill: 999px;
 $badge-padding: 0.3125rem 0.75rem;
