@@ -1,10 +1,34 @@
 <header class="app-header" [class.is-dark]="!isLightMode()">
-  <div class="header-container">
+  <div
+    class="header-container"
+    [class.header-container--detail]="showDetailControls()"
+  >
+    @if (showDetailControls()) {
+    <!-- Small screens, survey page: back button on the left -->
+    <div class="header-side">
+      <app-button
+        class="back-button"
+        variant="tertiary"
+        size="round"
+        routerLink="/"
+      >
+        <app-chevron-left-icon />
+        <span class="back-button__label">Back to all surveys</span>
+      </app-button>
+    </div>
+    }
     <a routerLink="/" class="logo" aria-label="Opina, navigate to home page">
       <img src="img/opina-logo.svg" alt="" class="logo__icon" />
       <span class="logo__text">Opina</span>
     </a>
-    @if (showCreateSurveyButton()) {
+    @if (showDetailControls()) {
+    <!-- Small screens, survey page: jump to the results on the right -->
+    <div class="header-side header-side--end">
+      <button type="button" class="results-button" (click)="scrollToResults()">
+        Results
+      </button>
+    </div>
+    } @if (showCreateSurveyButton()) {
     <app-button
       class="create-button create-button--round"
       variant="secondary"

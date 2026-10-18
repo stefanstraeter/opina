@@ -1,6 +1,13 @@
 @use "variables" as v;
 @use "mixins" as m;
 
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: v.$z-index-header;
+}
+
 .app-header {
   width: 100%;
   background-color: var(--color-bg);
@@ -9,7 +16,11 @@
     @include m.flex($align: center, $justify: space-between);
     max-width: v.$content-width;
     margin: 0 auto;
-    padding: v.$spacing-xl v.$spacing-md;
+    padding: v.$spacing-md;
+
+    @media (min-width: v.$breakpoint-sm) {
+      padding: v.$spacing-xl v.$spacing-md;
+    }
   }
 
   .logo {
@@ -22,10 +33,18 @@
     width: auto;
   }
 
+  .header-container--detail .logo__icon {
+    display: none;
+
+    @media (min-width: v.$breakpoint-sm) {
+      display: block;
+    }
+  }
+
   .logo__text {
     font-family: v.$font-family-heading;
     font-size: v.$font-size-lg;
-    font-weight: v.$font-weight-bold;
+    font-weight: v.$font-weight-semibold;
     color: v.$color-text-dark;
   }
 
@@ -37,11 +56,58 @@
     display: none;
   }
 
-  .create-button__label {
+  .create-button__label,
+  .back-button__label {
     @include m.visually-hidden;
   }
 
+  .header-side {
+    @include m.flex($align: center);
+    flex: 1;
+
+    &--end {
+      justify-content: flex-end;
+    }
+  }
+
+  .header-container--detail .create-button--round {
+    display: none;
+  }
+
+  .results-button {
+    @include m.flex($align: center, $gap: v.$badge-gap);
+    min-height: v.$btn-round-size;
+    padding: 0 v.$results-button-padding-x;
+    border: none;
+    border-radius: v.$radius-pill;
+    background-color: v.$badge-urgent-bg;
+    color: v.$badge-urgent-text;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-xs;
+    font-weight: v.$font-weight-bold;
+    letter-spacing: v.$letter-spacing-wide;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: v.$live-dot-size;
+      height: v.$live-dot-size;
+      border-radius: 50%;
+      background-color: v.$badge-live-dot;
+    }
+
+    &:focus-visible {
+      outline: v.$btn-focus-ring-width solid v.$btn-focus-ring-color;
+      outline-offset: v.$btn-focus-ring-offset;
+    }
+  }
+
   @media (min-width: v.$breakpoint-sm) {
+    .header-side {
+      display: none;
+    }
+
     .create-button--round {
       display: none;
     }
