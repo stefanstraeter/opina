@@ -6,7 +6,12 @@
   padding: v.$spacing-xl v.$spacing-md;
 
   &__title {
-    font-size: v.$font-size-section-title;
+    font-size: v.$font-size-section-title-mobile;
+    color: v.$color-text-muted;
+
+    @media (min-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-section-title;
+    }
   }
 
   &__header {
