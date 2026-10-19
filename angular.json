@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "poll-app": {
+    "opina": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -66,10 +66,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "poll-app:build:production"
+              "buildTarget": "opina:build:production"
             },
             "development": {
-              "buildTarget": "poll-app:build:development"
+              "buildTarget": "opina:build:development"
             }
           },
           "defaultConfiguration": "development"
