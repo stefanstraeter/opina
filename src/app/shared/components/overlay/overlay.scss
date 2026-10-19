@@ -1,86 +1,61 @@
 @use "variables" as v;
-@use "mixins" as m;
 
 :host {
   position: fixed;
-  bottom: v.$spacing-xl;
-  right: v.$spacing-xl;
-  z-index: 100;
+  right: v.$spacing-md;
+  bottom: v.$spacing-md;
+  left: v.$spacing-md;
+  z-index: v.$z-index-feedback;
+  display: flex;
+  justify-content: center;
   pointer-events: none;
-}
 
-.overlay-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: auto;
-  background-color: v.$bg-overlay;
-  animation: overlay-backdrop-fade-in 0.3s ease-out;
-
-  &--leaving {
-    animation: overlay-backdrop-fade-out 0.3s ease-in forwards;
+  @media (min-width: v.$breakpoint-sm) {
+    right: v.$spacing-xl;
+    bottom: v.$spacing-xl;
+    left: auto;
   }
 }
 
 .overlay {
-  @include m.flex($align: flex-start, $gap: v.$spacing-md);
-  position: relative;
-  z-index: 1;
-  pointer-events: auto;
-  max-width: 20rem;
+  max-width: v.$overlay-max-width;
   padding: v.$spacing-md v.$spacing-lg;
-  background-color: v.$orange-100;
-  border-radius: v.$status-overlay-asymmetric-radius;
-  animation: overlay-slide-in 0.3s ease-out;
+  background-color: v.$card-bg;
+  border: 1px solid v.$overlay-border;
+  border-radius: v.$card-radius;
+  box-shadow: v.$card-shadow-hover;
+  pointer-events: auto;
+  animation: overlay-slide-in v.$feedback-duration ease-out;
 
   &--leaving {
-    animation: overlay-slide-out 0.3s ease-in forwards;
+    animation: overlay-slide-out v.$feedback-duration ease-in forwards;
   }
 
   &__text {
-    font-family: v.$font-family-heading;
-    font-weight: v.$font-weight-bold;
-    font-size: v.$font-size-lg;
-    color: v.$color-text-dark;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text-error;
   }
 }
 
 @keyframes overlay-slide-in {
   from {
-    transform: translateX(120%);
+    transform: translateY(v.$feedback-slide-offset);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
 @keyframes overlay-slide-out {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
   to {
-    transform: translateX(120%);
-    opacity: 0;
-  }
-}
-
-@keyframes overlay-backdrop-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes overlay-backdrop-fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
+    transform: translateY(v.$feedback-slide-offset);
     opacity: 0;
   }
 }

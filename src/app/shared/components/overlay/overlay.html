@@ -1,10 +1,7 @@
 @if (displayedMessage(); as text) {
 <div
-  class="overlay-backdrop"
-  [class.overlay-backdrop--leaving]="isLeaving()"
-></div>
-<div
   class="overlay"
+  role="alert"
   [class.overlay--leaving]="isLeaving()"
   (animationend)="onLeaveAnimationEnd()"
 >
