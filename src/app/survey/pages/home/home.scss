@@ -1,6 +1,11 @@
 @use "variables" as v;
 @use "mixins" as m;
 
+:host {
+  display: block;
+  padding-bottom: v.$page-padding-bottom;
+}
+
 .hero {
   display: grid;
   gap: v.$spacing-lg;
