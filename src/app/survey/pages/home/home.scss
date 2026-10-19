@@ -10,6 +10,8 @@
   display: grid;
   gap: v.$spacing-lg;
   padding: v.$spacing-xl v.$spacing-md;
+  // The tilted illustration cards stick out a little, do not let them widen the page
+  overflow-x: clip;
   grid-template-columns: 1fr;
   grid-template-areas:
     "eyebrow"
@@ -19,6 +21,7 @@
     "illustration";
 
   @media (min-width: v.$breakpoint-lg) {
+    overflow-x: visible;
     grid-template-columns: 1fr 1fr;
     column-gap: v.$spacing-2xl;
     row-gap: 0;
