@@ -4,8 +4,8 @@ import { ArrowIcon } from '@shared/components/arrow-icon/arrow-icon';
 import { formatPositionNumber } from '@shared/utils/position-number';
 import { ClockIcon } from '@shared/components/clock-icon/clock-icon';
 import {
-  BadgeInfo,
   getBadgeInfo,
+  getBadgeText,
   isUrgentBadge,
 } from '@survey/rules/deadline-badge';
 
@@ -24,7 +24,7 @@ export class SurveyCard {
   number = input<number | null>(null);
   formattedNumber = computed(() => this.buildNumberText(this.number()));
   badgeInfo = computed(() => getBadgeInfo(this.deadline()));
-  badgeText = computed(() => this.buildBadgeText(this.badgeInfo()));
+  badgeText = computed(() => getBadgeText(this.badgeInfo()));
   isUrgent = computed(() => isUrgentBadge(this.badgeInfo()));
 
   /**
@@ -38,28 +38,5 @@ export class SurveyCard {
   private buildNumberText(position: number | null): string {
     if (position === null) return '';
     return formatPositionNumber(position);
-  }
-
-  /**
-   * @description Turns the stage into the text that is shown on the badge.
-   * The texts are fixed, so a switch fits here.
-   * @private
-   * @param {BadgeInfo} badgeInfo - The stage and amount of the badge.
-   * @return {string} - The text that is shown on the badge.
-   * @memberof SurveyCard
-   */
-  private buildBadgeText({ stage, amount }: BadgeInfo): string {
-    switch (stage) {
-      case 'none':
-        return 'No end date';
-      case 'expired':
-        return 'Survey expired';
-      case 'today':
-        return 'Ends today';
-      case 'days':
-        return `Ends In ${amount} ${amount === 1 ? 'Day' : 'Days'}`;
-      case 'months':
-        return `Ends In ${amount} ${amount === 1 ? 'Month' : 'Months'}`;
-    }
   }
 }

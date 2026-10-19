@@ -1,7 +1,6 @@
 @use "variables" as v;
 @use "mixins" as m;
 
-// The card fills the whole height of its row, so neighbours are equally tall
 :host {
   display: grid;
 }
@@ -81,18 +80,11 @@
   }
 
   &__badge {
+    @include m.badge;
     grid-area: badge;
-    padding: v.$badge-padding;
-    background-color: v.$badge-bg;
-    color: v.$badge-text;
-    font-size: v.$font-size-xs;
-    font-weight: v.$font-weight-semibold;
-    border-radius: v.$radius-pill;
-    width: fit-content;
     transition:
       background-color 0.2s ease,
       box-shadow 0.2s ease;
-    @include m.flex($align: center, $gap: v.$badge-gap);
 
     &--urgent {
       background-color: v.$badge-urgent-bg;
