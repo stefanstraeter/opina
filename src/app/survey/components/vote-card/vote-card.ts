@@ -14,11 +14,16 @@ import { ClockIcon } from '@shared/components/clock-icon/clock-icon';
 import { Survey } from '@survey/model/interfaces/survey';
 import { VoteQuestion } from './vote-question/vote-question';
 import { Surveys } from '@survey/services/surveys';
-import { Notifications } from '@core/services/notifications';
+import { ConfirmationData, Notifications } from '@core/services/notifications';
 import {
   markSurveyAsVoted,
   hasVotedForSurvey,
 } from '@survey/services/vote-storage';
+import {
+  getBadgeInfo,
+  getBadgeText,
+  isUrgentBadge,
+} from '@survey/rules/deadline-badge';
 import { hasEnded } from '@survey/rules/survey-filter';
 import { todayAsIsoDate } from '@shared/utils/date';
 import {
@@ -106,7 +111,7 @@ export class VoteCard {
 
   /**
    * @description Blocks the complete button, remembers in this browser that
-   * the survey was voted on, shows a thank-you notification and navigates
+   * the survey was voted on, shows the thank-you card and navigates
    * back to the home page after a short delay.
    * @private
    * @return {void}
@@ -115,8 +120,33 @@ export class VoteCard {
   private handleVoteSuccess(): void {
     this.hasCompleted.set(true);
     markSurveyAsVoted(this.survey().id);
-    this.notifications.show('Thank you for voting!');
+    this.notifications.showConfirmation(
+      this.buildConfirmation(),
+      REDIRECT_DELAY_MS,
+    );
     setTimeout(() => this.router.navigate(['/']), REDIRECT_DELAY_MS);
+  }
+
+  /**
+   * @description Builds the content of the thank-you card. The end date of the
+   * survey is shown as a badge, the same one as on the survey cards.
+   * @private
+   * @return {ConfirmationData} - The content of the card.
+   * @memberof VoteCard
+   */
+  private buildConfirmation(): ConfirmationData {
+    const badgeInfo = getBadgeInfo(this.survey().deadline);
+    return {
+      tone: 'accent',
+      eyebrow: 'Vote submitted',
+      headline: 'Thank you for voting.',
+      text: 'Your answers have been saved. You can follow the results live until the survey ends.',
+      category: this.survey().category,
+      title: this.survey().title,
+      info: getBadgeText(badgeInfo),
+      infoAsBadge: true,
+      isInfoUrgent: isUrgentBadge(badgeInfo),
+    };
   }
 
   /**
