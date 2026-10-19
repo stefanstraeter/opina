@@ -6,7 +6,7 @@
 
 Angular 22 · TypeScript · Supabase · SCSS
 
-[Live demo](https://YOUR-LIVE-DEMO-URL) · [Report a bug](https://github.com/stefanstraeter/opina/issues)
+[Live demo](https://stefanstraeter.github.io/opina/) · [Report a bug](https://github.com/stefanstraeter/opina/issues)
 
 <br />
 
