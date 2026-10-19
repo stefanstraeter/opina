@@ -7,44 +7,31 @@
 
 .disclosure-button {
   @include m.flex($align: center, $justify: space-between, $gap: v.$spacing-xs);
-  background: none;
-  border: none;
   width: 100%;
-  cursor: pointer;
-  color: v.$btn-dropdown-text;
-  padding: 0;
+  min-height: v.$field-min-height;
+  padding: 0 v.$field-padding-x;
+  background-color: v.$field-bg;
+  border: 1px solid v.$field-border;
+  border-radius: v.$field-radius;
+  color: v.$field-text;
+  font-family: v.$font-family-base;
   font-size: v.$font-size-sm;
-  font-weight: v.$font-weight-bold;
+  font-weight: v.$font-weight-medium;
+  text-align: left;
+  cursor: pointer;
 
-  &--dark {
-    color: v.$color-text-dark;
+  &:focus-visible {
+    outline: none;
+    border-color: v.$field-focus-border;
+    box-shadow: 0 0 0 4px v.$field-focus-ring;
   }
 
-  // Looks like a form field: box with border, used by the Dropdown
-  &--field {
-    min-height: v.$field-min-height;
-    padding: 0 v.$field-padding-x;
-    background-color: v.$field-bg;
-    border: 1px solid v.$field-border;
-    border-radius: v.$field-radius;
-    color: v.$field-text;
-    font-family: v.$font-family-base;
-    font-weight: v.$font-weight-medium;
-    text-align: left;
+  &--invalid {
+    border-color: v.$field-border-error;
 
     &:focus-visible {
-      outline: none;
-      border-color: v.$field-focus-border;
-      box-shadow: 0 0 0 4px v.$field-focus-ring;
-    }
-
-    // Must come after :focus-visible, so the red border wins while focused
-    &.disclosure-button--invalid {
       border-color: v.$field-border-error;
-
-      &:focus-visible {
-        box-shadow: 0 0 0 4px v.$field-focus-ring-error;
-      }
+      box-shadow: 0 0 0 4px v.$field-focus-ring-error;
     }
   }
 
@@ -52,23 +39,8 @@
     width: 1.4rem;
     height: 1.4rem;
     flex-shrink: 0;
-    transition: color 0.2s ease;
-
-    &--open {
-      color: v.$toggle-icon-hover;
-    }
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover .disclosure-button__chevron {
-      color: v.$toggle-icon-hover;
-    }
-  }
-
-  // Field: chevron is grey, terracotta on hover and while open.
-  // Must come after the rules above (same specificity, the later one wins).
-  &--field &__chevron {
     color: v.$field-chevron;
+    transition: color 0.2s ease;
 
     &--open {
       color: v.$field-chevron-active;
@@ -76,7 +48,7 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    &--field:hover &__chevron {
+    &:hover &__chevron {
       color: v.$field-chevron-active;
     }
   }

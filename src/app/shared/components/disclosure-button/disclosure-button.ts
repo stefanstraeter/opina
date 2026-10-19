@@ -1,10 +1,10 @@
 import { Component, input, output } from '@angular/core';
 
 /**
- * @description Button with a label and a chevron that flips between up/down
- * depending on isOpen. Used for anything that can be expanded/collapsed
- * (Dropdown header and SurveyResults toggle). Does not own the open/closed
- * state itself - the parent decides via isOpen and reacts to toggled.
+ * @description Button that looks like a form field, with a label and a chevron
+ * that flips between up/down depending on isOpen. Used as the header of the
+ * Dropdown. Does not own the open/closed state itself - the parent decides via
+ * isOpen and reacts to toggled. With invalid it gets a red border.
  * @export
  * @class DisclosureButton
  */
@@ -16,8 +16,6 @@ import { Component, input, output } from '@angular/core';
 })
 export class DisclosureButton {
   isOpen = input.required<boolean>();
-  color = input<'light' | 'dark'>('light');
-  appearance = input<'plain' | 'field'>('plain');
   invalid = input<boolean>(false);
   toggled = output<void>();
 
