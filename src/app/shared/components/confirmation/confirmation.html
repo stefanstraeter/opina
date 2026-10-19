@@ -1,0 +1,34 @@
+@if (displayedData(); as data) {
+<div
+  class="confirmation-backdrop"
+  [class.confirmation-backdrop--leaving]="isLeaving()"
+></div>
+<div
+  class="confirmation"
+  role="status"
+  [class.confirmation--success]="data.tone === 'success'"
+  [class.confirmation--leaving]="isLeaving()"
+  (animationend)="onLeaveAnimationEnd()"
+>
+  <span class="confirmation__icon"><app-check-icon /></span>
+  <p class="confirmation__eyebrow">{{ data.eyebrow }}</p>
+  <h2 class="confirmation__headline">{{ data.headline }}</h2>
+  <p class="confirmation__text">{{ data.text }}</p>
+
+  <div class="confirmation__item">
+    <p class="confirmation__category">{{ data.category }}</p>
+    <p class="confirmation__title">{{ data.title }}</p>
+    @if (data.infoAsBadge) {
+    <p
+      class="confirmation__badge"
+      [class.confirmation__badge--urgent]="data.isInfoUrgent"
+    >
+      <app-clock-icon />
+      {{ data.info }}
+    </p>
+    } @else {
+    <p class="confirmation__info">{{ data.info }}</p>
+    }
+  </div>
+</div>
+}

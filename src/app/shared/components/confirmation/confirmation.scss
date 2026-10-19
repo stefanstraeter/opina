@@ -1,0 +1,161 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: v.$z-index-feedback;
+  display: grid;
+  place-items: end center;
+  pointer-events: none;
+
+  @media (min-width: v.$breakpoint-sm) {
+    place-items: center;
+    padding: v.$spacing-md;
+  }
+}
+
+.confirmation-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: auto;
+  background-color: v.$confirmation-backdrop;
+  animation: confirmation-fade-in v.$feedback-duration ease-out;
+
+  &--leaving {
+    animation: confirmation-fade-out v.$feedback-duration ease-in forwards;
+  }
+}
+
+.confirmation {
+  --confirmation-offset: 100%;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: v.$spacing-lg v.$spacing-md;
+  background-color: v.$card-bg;
+  border-radius: v.$panel-radius-mobile v.$panel-radius-mobile 0 0;
+  pointer-events: auto;
+  animation: confirmation-slide-in v.$feedback-duration ease-out;
+
+  @media (min-width: v.$breakpoint-sm) {
+    --confirmation-offset: #{v.$feedback-slide-offset};
+    max-width: v.$confirmation-max-width;
+    padding: v.$card-padding-large;
+    border-radius: v.$card-radius-large;
+  }
+
+  &--leaving {
+    animation: confirmation-slide-out v.$feedback-duration ease-in forwards;
+  }
+
+  &__icon {
+    @include m.flex($justify: center, $align: center);
+    width: v.$confirmation-icon-size;
+    height: v.$confirmation-icon-size;
+    border-radius: v.$confirmation-icon-radius;
+    background-color: v.$confirmation-icon-bg;
+    color: v.$confirmation-icon-color;
+  }
+
+  &__eyebrow {
+    @include m.eyebrow(v.$font-size-2xs);
+    margin-top: v.$spacing-md;
+  }
+
+  &__headline {
+    margin-top: v.$spacing-xs;
+    font-size: v.$font-size-confirmation-title-mobile;
+    line-height: v.$line-height-heading;
+    letter-spacing: v.$letter-spacing-tight;
+
+    @media (min-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-confirmation-title;
+    }
+  }
+
+  &__text {
+    margin-top: v.$spacing-xs;
+    color: v.$color-text-muted;
+  }
+
+  &__item {
+    margin-top: v.$spacing-lg;
+    padding-top: v.$spacing-md;
+    border-top: 1px solid v.$card-border;
+  }
+
+  &__category {
+    @include m.eyebrow(v.$font-size-2xs);
+  }
+
+  &__title {
+    margin-top: v.$spacing-xxs;
+    font-weight: v.$font-weight-bold;
+  }
+
+  &__info {
+    margin-top: v.$spacing-xxs;
+    font-size: v.$font-size-xs;
+    color: v.$color-text-muted;
+  }
+
+  &__badge {
+    @include m.badge;
+    margin-top: v.$spacing-xs;
+
+    &--urgent {
+      background-color: v.$badge-urgent-bg;
+      color: v.$badge-urgent-text;
+    }
+  }
+
+  &--success &__icon {
+    background-color: v.$status-badge-published;
+    color: v.$status-badge-published-text;
+  }
+
+  &--success &__eyebrow {
+    color: v.$status-badge-published-text;
+  }
+}
+
+@keyframes confirmation-slide-in {
+  from {
+    transform: translateY(var(--confirmation-offset));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes confirmation-slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(var(--confirmation-offset));
+    opacity: 0;
+  }
+}
+
+@keyframes confirmation-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confirmation-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
