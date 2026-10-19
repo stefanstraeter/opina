@@ -1,14 +1,5 @@
-// ##########################################################################
-// ##########################################################################
-//
-//   OPINA REDESIGN: NEW TOKENS
-//   Everything in this part already belongs to the new design.
-//
-// ##########################################################################
-// ##########################################################################
-
 // ==========================================================================
-// PRIMITIVES (NEW)
+// PRIMITIVES
 // ==========================================================================
 
 // Cream Scale (backgrounds, surfaces, borders)
@@ -42,7 +33,7 @@ $green-100: #e3eddf;
 $green-700: #2f5a2a;
 
 // ==========================================================================
-// TYPOGRAPHY (NEW)
+// TYPOGRAPHY
 // ==========================================================================
 
 // Font families
@@ -50,12 +41,12 @@ $font-family-base: "Satoshi", system-ui, sans-serif;
 $font-family-heading: "Zodiak", system-ui, serif;
 $font-family-label: "Satoshi", system-ui, sans-serif;
 
-// Font size scale (general purpose, 1rem = 16px)
-$font-size-2xs: 0.6875rem; // 11px: eyebrow, LIVE badge
-$font-size-xs: 0.75rem; // 12px: badges, meta, helper text
-$font-size-sm: 0.875rem; // 14px: labels, buttons, inputs
-$font-size-md: 1rem; // 16px: body text
-$font-size-lg: 1.25rem; // 20px: logo, emphasis
+// Font size scale (1rem = 16px)
+$font-size-2xs: 0.6875rem; // eyebrow, LIVE badge
+$font-size-xs: 0.75rem; // badges, meta, helper text
+$font-size-sm: 0.875rem; // labels, buttons, inputs
+$font-size-md: 1rem; // body text
+$font-size-lg: 1.25rem; // logo, emphasis
 
 // Headline sizes
 $font-size-hero-title: clamp(2.75rem, 6vw, 4.75rem);
@@ -67,8 +58,8 @@ $font-size-card-title: 1.625rem;
 $font-size-card-title-mobile: 1.375rem;
 $font-size-card-number: 1.5rem;
 $font-size-card-number-mobile: 1.25rem;
-$font-size-question-number: 1.25rem; // 20px, "01" in front of a question
-$question-number-width: 1.75rem; // fixed width of "01", the hint is indented by this + the gap
+$font-size-question-number: 1.25rem;
+$question-number-width: 1.75rem;
 
 // Text colors
 $color-text-dark: $espresso-900;
@@ -79,6 +70,12 @@ $color-text-highlight: $terracotta-500;
 $color-text-accent: $terracotta-700;
 $color-text-error: $red-700;
 $color-heading: $espresso-900;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
 
 // Letter spacing
 $letter-spacing-tight: -0.02em;
@@ -91,7 +88,44 @@ $line-height-heading: 1.15;
 $line-height-base: 1.5;
 
 // ==========================================================================
-// COMPONENT (NEW)
+// SPACING & LAYOUT
+// ==========================================================================
+
+$spacing-xxs: 0.1rem;
+$spacing-xs: 0.5rem;
+$spacing-sm: 0.75rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.6rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 4rem;
+
+$content-width: 90rem;
+
+// ==========================================================================
+// BREAKPOINTS
+// ==========================================================================
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+
+// ==========================================================================
+// SHAPES
+// ==========================================================================
+
+$radius-sm: 8px;
+$radius-pill: 999px;
+
+// ==========================================================================
+// STATE
+// ==========================================================================
+
+$opacity-disabled: 0.5;
+
+// ==========================================================================
+// COMPONENT
 // ==========================================================================
 
 // Backgrounds
@@ -107,26 +141,29 @@ $card-radius-list: 1rem;
 $card-padding: 1.625rem;
 $card-padding-list: 1.75rem 1.75rem;
 $card-hover-scale: 1.02;
-$card-arrow-size: 2.25rem; // 36px, round arrow on the highlight card
+$card-arrow-size: 2.25rem;
+
 // Big cards on the detail page
-$card-radius-large: 1.5rem; // 24px
-$card-padding-large: 2.5rem; // 40px
-$detail-description-max-width: 38.75rem; // 620px
-$detail-question-min-width: 17.5rem; // 280px
+$card-radius-large: 1.5rem;
+$card-padding-large: 2.5rem;
+$detail-description-max-width: 38.75rem;
+$detail-question-min-width: 17.5rem;
 $card-shadow-hover: 0 8px 18px rgba(74, 40, 24, 0.12);
+
 // Room that a scroll container has to leave so the hover shadow is not cut off
 $card-shadow-space-top: 1rem;
-$card-shadow-space-inline: 1rem; // same as the page padding, so the row reaches the screen edge
-$card-shadow-space-bottom: 2rem; // shadow offset + blur + the card growing on hover
+$card-shadow-space-inline: 1rem;
+$card-shadow-space-bottom: 2rem;
 
 // "Ending soon" row below lg: card is 90% wide, but never wider than this
-$highlight-card-max-width: 24rem; // 384px
+$highlight-card-max-width: 24rem;
 
 // Survey list (columns fill the width, each at least this wide)
 $survey-list-column-min-width: 21.25rem;
-// Space kept free below the filters so the page does not jump (estimated)
-$survey-list-min-height-mobile: 41rem; // about 4 cards in one column
-$survey-list-min-height: 16rem; // about 2 rows of cards
+
+// Space kept free below the filters so the page does not jump
+$survey-list-min-height-mobile: 41rem;
+$survey-list-min-height: 16rem; //
 
 // Hero illustration (drop-shadow, not box-shadow: it follows the rounded SVG)
 $hero-illustration-shadow: drop-shadow(
@@ -134,12 +171,13 @@ $hero-illustration-shadow: drop-shadow(
 );
 $hero-illustration-fan-transition: 0.35s ease;
 
-// Air below the content of a page (each page sets it itself)
-$page-padding-bottom: 4rem; // 64px
+// Air below the content of a page
+$page-padding-bottom: 4rem;
 
 // Sticky header
 $z-index-header: 20;
-// Header height (mobile 4.75rem, from $breakpoint-sm 6.5rem) plus a little air
+
+// Header height
 $header-scroll-offset-mobile: 5rem;
 $header-scroll-offset: 7rem;
 
@@ -149,9 +187,8 @@ $hero-description-gap: 1.5rem;
 $hero-cta-gap: 2.25rem;
 
 // Badges (pill shape)
-$radius-pill: 999px;
 $badge-padding: 0.3125rem 0.75rem;
-$badge-gap: 0.375rem; // between clock icon and text
+$badge-gap: 0.375rem;
 $badge-bg: $cream-200;
 $badge-border-hover: $cream-400;
 $badge-text: $espresso-700;
@@ -171,6 +208,7 @@ $btn-padding-x: 1.5rem;
 $btn-gap: 0.375rem;
 $btn-font-size: $font-size-sm;
 $btn-round-size: 2.75rem;
+
 // Keyboard focus ring (all buttons)
 $btn-focus-ring-color: $terracotta-500;
 $btn-focus-ring-width: 2px;
@@ -195,11 +233,11 @@ $btn-tertiary-border-hover: $espresso-900;
 // Text Button (no background, "Add answer")
 $btn-text-color: $terracotta-700;
 $btn-text-color-hover: $terracotta-500;
-$btn-text-padding-start: 0.25rem; // 4px, the icon sits close to the edge
-$btn-text-padding-x: 0.875rem; // 14px
+$btn-text-padding-start: 0.25rem;
+$btn-text-padding-x: 0.875rem;
 
 // Dashed Button (wide area, "Add next question")
-$btn-dashed-min-height: 4rem; // 64px
+$btn-dashed-min-height: 4rem;
 $btn-dashed-text: $terracotta-700;
 $btn-dashed-border: $terracotta-300;
 $btn-dashed-border-hover: $terracotta-500;
@@ -211,9 +249,9 @@ $btn-icon-text-hover: $espresso-900;
 
 // Filter Button (segment control: the track holds the buttons)
 $filter-track-bg: $cream-200;
-$filter-track-padding: 0.25rem; // 4px
-$btn-filter-height: 2.5rem; // 40px
-$btn-filter-padding-x: 1.25rem; // 20px
+$filter-track-padding: 0.25rem;
+$btn-filter-height: 2.5rem;
+$btn-filter-padding-x: 1.25rem;
 $btn-filter-text: $espresso-600;
 $btn-filter-hover-bg: $cream-300;
 $btn-filter-active-bg: $cream-50;
@@ -221,16 +259,16 @@ $btn-filter-active-text: $espresso-900;
 $btn-filter-active-shadow: 0 1px 3px rgba(74, 40, 24, 0.12);
 
 // Form fields (dropdown now, inputs later)
-$field-min-height: 2.5rem; // 40px, all fields (dropdown, inputs)
-$field-padding-x-large: 1rem; // 16px, text inputs
-$textarea-min-height: 8.25rem; // 132px
-$field-padding-x: 0.875rem; // 14px
-$field-radius: 0.75rem; // 12px
+$field-min-height: 2.5rem;
+$field-padding-x-large: 1rem;
+$textarea-min-height: 8.25rem;
+$field-padding-x: 0.875rem;
+$field-radius: 0.75rem;
 $field-bg: $cream-50;
 $field-border: $cream-400;
 $field-text: $espresso-900;
 $field-placeholder: $espresso-400;
-$field-placeholder-font-size: $font-size-sm; // 12px, only for text inputs
+$field-placeholder-font-size: $font-size-sm;
 $field-chevron: $espresso-600;
 $field-chevron-active: $terracotta-500;
 $field-focus-border: $terracotta-500;
@@ -239,8 +277,8 @@ $field-border-error: $red-500;
 $field-focus-ring-error: $red-100;
 
 // Checkbox
-$checkbox-size: 1.125rem; // 18px
-$checkbox-radius: 0.25rem; // 4px
+$checkbox-size: 1.125rem;
+$checkbox-radius: 0.25rem;
 $checkbox-bg: $cream-50;
 $checkbox-border: $espresso-600;
 $checkbox-border-hover: $terracotta-500;
@@ -248,116 +286,63 @@ $checkbox-bg-checked: $terracotta-500;
 $checkbox-check: $cream-50;
 
 // Answer option (a row on the vote card)
-$answer-option-min-height: 2.875rem; // 46px
+$answer-option-min-height: 2.875rem;
 $answer-option-padding: 0.5rem 0.875rem;
 $answer-option-bg-selected: $terracotta-100;
 $answer-option-border-selected: $terracotta-500;
 
 // Answer letter box (create form, "A" in front of an answer field)
-$answer-letter-size: 2rem; // 32px
-$answer-letter-radius: 0.625rem; // 10px
+$answer-letter-size: 2rem;
+$answer-letter-radius: 0.625rem;
 $answer-letter-bg: $terracotta-100;
 $answer-letter-text: $terracotta-700;
 
 // Progress bar (result bars)
-$progress-bar-height: 0.5rem; // 8px
+$progress-bar-height: 0.5rem;
 $progress-bar-track-bg: $cream-200;
 $progress-bar-fill-bg: $terracotta-300;
 $progress-bar-fill-highest-bg: $terracotta-500;
-$progress-bar-label-width: 2.5rem; // 40px, room for "100%"
+$progress-bar-label-width: 2.5rem;
 
 // Results card
-$results-card-padding: 2rem; // 32px
-$live-dot-size: 0.375rem; // 6px, dot in the LIVE badge
-$results-button-padding-x: 0.875rem; // 14px, "Results" button in the header
+$results-card-padding: 2rem;
+$live-dot-size: 0.375rem;
+$results-button-padding-x: 0.875rem;
 
 // Panel (light sheet on the dark "Create survey" page)
-$panel-radius-mobile: 1.625rem; // 26px, top corners only
-$panel-radius: 1.75rem; // 28px, all corners
+$panel-radius-mobile: 1.625rem;
+$panel-radius: 1.75rem;
 $panel-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
-$panel-max-width: 60rem; // 960px
+$panel-max-width: 60rem;
+
+// Confirmation card (after publishing or voting)
+$z-index-feedback: 100;
+$confirmation-backdrop: rgba(42, 29, 24, 0.5);
+$confirmation-max-width: 32rem;
+$confirmation-icon-size: 3rem;
+$confirmation-icon-radius: 0.75rem;
+$confirmation-icon-bg: $terracotta-100;
+$confirmation-icon-color: $terracotta-500;
+$feedback-slide-offset: 1.25rem;
+$feedback-duration: 0.3s;
+$font-size-confirmation-title: 2rem;
+$font-size-confirmation-title-mobile: 1.75rem;
+
+// Error toast (small card at the bottom)
+$overlay-max-width: 22rem;
+$overlay-border: $red-100;
 
 // Carousel dots (mobile "Ending soon" row)
-$carousel-dot-size: 0.375rem; // 6px
-$carousel-dot-active-width: 1.125rem; // 18px
+$carousel-dot-size: 0.375rem;
+$carousel-dot-active-width: 1.125rem;
 $carousel-dot-gap: 0.375rem;
 $carousel-dot-color: $cream-400;
 $carousel-dot-active-color: $terracotta-500;
+
+// Scrollbar
+$scrollbar-thumb: $cream-400;
 
 // Dropdown
 $dropdown-min-width: 14rem;
 $dropdown-option-hover-bg: $cream-200;
 $dropdown-option-selected-bg: $terracotta-100;
-
-// ##########################################################################
-// ##########################################################################
-//
-//   BASICS
-//   Shared scales that do not depend on the design (spacing, weights,
-//   breakpoints).
-//
-// ##########################################################################
-// ##########################################################################
-
-// Font weights
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
-
-// Spacing
-$spacing-xxs: 0.1rem;
-$spacing-xs: 0.5rem;
-$spacing-sm: 0.75rem;
-$spacing-md: 1rem;
-$spacing-lg: 1.6rem;
-$spacing-xl: 2rem;
-$spacing-2xl: 4rem;
-
-$content-width: 90rem;
-
-// State
-$opacity-disabled: 0.5;
-
-// Breakpoints
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px;
-$breakpoint-xxl: 1440px;
-
-// ##########################################################################
-// ##########################################################################
-//
-//   STILL OLD: TOKENS THAT HAVE TO BE MIGRATED
-//   Only what is still used: the overlay (notifications), the scrollbar and
-//   the chevron hover of the DisclosureButton. They keep the Poll App look.
-//
-// ##########################################################################
-// ##########################################################################
-
-$neutral-000: #ffffff;
-$neutral-600: #bababa;
-$transparent: #fbf5fe49;
-$orange-100: #fee9d4;
-$orange-300: #ffcfa1;
-$black-000: #00000056;
-
-$color-text-transparent: $transparent;
-
-// Shapes
-$radius-none: 0;
-$radius-sm: 8px;
-$radius-xl: 32px;
-$status-overlay-asymmetric-radius: $radius-none $radius-xl $radius-none
-  $radius-none;
-
-// Overlay
-$bg-overlay: $black-000;
-
-// DisclosureButton (plain look, SurveyResults toggle)
-$btn-dropdown-text: $neutral-000;
-$toggle-icon-hover: $orange-300;
-
-// Scrollbars
-$scrollbar-thumb-neutral: $neutral-600;
