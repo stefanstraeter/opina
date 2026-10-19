@@ -49,6 +49,28 @@ export function isUrgentBadge({ stage, amount }: BadgeInfo): boolean {
 }
 
 /**
+ * @description Turns the stage into the text that is shown on the badge.
+ * The texts are fixed, so a switch fits here.
+ * @export
+ * @param {BadgeInfo} badgeInfo - The stage and amount of the badge.
+ * @return {string} - The text that is shown on the badge.
+ */
+export function getBadgeText({ stage, amount }: BadgeInfo): string {
+  switch (stage) {
+    case 'none':
+      return 'No end date';
+    case 'expired':
+      return 'Survey expired';
+    case 'today':
+      return 'Ends today';
+    case 'days':
+      return `Ends In ${amount} ${amount === 1 ? 'Day' : 'Days'}`;
+    case 'months':
+      return `Ends In ${amount} ${amount === 1 ? 'Month' : 'Months'}`;
+  }
+}
+
+/**
  * @description Counts the full days from today until the end date.
  * Both dates are set to midnight, so only the calendar day counts.
  * @param {string} deadline - The end date in the format YYYY-MM-DD.
