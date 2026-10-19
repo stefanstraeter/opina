@@ -52,7 +52,6 @@
 
   &__multiple {
     @include m.flex($align: center, $gap: v.$spacing-xs);
-    min-height: v.$btn-round-size;
     font-size: v.$font-size-sm;
     color: v.$color-text-muted;
     cursor: pointer;
@@ -80,7 +79,6 @@
     list-style: none;
     @include m.flex($direction: column, $gap: v.$spacing-xxs);
   }
-
 }
 
 .input-field {
