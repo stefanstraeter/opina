@@ -27,6 +27,7 @@ $terracotta-700: #8a3c1c;
 
 // Espresso Scale (text)
 $espresso-200: #c9a898;
+$espresso-400: #9c8a80;
 $espresso-600: #6e5d55;
 $espresso-700: #5b4a42;
 $espresso-900: #2a1d18;
@@ -206,13 +207,16 @@ $btn-filter-active-text: $espresso-900;
 $btn-filter-active-shadow: 0 1px 3px rgba(74, 40, 24, 0.12);
 
 // Form fields (dropdown now, inputs later)
-$field-min-height: 2.5rem; // 40px
+$field-min-height: 2.5rem; // 40px, all fields (dropdown, inputs)
+$field-padding-x-large: 1rem; // 16px, text inputs
+$textarea-min-height: 8.25rem; // 132px
 $field-padding-x: 0.875rem; // 14px
 $field-radius: 0.75rem; // 12px
 $field-bg: $cream-50;
 $field-border: $cream-400;
 $field-text: $espresso-900;
-$field-placeholder: $espresso-600;
+$field-placeholder: $espresso-400;
+$field-placeholder-font-size: $font-size-sm; // 12px, only for text inputs
 $field-chevron: $espresso-600;
 $field-chevron-active: $terracotta-500;
 $field-focus-border: $terracotta-500;
