@@ -245,6 +245,12 @@ $answer-option-padding: 0.5rem 0.875rem;
 $answer-option-bg-selected: $terracotta-100;
 $answer-option-border-selected: $terracotta-500;
 
+// Answer letter box (create form, "A" in front of an answer field)
+$answer-letter-size: 2rem; // 32px
+$answer-letter-radius: 0.625rem; // 10px
+$answer-letter-bg: $terracotta-100;
+$answer-letter-text: $terracotta-700;
+
 // Progress bar (result bars)
 $progress-bar-height: 0.5rem; // 8px
 $progress-bar-track-bg: $cream-200;
