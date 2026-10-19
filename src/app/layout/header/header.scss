@@ -22,7 +22,6 @@
       padding: v.$spacing-xl v.$spacing-md;
     }
 
-    // Create page: as wide as the panel, the logo sits on its left edge
     &--narrow {
       @media (min-width: v.$breakpoint-lg) {
         max-width: v.$panel-max-width;
