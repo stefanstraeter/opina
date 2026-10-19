@@ -1,6 +1,11 @@
 @use "variables" as v;
 @use "mixins" as m;
 
+// The card fills the whole height of its row, so neighbours are equally tall
+:host {
+  display: grid;
+}
+
 .survey-card {
   display: grid;
   position: relative;
