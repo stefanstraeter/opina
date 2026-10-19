@@ -40,6 +40,7 @@
 
   &__field {
     @include m.flex($direction: column, $gap: v.$spacing-xs);
+    min-width: 0;
 
     &--name {
       grid-area: name;
@@ -98,6 +99,8 @@
   @include m.text-field;
 
   &[type="date"] {
+    min-width: 0;
+    max-width: 100%;
     font-size: v.$font-size-sm;
   }
 }
