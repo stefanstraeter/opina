@@ -11,7 +11,6 @@ import { clearControl } from '@shared/forms/clear-control';
 import { notBeforeDate } from '@shared/validators/date';
 import { todayAsIsoDate } from '@shared/utils/date';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
-import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
 import { PlusIcon } from '@shared/components/plus-icon/plus-icon';
 import { SURVEY_CATEGORIES } from '@survey/model/constants/survey-categories';
 import { Survey } from '@survey/model/interfaces/survey';
@@ -32,7 +31,6 @@ import {
   imports: [
     Button,
     Dropdown,
-    DeleteIcon,
     PlusIcon,
     CreateQuestion,
     ReactiveFormsModule,
@@ -92,30 +90,6 @@ export class SurveyForm {
    */
   private clearFirstQuestion(): void {
     clearControl(this.surveyForm.controls.questions.at(0).controls.text);
-  }
-
-  /**
-   * @description Empties the survey title.
-   * @memberof SurveyForm
-   */
-  clearTitle(): void {
-    clearControl(this.surveyForm.controls.title);
-  }
-
-  /**
-   * @description Empties the description.
-   * @memberof SurveyForm
-   */
-  clearDescription(): void {
-    clearControl(this.surveyForm.controls.description);
-  }
-
-  /**
-   * @description Empties the end date, so the survey has no end date.
-   * @memberof SurveyForm
-   */
-  clearDeadline(): void {
-    clearControl(this.surveyForm.controls.deadline);
   }
 
   /**

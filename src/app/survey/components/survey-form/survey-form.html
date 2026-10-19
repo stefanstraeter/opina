@@ -1,12 +1,7 @@
 <form class="survey-form" [formGroup]="surveyForm" (ngSubmit)="handleSubmit()">
   <section class="survey-form__card">
     <div class="survey-form__field survey-form__field--name">
-      <div class="survey-form__field-header">
-        <span class="survey-form__label">Survey name</span>
-        <app-button variant="icon" class="delete-btn" (click)="clearTitle()">
-          <app-delete-icon />
-        </app-button>
-      </div>
+      <span class="survey-form__label">Survey name</span>
       <input
         type="text"
         class="input-field"
@@ -38,12 +33,7 @@
     </div>
 
     <div class="survey-form__field survey-form__field--enddate">
-      <div class="survey-form__field-header">
-        <span class="survey-form__label">End date - optional</span>
-        <app-button variant="icon" class="delete-btn" (click)="clearDeadline()">
-          <app-delete-icon />
-        </app-button>
-      </div>
+      <span class="survey-form__label">End date - optional</span>
       <input
         type="date"
         class="input-field"
@@ -59,16 +49,7 @@
     </div>
 
     <div class="survey-form__field survey-form__field--describing">
-      <div class="survey-form__field-header">
-        <span class="survey-form__label">Describing text - optional</span>
-        <app-button
-          variant="icon"
-          class="delete-btn"
-          (click)="clearDescription()"
-        >
-          <app-delete-icon />
-        </app-button>
-      </div>
+      <span class="survey-form__label">Describing text - optional</span>
       <textarea
         class="textarea-field"
         placeholder=""
