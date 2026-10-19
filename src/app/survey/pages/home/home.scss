@@ -10,7 +10,6 @@
   display: grid;
   gap: v.$spacing-lg;
   padding: v.$spacing-xl v.$spacing-md;
-  // The tilted illustration cards stick out a little, do not let them widen the page
   overflow-x: clip;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -63,7 +62,6 @@
     color: v.$color-text-highlight;
   }
 
-  // Mobile: buttons stacked, full width. Desktop: side by side.
   &__actions {
     grid-area: cta;
     @include m.flex($direction: column, $gap: v.$spacing-sm);
