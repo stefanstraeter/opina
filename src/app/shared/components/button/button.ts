@@ -9,7 +9,7 @@ import { Component, input } from '@angular/core';
 export class Button {
   type = input<'button' | 'submit'>('button');
   variant = input<
-    'primary' | 'secondary' | 'tertiary' | 'filter' | 'neutral' | 'icon'
+    'primary' | 'secondary' | 'tertiary' | 'filter' | 'text' | 'dashed' | 'icon'
   >('primary');
   size = input<'md' | 'round'>('md');
   active = input<boolean>(false);

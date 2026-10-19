@@ -73,17 +73,45 @@
     }
   }
 
-  &--neutral {
-    background-color: v.$btn-neutral-bg;
-    color: v.$btn-neutral-text;
-    font-weight: v.$font-weight-extrabold;
-    padding: v.$btn-padding-xs;
+  // Only text and an icon, no background ("Add answer")
+  &--text {
+    width: auto;
+    padding: 0 v.$btn-text-padding-x 0 v.$btn-text-padding-start;
+    background-color: transparent;
+    color: v.$btn-text-color;
+    transition: color 0.2s ease;
+
+    &:active:not(:disabled) {
+      color: v.$btn-text-color-hover;
+    }
 
     @media (hover: hover) and (pointer: fine) {
-      padding: v.$btn-padding-xs v.$btn-padding-md;
-
       &:hover:not(:disabled) {
-        background-color: v.$btn-neutral-bg-hover;
+        color: v.$btn-text-color-hover;
+      }
+    }
+  }
+
+  // Wide area with a dashed border ("Add next question")
+  &--dashed {
+    min-height: v.$btn-dashed-min-height;
+    background-color: transparent;
+    color: v.$btn-dashed-text;
+    border: 1.5px dashed v.$btn-dashed-border;
+    border-radius: v.$card-radius;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:active:not(:disabled) {
+      background-color: v.$btn-dashed-bg-hover;
+      border-color: v.$btn-dashed-border-hover;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-dashed-bg-hover;
+        border-color: v.$btn-dashed-border-hover;
       }
     }
   }
