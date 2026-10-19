@@ -27,7 +27,7 @@
 // Text input of the create form (survey name, date, question, answer)
 @mixin text-field {
   width: 100%;
-  min-height: v.$field-min-height-large;
+  min-height: v.$field-min-height;
   padding: 0 v.$field-padding-x-large;
   border: 1px solid v.$field-border;
   border-radius: v.$field-radius;
