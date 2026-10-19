@@ -4,6 +4,7 @@ import { Service, signal } from '@angular/core';
 export class HeaderActions {
   showCreateSurveyButton = signal<boolean>(false);
   showDetailControls = signal<boolean>(false);
+  isNarrow = signal<boolean>(false);
 
   /**
    * @description Shows or hides the "Create survey" button in the header.
@@ -28,5 +29,17 @@ export class HeaderActions {
    */
   setDetailControlsVisible(value: boolean): void {
     this.showDetailControls.set(value);
+  }
+
+  /**
+   * @description Makes the content of the header as narrow as the panel of
+   * the create page on large screens. The create page calls this with true
+   * when it opens and with false when it is left.
+   * @param {boolean} value - true makes the header narrow, false resets it.
+   * @return {void}
+   * @memberof HeaderActions
+   */
+  setNarrow(value: boolean): void {
+    this.isNarrow.set(value);
   }
 }

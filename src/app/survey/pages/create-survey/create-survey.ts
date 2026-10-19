@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
 import { CloseIcon } from '@shared/components/close-icon/close-icon';
+import { HeaderActions } from '@core/services/header-actions';
 import { Theme } from '@core/services/theme';
 import { Notifications } from '@core/services/notifications';
 import { Survey } from '@survey/model/interfaces/survey';
@@ -21,26 +22,29 @@ import {
 })
 export class CreateSurvey implements OnInit, OnDestroy {
   private theme = inject(Theme);
+  private headerActions = inject(HeaderActions);
   private surveysService = inject(Surveys);
   private notifications = inject(Notifications);
   private router = inject(Router);
 
   /**
-   * @description Switches to dark mode when the component is initialized.
+   * @description Switches to dark mode and narrows the header when the component is initialized.
    * @return {void}
    * @memberof CreateSurvey
    */
   ngOnInit(): void {
     this.theme.setLightMode(false);
+    this.headerActions.setNarrow(true);
   }
 
   /**
-   * @description Resets to light mode when the component is destroyed.
+   * @description Resets to light mode and the normal header when the component is destroyed.
    * @return {void}
    * @memberof CreateSurvey
    */
   ngOnDestroy(): void {
     this.theme.setLightMode(true);
+    this.headerActions.setNarrow(false);
   }
 
   /**

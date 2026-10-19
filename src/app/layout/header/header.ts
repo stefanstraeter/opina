@@ -19,6 +19,7 @@ export class Header {
   isLightMode = this.theme.isLightMode;
   showCreateSurveyButton = this.headerActions.showCreateSurveyButton;
   showDetailControls = this.headerActions.showDetailControls;
+  isNarrow = this.headerActions.isNarrow;
 
   /**
    * @description Scrolls smoothly down to the results of the survey. A plain

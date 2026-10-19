@@ -2,6 +2,7 @@
   <div
     class="header-container"
     [class.header-container--detail]="showDetailControls()"
+    [class.header-container--narrow]="isNarrow()"
   >
     @if (showDetailControls()) {
     <!-- Small screens, survey page: back button on the left -->
