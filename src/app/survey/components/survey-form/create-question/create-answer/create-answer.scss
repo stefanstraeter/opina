@@ -59,14 +59,3 @@
 .input-field {
   @include m.text-field;
 }
-
-.delete-btn {
-  color: v.$btn-action-icon;
-  transition: color 0.2s ease;
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      color: v.$btn-action-icon-hover;
-    }
-  }
-}
