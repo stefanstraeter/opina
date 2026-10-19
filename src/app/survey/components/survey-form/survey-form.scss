@@ -86,7 +86,7 @@
   &__publish {
     display: block;
     width: fit-content;
-    margin: v.$spacing-lg auto 0;
+    margin: v.$spacing-xl auto 0;
 
     @media (min-width: v.$breakpoint-lg) {
       margin-inline: auto 0;
