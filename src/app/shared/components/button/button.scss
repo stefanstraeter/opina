@@ -107,18 +107,23 @@
     }
   }
 
+  // Icon button without a background (delete): pale, stronger on hover
   &--icon {
-    padding: v.$btn-padding-xxs;
-    background-color: v.$btn-action-bg;
-    border-radius: v.$btn-border-radius-xs;
+    width: v.$btn-round-size;
+    min-height: v.$btn-round-size;
+    padding: 0;
+    background-color: transparent;
+    color: v.$btn-icon-text;
+    border-radius: v.$field-radius;
+    transition: color 0.2s ease;
 
     &:active:not(:disabled) {
-      background-color: v.$btn-action-bg-hover;
+      color: v.$btn-icon-text-hover;
     }
 
     @media (hover: hover) and (pointer: fine) {
       &:hover:not(:disabled) {
-        background-color: v.$btn-action-bg-hover;
+        color: v.$btn-icon-text-hover;
       }
     }
   }
