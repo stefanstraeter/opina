@@ -37,12 +37,8 @@
   }
 
   &__title {
+    @include m.survey-title;
     margin-top: v.$spacing-xs;
-    font-family: v.$font-family-heading;
-    font-size: v.$font-size-survey-title;
-    line-height: v.$line-height-heading;
-    letter-spacing: v.$letter-spacing-tight;
-    color: v.$color-heading;
   }
 
   &__description {
