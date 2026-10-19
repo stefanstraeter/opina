@@ -14,7 +14,7 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      transform: translateY(v.$card-hover-offset);
+      transform: scale(v.$card-hover-scale);
       box-shadow: v.$card-shadow-hover;
     }
   }
@@ -29,7 +29,7 @@
     grid-area: category;
     min-width: 0;
     @include m.eyebrow;
-    @include m.line-clamp(1);
+    @include m.line-clamp(2);
   }
 
   &__number {
