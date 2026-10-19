@@ -101,7 +101,15 @@
   &[type="date"] {
     min-width: 0;
     max-width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    text-align: start;
     font-size: v.$font-size-sm;
+
+    &::-webkit-date-and-time-value {
+      text-align: start;
+    }
   }
 }
 
