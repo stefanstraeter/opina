@@ -5,9 +5,6 @@
   display: block;
 }
 
-// One row on all screen sizes: letter | input | delete button.
-// The header only groups letter and button in the template, so it
-// disappears from the layout (display: contents).
 .create-answer {
   display: grid;
   grid-template-columns: auto 1fr auto;
