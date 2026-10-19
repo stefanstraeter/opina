@@ -11,5 +11,5 @@ import { Overlay } from '@shared/components/overlay/overlay';
   styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('poll-app');
+  protected readonly title = signal('opina');
 }
