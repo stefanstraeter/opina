@@ -10,12 +10,18 @@
   border-radius: v.$card-radius;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
+      background-color: v.$card-bg-hover;
       transform: scale(v.$card-hover-scale);
       box-shadow: v.$card-shadow-hover;
+
+      .survey-card__badge:not(.survey-card__badge--urgent) {
+        box-shadow: inset 0 0 0 1px v.$badge-border-hover;
+      }
     }
   }
 
@@ -78,6 +84,9 @@
     font-weight: v.$font-weight-semibold;
     border-radius: v.$radius-pill;
     width: fit-content;
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
     @include m.flex($align: center, $gap: v.$badge-gap);
 
     &--urgent {

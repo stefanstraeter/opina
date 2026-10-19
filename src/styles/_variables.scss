@@ -100,12 +100,13 @@ $bg-neutral: $cream-100;
 
 // Cards (one style everywhere, hover = lift + shadow, no color change)
 $card-bg: $cream-50;
+$card-bg-hover: $terracotta-100;
 $card-border: $cream-300;
 $card-radius: 1.25rem;
 $card-radius-list: 1rem;
 $card-padding: 1.625rem;
 $card-padding-list: 1.75rem 1.75rem;
-$card-hover-scale: 1.03;
+$card-hover-scale: 1.02;
 $card-arrow-size: 2.25rem; // 36px, round arrow on the highlight card
 // Big cards on the detail page
 $card-radius-large: 1.5rem; // 24px
@@ -156,7 +157,8 @@ $radius-pill: 999px;
 $badge-padding: 0.3125rem 0.75rem;
 $badge-gap: 0.375rem; // between clock icon and text
 $badge-bg: $cream-200;
-$badge-bg-hover: $cream-200;
+$badge-bg-hover: $cream-50; // badge on a hovered card (card turns terracotta)
+$badge-border-hover: $cream-400;
 $badge-text: $espresso-700;
 $badge-urgent-bg: $red-100;
 $badge-urgent-text: $red-700;
