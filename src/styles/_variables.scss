@@ -119,6 +119,9 @@ $card-shadow-space-top: 1rem;
 $card-shadow-space-inline: 1rem; // same as the page padding, so the row reaches the screen edge
 $card-shadow-space-bottom: 2rem; // shadow offset + blur + the card growing on hover
 
+// "Ending soon" row below lg: card is 90% wide, but never wider than this
+$highlight-card-max-width: 24rem; // 384px
+
 // Survey list (columns fill the width, each at least this wide)
 $survey-list-column-min-width: 21.25rem;
 // Space kept free below the filters so the page does not jump (estimated)

@@ -45,11 +45,11 @@ $design-size: 440;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover .hero-illustration__card--survey {
-      transform: rotate(-11deg) translate(-36px, -6px);
+      transform: rotate(-11deg) translate(-28px, -6px);
     }
 
     &:hover .hero-illustration__card--results {
-      transform: rotate(7deg) translate(30px, 6px);
+      transform: rotate(7deg) translate(22px, 6px);
     }
   }
 }

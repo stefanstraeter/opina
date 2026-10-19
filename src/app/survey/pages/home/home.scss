@@ -23,7 +23,7 @@
   @media (min-width: v.$breakpoint-lg) {
     overflow-x: visible;
     grid-template-columns: 1fr 1fr;
-    column-gap: v.$spacing-2xl;
+    column-gap: v.$spacing-md;
     row-gap: 0;
     align-items: center;
     grid-template-rows: 1fr repeat(4, auto) 1fr;
