@@ -104,7 +104,7 @@ $card-radius: 1.25rem;
 $card-radius-list: 1rem;
 $card-padding: 1.625rem;
 $card-padding-list: 1.75rem 1.75rem;
-$card-hover-offset: -0.25rem;
+$card-hover-scale: 1.03;
 $card-arrow-size: 2.25rem; // 36px, round arrow on the highlight card
 // Big cards on the detail page
 $card-radius-large: 1.5rem; // 24px
@@ -114,7 +114,8 @@ $detail-question-min-width: 17.5rem; // 280px
 $card-shadow-hover: 0 8px 18px rgba(74, 40, 24, 0.12);
 // Room that a scroll container has to leave so the hover shadow is not cut off
 $card-shadow-space-top: 1rem;
-$card-shadow-space-bottom: 1rem;
+$card-shadow-space-inline: 1rem; // same as the page padding, so the row reaches the screen edge
+$card-shadow-space-bottom: 2rem; // shadow offset + blur + the card growing on hover
 
 // Old card names, now all pointing to the one card style (clean up later)
 $card-dark-bg: $card-bg;
@@ -134,6 +135,9 @@ $hero-illustration-shadow: drop-shadow(
   0 0.75rem 0.75rem rgba(74, 40, 24, 0.18)
 );
 $hero-illustration-fan-transition: 0.35s ease;
+
+// Air below the content of a page (each page sets it itself)
+$page-padding-bottom: 4rem; // 64px
 
 // Sticky header
 $z-index-header: 20;
@@ -240,6 +244,12 @@ $progress-bar-label-width: 2.5rem; // 40px, room for "100%"
 $results-card-padding: 2rem; // 32px
 $live-dot-size: 0.375rem; // 6px, dot in the LIVE badge
 $results-button-padding-x: 0.875rem; // 14px, "Results" button in the header
+
+// Panel (light sheet on the dark "Create survey" page)
+$panel-radius-mobile: 1.625rem; // 26px, top corners only
+$panel-radius: 1.75rem; // 28px, all corners
+$panel-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+$panel-max-width: 60rem; // 960px
 
 // Carousel dots (mobile "Ending soon" row)
 $carousel-dot-size: 0.375rem; // 6px

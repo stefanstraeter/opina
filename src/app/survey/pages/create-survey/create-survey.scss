@@ -1,14 +1,25 @@
 @use "variables" as v;
 @use "mixins" as m;
 
+:host {
+  display: block;
+
+  @media (min-width: v.$breakpoint-lg) {
+    padding-bottom: v.$page-padding-bottom;
+  }
+}
+
 .create-survey {
-  background-color: v.$bg-dark;
-  border-radius: v.$card-asymmetric-radius;
+  background-color: v.$bg-neutral;
+  border-radius: v.$panel-radius-mobile v.$panel-radius-mobile 0 0;
   padding: v.$spacing-xl v.$spacing-md;
 
   @media (min-width: v.$breakpoint-lg) {
+    max-width: v.$panel-max-width;
+    margin: 0 auto;
     padding: v.$spacing-xl v.$spacing-2xl;
-    margin: 0 v.$spacing-md;
+    border-radius: v.$panel-radius;
+    box-shadow: v.$panel-shadow;
   }
 
   &__topbar {
