@@ -71,7 +71,6 @@
 
   .header-side {
     @include m.flex($align: center);
-    flex: 1;
 
     &--end {
       justify-content: flex-end;
