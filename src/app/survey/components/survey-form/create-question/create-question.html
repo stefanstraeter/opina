@@ -27,14 +27,14 @@
   </span>
 
   <div class="create-question__answers-header">
-    <span>Answers</span>
-    <div class="create-question__multiple">
+    <span class="create-question__answers-label">Answers</span>
+    <label class="create-question__multiple">
       <app-checkbox
         [checked]="questionGroup().controls.multiple.value"
         (toggled)="questionGroup().controls.multiple.setValue($event)"
       />
-      <span>Multiple answers</span>
-    </div>
+      Allow multiple answers
+    </label>
   </div>
 
   <ul class="create-question__answers">

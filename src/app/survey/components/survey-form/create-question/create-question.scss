@@ -45,9 +45,17 @@
     @include m.flex($justify: space-between, $align: center);
   }
 
+  &__answers-label {
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+  }
+
   &__multiple {
     @include m.flex($align: center, $gap: v.$spacing-xs);
-    font-size: v.$font-size-xs;
+    min-height: v.$btn-round-size;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-muted;
+    cursor: pointer;
   }
 
   &__answer-limit {
