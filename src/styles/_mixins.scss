@@ -47,6 +47,15 @@
     border-color: v.$field-focus-border;
     box-shadow: 0 0 0 4px v.$field-focus-ring;
   }
+
+  // Angular sets these classes, the same moment the error message shows
+  &.ng-invalid.ng-touched {
+    border-color: v.$field-border-error;
+
+    &:focus {
+      box-shadow: 0 0 0 4px v.$field-focus-ring-error;
+    }
+  }
 }
 
 // Small uppercase label above a headline (category, "Surveys · made simple")
