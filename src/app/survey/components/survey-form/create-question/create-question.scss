@@ -17,10 +17,28 @@
   }
 
   &__headline {
-    font-family: v.$font-family-base;
-    color: v.$color-text-dark;
-    font-size: v.$font-size-md;
-    font-weight: v.$font-weight-bold;
+    @include m.flex($align: baseline, $gap: v.$spacing-sm);
+  }
+
+  &__number {
+    font-family: v.$font-family-heading;
+    font-size: v.$font-size-question-number;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-text-number;
+  }
+
+  &__eyebrow {
+    @include m.eyebrow(v.$font-size-2xs);
+  }
+
+  &__hidden-label {
+    @include m.visually-hidden;
+  }
+
+  &__field {
+    @include m.flex($direction: column, $gap: v.$spacing-xs);
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
   }
 
   &__answers-header {
@@ -59,15 +77,4 @@
 
 .input-field {
   @include m.text-field;
-}
-
-.delete-btn {
-  color: v.$btn-action-icon;
-  transition: color 0.2s ease;
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      color: v.$btn-action-icon-hover;
-    }
-  }
 }

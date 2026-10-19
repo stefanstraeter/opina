@@ -1,19 +1,24 @@
 <div class="create-question" [formGroup]="questionGroup()">
   <div class="create-question__header">
     <h3 class="create-question__headline">
-      {{ questionIndex() + 1 }}. Question
+      <span class="create-question__number">{{ questionNumber() }}</span>
+      <span class="create-question__eyebrow">Question</span>
     </h3>
-    <app-button variant="icon" class="delete-btn" (click)="remove.emit()">
+    <app-button variant="icon" (click)="remove.emit()">
+      <span class="create-question__hidden-label">Delete question</span>
       <app-delete-icon />
     </app-button>
   </div>
 
-  <input
-    type="text"
-    class="input-field"
-    placeholder=""
-    formControlName="text"
-  />
+  <label class="create-question__field">
+    Question text
+    <input
+      type="text"
+      class="input-field"
+      placeholder=""
+      formControlName="text"
+    />
+  </label>
   <span
     class="create-question__error"
     [class.create-question__error--visible]="questionGroup().controls.text.invalid && questionGroup().controls.text.touched"

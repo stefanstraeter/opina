@@ -1,10 +1,11 @@
-import { Component, input, output } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Button } from '@shared/components/button/button';
 import { Checkbox } from '@shared/components/checkbox/checkbox';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
 import { PlusIcon } from '@shared/components/plus-icon/plus-icon';
 import { clearControl } from '@shared/forms/clear-control';
+import { formatPositionNumber } from '@shared/utils/position-number';
 import {
   createAnswerControl,
   QuestionFormGroup,
@@ -38,6 +39,9 @@ export class CreateQuestion {
   questionGroup = input.required<QuestionFormGroup>();
   questionIndex = input.required<number>();
   remove = output<void>();
+  questionNumber = computed(() =>
+    formatPositionNumber(this.questionIndex() + 1),
+  );
 
   /**
    * @description Adds a new answer, but only if the limit has not been reached.
