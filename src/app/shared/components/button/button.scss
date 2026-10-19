@@ -73,7 +73,6 @@
     }
   }
 
-  // Only text and an icon, no background ("Add answer")
   &--text {
     width: auto;
     padding: 0 v.$btn-text-padding-x 0 v.$btn-text-padding-start;
@@ -92,7 +91,6 @@
     }
   }
 
-  // Wide area with a dashed border ("Add next question")
   &--dashed {
     min-height: v.$btn-dashed-min-height;
     background-color: transparent;
@@ -135,7 +133,6 @@
     }
   }
 
-  // Icon button without a background (delete): pale, stronger on hover
   &--icon {
     width: v.$btn-round-size;
     min-height: v.$btn-round-size;
@@ -156,7 +153,6 @@
     }
   }
 
-  // Round, only an icon inside (width = height + pill radius = circle)
   &--round {
     width: v.$btn-round-size;
     min-height: v.$btn-round-size;
