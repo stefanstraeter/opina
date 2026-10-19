@@ -25,6 +25,7 @@
         placeholder="Choose category"
         [options]="categoryOptions"
         [selected]="surveyForm.controls.category.value"
+        [invalid]="surveyForm.controls.category.invalid && surveyForm.controls.category.touched"
         (selectedChange)="surveyForm.controls.category.setValue($event)"
       />
       <span
