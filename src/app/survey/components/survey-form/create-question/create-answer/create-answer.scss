@@ -57,24 +57,7 @@
 }
 
 .input-field {
-  width: 100%;
-  padding: v.$spacing-xs v.$spacing-md;
-  border: none;
-  border-radius: v.$input-asymmetric-radius;
-  background-color: v.$input-bg;
-  color: v.$input-text;
-  font-family: v.$font-family-base;
-  font-size: v.$font-size-md;
-
-  &::placeholder {
-    color: v.$field-placeholder;
-    font-size: v.$field-placeholder-font-size;
-  }
-
-  &:focus {
-    outline: none;
-    background-color: v.$input-bg-focus;
-  }
+  @include m.text-field;
 }
 
 .delete-btn {
