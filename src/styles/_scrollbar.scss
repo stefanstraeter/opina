@@ -2,7 +2,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: v.$scrollbar-thumb-neutral transparent;
+  scrollbar-color: v.$scrollbar-thumb transparent;
 }
 
 *::-webkit-scrollbar {
@@ -15,6 +15,6 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: v.$scrollbar-thumb-neutral;
+  background-color: v.$scrollbar-thumb;
   border-radius: v.$radius-sm;
 }
