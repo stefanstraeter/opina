@@ -15,6 +15,15 @@
   overflow: hidden;
 }
 
+// Big title of a survey page (survey detail, create survey), same look on both
+@mixin survey-title {
+  font-family: v.$font-family-heading;
+  font-size: v.$font-size-survey-title;
+  line-height: v.$line-height-heading;
+  letter-spacing: v.$letter-spacing-tight;
+  color: v.$color-heading;
+}
+
 // Small uppercase label above a headline (category, "Surveys · made simple")
 @mixin eyebrow($font-size: v.$font-size-xs) {
   font-family: v.$font-family-label;
