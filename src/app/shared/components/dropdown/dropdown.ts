@@ -16,6 +16,7 @@ export class Dropdown {
   placeholder = input.required<string>();
   options = input.required<DropdownOption[]>();
   selected = input<string>('');
+  invalid = input<boolean>(false);
   selectedChange = output<string>();
 
   isOpen = signal(false);
