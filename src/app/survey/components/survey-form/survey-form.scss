@@ -122,51 +122,18 @@
 }
 
 .input-field {
-  width: 100%;
-  padding: v.$spacing-xs v.$spacing-md;
-  border: none;
-  border-radius: v.$input-asymmetric-radius;
-  background-color: v.$input-bg;
-  color: v.$input-text;
-  font-family: v.$font-family-base;
-  font-size: v.$font-size-md;
+  @include m.text-field;
 
-  &::placeholder {
-    color: v.$field-placeholder;
-    font-size: v.$field-placeholder-font-size;
-  }
-
-  &:focus {
-    outline: none;
-    background-color: v.$input-bg-focus;
+  // Same size as the category dropdown next to it
+  &[type="date"] {
+    font-size: v.$font-size-sm;
   }
 }
 
 .textarea-field {
-  width: 100%;
-  height: 6rem;
-  resize: none;
-  overflow-y: auto;
-  padding: v.$spacing-sm v.$spacing-md;
-  border: none;
-  border-radius: v.$input-asymmetric-radius;
-  background-color: v.$input-bg;
-  color: v.$input-text;
-  font-family: v.$font-family-base;
-  font-size: v.$font-size-md;
-  scrollbar-color: v.$scrollbar-thumb-orange transparent;
-
-  &::-webkit-scrollbar-thumb {
-    background-color: v.$scrollbar-thumb-orange;
-  }
-
-  &::placeholder {
-    color: v.$field-placeholder;
-    font-size: v.$field-placeholder-font-size;
-  }
-
-  &:focus {
-    outline: none;
-    background-color: v.$input-bg-focus;
-  }
+  @include m.text-field;
+  flex: 1;
+  min-height: v.$textarea-min-height;
+  padding-block: v.$spacing-sm;
+  resize: vertical;
 }
