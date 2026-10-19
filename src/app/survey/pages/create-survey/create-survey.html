@@ -2,8 +2,21 @@
   <div class="create-survey__topbar">
     <app-status-badge status="draft" />
 
-    <app-button variant="tertiary" class="create-survey__cancel" routerLink="/">
+    <app-button
+      variant="tertiary"
+      size="round"
+      class="create-survey__cancel create-survey__cancel--round"
+      routerLink="/"
+    >
       <span class="create-survey__cancel-label">Cancel</span>
+      <app-close-icon />
+    </app-button>
+    <app-button
+      variant="tertiary"
+      class="create-survey__cancel create-survey__cancel--pill"
+      routerLink="/"
+    >
+      Cancel
       <app-close-icon />
     </app-button>
   </div>

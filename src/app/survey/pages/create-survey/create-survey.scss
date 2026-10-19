@@ -13,6 +13,11 @@
   background-color: v.$bg-neutral;
   border-radius: v.$panel-radius-mobile v.$panel-radius-mobile 0 0;
   padding: v.$spacing-xl v.$spacing-md;
+  margin-top: v.$spacing-md;
+
+  @media (min-width: v.$breakpoint-sm) {
+    margin-top: 0;
+  }
 
   @media (min-width: v.$breakpoint-lg) {
     max-width: v.$panel-max-width;
@@ -27,17 +32,29 @@
   }
 
   &__title {
-    font-family: v.$font-family-heading;
-    color: v.$color-heading;
-    font-size: v.$font-size-section-title;
-    margin-bottom: v.$spacing-md;
+    @include m.survey-title;
+    margin: v.$spacing-sm 0 v.$spacing-md;
+
+    @media (min-width: v.$breakpoint-lg) {
+      margin-bottom: v.$spacing-lg;
+    }
+  }
+
+  &__cancel--pill {
+    display: none;
   }
 
   &__cancel-label {
-    display: none;
+    @include m.visually-hidden;
+  }
 
-    @media (hover: hover) and (pointer: fine) {
-      display: inline;
+  @media (min-width: v.$breakpoint-sm) {
+    &__cancel--round {
+      display: none;
+    }
+
+    &__cancel--pill {
+      display: inline-block;
     }
   }
 }
