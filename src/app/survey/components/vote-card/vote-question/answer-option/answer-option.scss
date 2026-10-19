@@ -5,7 +5,6 @@
   display: block;
 }
 
-// The whole row is a label, so a click anywhere on it toggles the checkbox
 .answer-option {
   @include m.flex($align: center, $gap: v.$spacing-sm);
   min-height: v.$answer-option-min-height;
