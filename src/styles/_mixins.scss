@@ -24,6 +24,31 @@
   color: v.$color-heading;
 }
 
+// Text input of the create form (survey name, date, question, answer)
+@mixin text-field {
+  width: 100%;
+  min-height: v.$field-min-height-large;
+  padding: 0 v.$field-padding-x-large;
+  border: 1px solid v.$field-border;
+  border-radius: v.$field-radius;
+  background-color: v.$field-bg;
+  color: v.$field-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+  font-weight: v.$font-weight-medium;
+
+  &::placeholder {
+    color: v.$field-placeholder;
+    font-size: v.$field-placeholder-font-size;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: v.$field-focus-border;
+    box-shadow: 0 0 0 4px v.$field-focus-ring;
+  }
+}
+
 // Small uppercase label above a headline (category, "Surveys · made simple")
 @mixin eyebrow($font-size: v.$font-size-xs) {
   font-family: v.$font-family-label;
