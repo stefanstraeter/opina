@@ -67,7 +67,8 @@
   font-size: v.$font-size-md;
 
   &::placeholder {
-    color: v.$input-placeholder;
+    color: v.$field-placeholder;
+    font-size: v.$field-placeholder-font-size;
   }
 
   &:focus {
