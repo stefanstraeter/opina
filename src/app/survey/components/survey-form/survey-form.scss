@@ -6,29 +6,28 @@
 }
 
 .survey-form {
+  @include m.flex($direction: column, $gap: v.$spacing-md);
+
   &__card {
     display: grid;
     gap: v.$spacing-sm;
-    padding: v.$spacing-lg v.$spacing-md;
-    background-color: v.$card-dark-bg;
-    border-radius: v.$card-asymmetric-radius;
-    color: v.$color-text-light;
+    padding: v.$card-padding;
+    background-color: v.$card-bg;
+    border: 1px solid v.$card-border;
+    border-radius: v.$card-radius;
     grid-template-columns: 1fr;
     grid-template-areas:
       "name"
       "category"
       "enddate"
-      "describing"
-      "questions";
+      "describing";
 
     @media (min-width: v.$breakpoint-lg) {
       grid-template-columns: repeat(4, 1fr);
-      padding: v.$spacing-xl v.$spacing-xl;
       column-gap: v.$spacing-md;
       grid-template-areas:
         "name name describing describing"
-        "enddate category describing describing"
-        "questions questions questions questions";
+        "enddate category describing describing";
     }
   }
 
@@ -69,16 +68,7 @@
   }
 
   &__questions {
-    grid-area: questions;
-    @include m.flex($direction: column, $gap: v.$spacing-2xl);
-
-    @media (min-width: v.$breakpoint-lg) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: calc(#{v.$spacing-md} + 2 * #{v.$spacing-xl});
-      row-gap: v.$spacing-xl;
-      align-items: start;
-    }
+    @include m.flex($direction: column, $gap: v.$spacing-md);
   }
 
   &__error {

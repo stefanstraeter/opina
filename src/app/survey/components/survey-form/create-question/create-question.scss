@@ -7,6 +7,10 @@
 
 .create-question {
   @include m.flex($direction: column, $gap: v.$spacing-xs);
+  padding: v.$card-padding;
+  background-color: v.$card-bg;
+  border: 1px solid v.$card-border;
+  border-radius: v.$card-radius;
 
   &__header {
     @include m.flex($justify: space-between, $align: center);
@@ -14,7 +18,7 @@
 
   &__headline {
     font-family: v.$font-family-base;
-    color: v.$color-text-light;
+    color: v.$color-text-dark;
     font-size: v.$font-size-md;
     font-weight: v.$font-weight-bold;
   }

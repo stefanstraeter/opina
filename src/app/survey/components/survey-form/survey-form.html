@@ -1,5 +1,5 @@
 <form class="survey-form" [formGroup]="surveyForm" (ngSubmit)="handleSubmit()">
-  <div class="survey-form__card">
+  <section class="survey-form__card">
     <div class="survey-form__field survey-form__field--name">
       <div class="survey-form__field-header">
         <span class="survey-form__label">Survey name</span>
@@ -75,26 +75,26 @@
         formControlName="description"
       ></textarea>
     </div>
+  </section>
 
-    <div class="survey-form__questions">
-      @for (questionGroup of surveyForm.controls.questions.controls; track
-      questionGroup; let questionIndex = $index) {
-      <app-create-question
-        [questionGroup]="questionGroup"
-        [questionIndex]="questionIndex"
-        (remove)="removeQuestion(questionIndex)"
-      />
-      }
+  <div class="survey-form__questions">
+    @for (questionGroup of surveyForm.controls.questions.controls; track
+    questionGroup; let questionIndex = $index) {
+    <app-create-question
+      [questionGroup]="questionGroup"
+      [questionIndex]="questionIndex"
+      (remove)="removeQuestion(questionIndex)"
+    />
+    }
 
-      <app-button
-        variant="neutral"
-        class="survey-form__add-question"
-        (click)="addQuestion()"
-      >
-        Add next question
-        <app-plus-icon />
-      </app-button>
-    </div>
+    <app-button
+      variant="neutral"
+      class="survey-form__add-question"
+      (click)="addQuestion()"
+    >
+      Add next question
+      <app-plus-icon />
+    </app-button>
   </div>
 
   <app-button variant="primary" class="survey-form__publish" type="submit">
