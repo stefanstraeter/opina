@@ -5,8 +5,9 @@ import { Button } from '@shared/components/button/button';
 import { CloseIcon } from '@shared/components/close-icon/close-icon';
 import { HeaderActions } from '@core/services/header-actions';
 import { Theme } from '@core/services/theme';
-import { Notifications } from '@core/services/notifications';
+import { ConfirmationData, Notifications } from '@core/services/notifications';
 import { Survey } from '@survey/model/interfaces/survey';
+import { buildPublishedInfo } from '@survey/rules/published-info';
 import { Surveys } from '@survey/services/surveys';
 import { SurveyForm } from '@survey/components/survey-form/survey-form';
 import {
@@ -57,21 +58,46 @@ export class CreateSurvey implements OnInit, OnDestroy {
   async onSurveyCreated(survey: Survey): Promise<void> {
     try {
       await this.surveysService.addSurvey(survey);
-      this.handlePublishSuccess();
+      this.handlePublishSuccess(survey);
     } catch (error) {
       this.handlePublishError(error);
     }
   }
 
   /**
-   * @description Shows a success notification and navigates back to the home page after a short delay.
+   * @description Shows the confirmation card for the published survey and navigates back to the home page after a short delay.
    * @private
+   * @param {Survey} survey - The survey that was published.
    * @return {void}
    * @memberof CreateSurvey
    */
-  private handlePublishSuccess(): void {
-    this.notifications.show('Your survey is published');
+  private handlePublishSuccess(survey: Survey): void {
+    this.notifications.showConfirmation(
+      this.buildConfirmation(survey),
+      REDIRECT_DELAY_MS,
+    );
     setTimeout(() => this.router.navigate(['/']), REDIRECT_DELAY_MS);
+  }
+
+  /**
+   * @description Builds the content of the confirmation card for a published survey.
+   * @private
+   * @param {Survey} survey - The survey that was published.
+   * @return {ConfirmationData} - The content of the card.
+   * @memberof CreateSurvey
+   */
+  private buildConfirmation(survey: Survey): ConfirmationData {
+    return {
+      tone: 'success',
+      eyebrow: 'Published',
+      headline: 'Your survey is live.',
+      text: 'Everyone can now share their opinion. Results update as answers come in.',
+      category: survey.category,
+      title: survey.title,
+      info: buildPublishedInfo(survey),
+      infoAsBadge: false,
+      isInfoUrgent: false,
+    };
   }
 
   /**
