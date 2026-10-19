@@ -1,7 +1,8 @@
 <div class="create-answer">
   <div class="create-answer__header">
-    <span class="create-answer__letter">{{ answerLetter() }}.</span>
+    <span class="create-answer__letter">{{ answerLetter() }}</span>
     <app-button variant="icon" (click)="remove.emit()">
+      <span class="create-answer__hidden-label">Delete answer</span>
       <app-delete-icon />
     </app-button>
   </div>
@@ -9,6 +10,7 @@
     type="text"
     class="input-field"
     placeholder=""
+    [attr.aria-label]="'Answer ' + answerLetter()"
     [formControl]="answerControl()"
   />
   <span

@@ -5,53 +5,53 @@
   display: block;
 }
 
+// One row on all screen sizes: letter | input | delete button.
+// The header only groups letter and button in the template, so it
+// disappears from the layout (display: contents).
 .create-answer {
-  @include m.flex($direction: column, $gap: v.$spacing-xxs);
-
-  @media (min-width: v.$breakpoint-lg) {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    column-gap: v.$spacing-xs;
-
-    input {
-      grid-area: 1 / 2;
-    }
-
-    app-button {
-      grid-area: 1 / 3;
-    }
-  }
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: v.$spacing-sm;
+  row-gap: v.$spacing-xxs;
 
   &__header {
-    @include m.flex($justify: space-between, $align: center);
-
-    @media (min-width: v.$breakpoint-lg) {
-      display: contents;
-    }
+    display: contents;
   }
 
   &__letter {
-    font-weight: v.$font-weight-medium;
+    grid-area: 1 / 1;
+    @include m.flex($justify: center, $align: center);
+    width: v.$answer-letter-size;
+    height: v.$answer-letter-size;
+    border-radius: v.$answer-letter-radius;
+    background-color: v.$answer-letter-bg;
+    color: v.$answer-letter-text;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-bold;
+  }
 
-    @media (min-width: v.$breakpoint-lg) {
-      grid-area: 1 / 1;
-      min-width: 1.2rem;
-    }
+  &__hidden-label {
+    @include m.visually-hidden;
+  }
+
+  input {
+    grid-area: 1 / 2;
+  }
+
+  app-button {
+    grid-area: 1 / 3;
   }
 
   &__error {
     display: block;
+    grid-column: 2 / 3;
     font-size: v.$font-size-sm;
     color: v.$color-text-error;
     visibility: hidden;
 
     &--visible {
       visibility: visible;
-    }
-
-    @media (min-width: v.$breakpoint-lg) {
-      grid-column: 2 / 3;
     }
   }
 }
