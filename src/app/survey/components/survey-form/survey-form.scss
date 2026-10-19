@@ -17,18 +17,25 @@
     border-radius: v.$card-radius;
     grid-template-columns: 1fr;
     grid-template-areas:
+      "heading"
       "name"
-      "category"
       "enddate"
+      "category"
       "describing";
 
     @media (min-width: v.$breakpoint-lg) {
       grid-template-columns: repeat(4, 1fr);
-      column-gap: v.$spacing-md;
+      column-gap: v.$spacing-lg;
       grid-template-areas:
+        "heading heading heading heading"
         "name name describing describing"
         "enddate category describing describing";
     }
+  }
+
+  &__card-title {
+    @include m.eyebrow(v.$font-size-2xs);
+    grid-area: heading;
   }
 
   &__field {
@@ -40,10 +47,6 @@
 
     &--category {
       grid-area: category;
-
-      @media (min-width: v.$breakpoint-lg) {
-        align-items: flex-end;
-      }
     }
 
     &--enddate {
@@ -52,15 +55,17 @@
 
     &--describing {
       grid-area: describing;
-
-      @media (min-width: v.$breakpoint-lg) {
-        margin-left: v.$spacing-xl;
-      }
     }
   }
 
   &__label {
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+  }
+
+  &__optional {
     font-weight: v.$font-weight-medium;
+    color: v.$color-text-muted;
   }
 
   &__questions {
@@ -127,7 +132,8 @@
   font-size: v.$font-size-md;
 
   &::placeholder {
-    color: v.$input-placeholder;
+    color: v.$field-placeholder;
+    font-size: v.$field-placeholder-font-size;
   }
 
   &:focus {
@@ -155,7 +161,8 @@
   }
 
   &::placeholder {
-    color: v.$input-placeholder;
+    color: v.$field-placeholder;
+    font-size: v.$field-placeholder-font-size;
   }
 
   &:focus {

@@ -1,11 +1,14 @@
 <form class="survey-form" [formGroup]="surveyForm" (ngSubmit)="handleSubmit()">
-  <section class="survey-form__card">
+  <section class="survey-form__card" aria-labelledby="details-heading">
+    <h2 id="details-heading" class="survey-form__card-title">Details</h2>
+
     <div class="survey-form__field survey-form__field--name">
-      <span class="survey-form__label">Survey name</span>
+      <label for="survey-title" class="survey-form__label">Survey name</label>
       <input
+        id="survey-title"
         type="text"
         class="input-field"
-        placeholder=""
+        placeholder="e.g. Team event 2026"
         formControlName="title"
       />
       <span
@@ -33,8 +36,11 @@
     </div>
 
     <div class="survey-form__field survey-form__field--enddate">
-      <span class="survey-form__label">End date - optional</span>
+      <label for="survey-deadline" class="survey-form__label">
+        End date <span class="survey-form__optional">(optional)</span>
+      </label>
       <input
+        id="survey-deadline"
         type="date"
         class="input-field"
         formControlName="deadline"
@@ -49,10 +55,13 @@
     </div>
 
     <div class="survey-form__field survey-form__field--describing">
-      <span class="survey-form__label">Describing text - optional</span>
+      <label for="survey-description" class="survey-form__label">
+        Description <span class="survey-form__optional">(optional)</span>
+      </label>
       <textarea
+        id="survey-description"
         class="textarea-field"
-        placeholder=""
+        placeholder="What is this survey about?"
         formControlName="description"
       ></textarea>
     </div>
