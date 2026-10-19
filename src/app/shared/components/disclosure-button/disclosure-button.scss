@@ -37,6 +37,15 @@
       border-color: v.$field-focus-border;
       box-shadow: 0 0 0 4px v.$field-focus-ring;
     }
+
+    // Must come after :focus-visible, so the red border wins while focused
+    &.disclosure-button--invalid {
+      border-color: v.$field-border-error;
+
+      &:focus-visible {
+        box-shadow: 0 0 0 4px v.$field-focus-ring-error;
+      }
+    }
   }
 
   &__chevron {

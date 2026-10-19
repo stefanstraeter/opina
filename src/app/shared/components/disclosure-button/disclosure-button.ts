@@ -18,6 +18,7 @@ export class DisclosureButton {
   isOpen = input.required<boolean>();
   color = input<'light' | 'dark'>('light');
   appearance = input<'plain' | 'field'>('plain');
+  invalid = input<boolean>(false);
   toggled = output<void>();
 
   protected readonly downPath =
