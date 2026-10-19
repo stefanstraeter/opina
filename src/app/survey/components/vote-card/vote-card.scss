@@ -22,13 +22,7 @@
   }
 
   &__deadline {
-    @include m.flex($align: center, $gap: v.$badge-gap);
-    padding: v.$badge-padding;
-    background-color: v.$badge-bg;
-    color: v.$badge-text;
-    font-size: v.$font-size-xs;
-    font-weight: v.$font-weight-semibold;
-    border-radius: v.$radius-pill;
+    @include m.badge;
   }
 
   &__category {
