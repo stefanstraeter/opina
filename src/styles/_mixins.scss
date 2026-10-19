@@ -24,6 +24,18 @@
   color: v.$color-heading;
 }
 
+// Pill with an optional icon and a short text ("Ends In 2 Months")
+@mixin badge {
+  @include flex($align: center, $gap: v.$badge-gap);
+  width: fit-content;
+  padding: v.$badge-padding;
+  background-color: v.$badge-bg;
+  color: v.$badge-text;
+  font-size: v.$font-size-xs;
+  font-weight: v.$font-weight-semibold;
+  border-radius: v.$radius-pill;
+}
+
 // Text input of the create form (survey name, date, question, answer)
 @mixin text-field {
   width: 100%;
