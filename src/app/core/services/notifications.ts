@@ -24,6 +24,7 @@ export interface ConfirmationData {
 export class Notifications {
   message = signal<string | null>(null);
   confirmation = signal<ConfirmationData | null>(null);
+  private confirmationTimer?: ReturnType<typeof setTimeout>;
 
   /**
    * @description Shows a notification message and removes it again after
@@ -47,7 +48,21 @@ export class Notifications {
    * @memberof Notifications
    */
   showConfirmation(data: ConfirmationData, durationMs: number): void {
+    clearTimeout(this.confirmationTimer);
     this.confirmation.set(data);
-    setTimeout(() => this.confirmation.set(null), durationMs);
+    this.confirmationTimer = setTimeout(
+      () => this.confirmation.set(null),
+      durationMs,
+    );
+  }
+
+  /**
+   * @description Hides the confirmation card right away and stops its timer.
+   * @return {void}
+   * @memberof Notifications
+   */
+  hideConfirmation(): void {
+    clearTimeout(this.confirmationTimer);
+    this.confirmation.set(null);
   }
 }
