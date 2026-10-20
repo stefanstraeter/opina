@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
@@ -27,6 +27,7 @@ export class CreateSurvey implements OnInit, OnDestroy {
   private surveysService = inject(Surveys);
   private notifications = inject(Notifications);
   private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
 
   /**
    * @description Switches to dark mode and narrows the header when the component is initialized.
@@ -76,7 +77,11 @@ export class CreateSurvey implements OnInit, OnDestroy {
       this.buildConfirmation(survey),
       REDIRECT_DELAY_MS,
     );
-    setTimeout(() => this.router.navigate(['/']), REDIRECT_DELAY_MS);
+    const redirectTimer = setTimeout(
+      () => this.router.navigate(['/']),
+      REDIRECT_DELAY_MS,
+    );
+    this.destroyRef.onDestroy(() => clearTimeout(redirectTimer));
   }
 
   /**
