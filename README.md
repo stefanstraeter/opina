@@ -32,7 +32,7 @@ It started as a training project (Poll App) and was redesigned from scratch: new
 - **Flexible surveys** – Several questions with up to 8 answers each, single or multiple choice, optional end date, clear validation with matching error messages.
 - **One vote per browser** – A flag in `localStorage` locks the survey after voting. Ended surveys are locked as well.
 - **Design system** – Colors, type, spacing and component sizes are SCSS tokens, shared mixins keep every page consistent.
-- **Responsive and accessible** – Checked from 360 to 1440 px, with labelled fields, visible focus states, semantic HTML and screen reader roles for confirmations and errors.
+- **Responsive and accessible** – Checked from 320 to 1440 px, with labelled fields, visible focus states, semantic HTML and screen reader roles for confirmations and errors.
 - **No secrets in the repository** – Connection values live in a local `.env`, the environment file is generated before every build.
 
 ![Live results](readme-assets/live-voting.gif)
