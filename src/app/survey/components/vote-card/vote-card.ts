@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  DestroyRef,
   inject,
   input,
   output,
@@ -48,6 +49,7 @@ import {
 export class VoteCard {
   private surveys = inject(Surveys);
   private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
   private notifications = inject(Notifications);
 
   survey = input.required<Survey>();
@@ -124,7 +126,11 @@ export class VoteCard {
       this.buildConfirmation(),
       REDIRECT_DELAY_MS,
     );
-    setTimeout(() => this.router.navigate(['/']), REDIRECT_DELAY_MS);
+    const redirectTimer = setTimeout(
+      () => this.router.navigate(['/']),
+      REDIRECT_DELAY_MS,
+    );
+    this.destroyRef.onDestroy(() => clearTimeout(redirectTimer));
   }
 
   /**
