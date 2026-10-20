@@ -10,7 +10,7 @@ Angular 22 · TypeScript · Supabase · SCSS
 
 <br />
 
-![Opina preview](public/img/mock-up-opina.png)
+![Opina preview](readme-assets/mock-up-opina.png)
 
 </div>
 
@@ -21,8 +21,6 @@ Angular 22 · TypeScript · Supabase · SCSS
 Opina is a mobile-first survey app. Publish a survey with your own questions, share it and let people vote. Every result bar updates in real time for all visitors, without a reload.
 
 It started as a training project (Poll App) and was redesigned from scratch: new colors, new fonts, a token-based design system. Services, signals and component structure stayed the same, only the look changed.
-
-![Live results](docs/screenshots/live-results.gif)
 
 ---
 
@@ -36,6 +34,8 @@ It started as a training project (Poll App) and was redesigned from scratch: new
 - **Design system** – Colors, type, spacing and component sizes are SCSS tokens, shared mixins keep every page consistent.
 - **Responsive and accessible** – Checked from 360 to 1440 px, with labelled fields, visible focus states, semantic HTML and screen reader roles for confirmations and errors.
 - **No secrets in the repository** – Connection values live in a local `.env`, the environment file is generated before every build.
+
+![Live results](readme-assets/live-voting.gif)
 
 ---
 
