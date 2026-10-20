@@ -5,6 +5,18 @@
   display: inline-block;
 }
 
+@keyframes button-press-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(v.$btn-press-scale-low);
+  }
+  100% {
+    transform: scale(v.$btn-press-scale-end);
+  }
+}
+
 .btn {
   @include m.flex($justify: center, $align: center, $gap: v.$btn-gap);
   width: 100%;
@@ -25,6 +37,12 @@
   &:disabled {
     opacity: 0.5;
     cursor: default;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:active:not(:disabled) {
+      animation: button-press-bounce v.$btn-press-duration ease-out forwards;
+    }
   }
 
   &--primary {

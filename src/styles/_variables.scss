@@ -209,6 +209,11 @@ $btn-gap: 0.375rem;
 $btn-font-size: $font-size-sm;
 $btn-round-size: 2.75rem;
 
+// Press bounce (all buttons): dips to the low scale, settles at the end scale
+$btn-press-scale-low: 0.93;
+$btn-press-scale-end: 0.96;
+$btn-press-duration: 0.2s;
+
 // Keyboard focus ring (all buttons)
 $btn-focus-ring-color: $terracotta-500;
 $btn-focus-ring-width: 2px;
