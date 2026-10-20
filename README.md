@@ -10,7 +10,7 @@ Angular 22 · TypeScript · Supabase · SCSS
 
 <br />
 
-![Opina preview](docs/screenshots/preview.png)
+![Opina preview](public/img/mock-up-opina.png)
 
 </div>
 
