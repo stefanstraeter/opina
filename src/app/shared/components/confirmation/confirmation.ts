@@ -1,5 +1,7 @@
 import { Component, effect, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ConfirmationData, Notifications } from '@core/services/notifications';
+import { Button } from '@shared/components/button/button';
 import { CheckIcon } from '@shared/components/check-icon/check-icon';
 import { ClockIcon } from '@shared/components/clock-icon/clock-icon';
 
@@ -11,7 +13,7 @@ import { ClockIcon } from '@shared/components/clock-icon/clock-icon';
  * @class Confirmation
  */
 @Component({
-  imports: [CheckIcon, ClockIcon],
+  imports: [Button, CheckIcon, ClockIcon, RouterLink],
   selector: 'app-confirmation',
   styleUrl: './confirmation.scss',
   templateUrl: './confirmation.html',
@@ -32,6 +34,16 @@ export class Confirmation {
         this.isLeaving.set(true);
       }
     });
+  }
+
+  /**
+   * @description Closes the card right away, for example when the user
+   * clicks the button back to the start page.
+   * @return {void}
+   * @memberof Confirmation
+   */
+  close(): void {
+    this.notifications.hideConfirmation();
   }
 
   /**

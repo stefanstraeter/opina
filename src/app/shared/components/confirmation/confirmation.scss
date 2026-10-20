@@ -110,6 +110,11 @@
     }
   }
 
+  &__button {
+    display: block;
+    margin-top: v.$spacing-lg;
+  }
+
   &--success &__icon {
     background-color: v.$status-badge-published;
     color: v.$status-badge-published-text;
