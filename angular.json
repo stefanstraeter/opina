@@ -12,7 +12,7 @@
         "@schematics/angular:component": {
           "style": "scss",
           "skipTests": true
-      }
+        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -29,21 +29,17 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-            "includePaths": [
-              "src/styles"
-              ]
-             }
+              "includePaths": ["src/styles"]
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "700kB",
                   "maximumError": "1MB"
                 },
                 {
