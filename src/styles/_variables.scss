@@ -135,6 +135,10 @@ $bg-neutral: $cream-100;
 // Cards (one style everywhere, hover = scale + shadow + light terracotta)
 $card-bg: $cream-50;
 $card-bg-hover: $terracotta-100;
+$card-border-hover: $terracotta-500;
+$card-ring-hover: $cream-500;
+$card-arrow-bg-hover: $terracotta-500;
+$card-arrow-color-hover: $cream-50;
 $card-border: $cream-300;
 $card-radius: 1.25rem;
 $card-radius-list: 1rem;
@@ -233,7 +237,7 @@ $btn-secondary-text: $cream-50;
 $btn-tertiary-bg: $cream-50;
 $btn-tertiary-text: $espresso-900;
 $btn-tertiary-border: $cream-400;
-$btn-tertiary-border-hover: $espresso-900;
+$btn-tertiary-border-hover: $terracotta-500;
 
 // Text Button (no background, "Add answer")
 $btn-text-color: $terracotta-700;
